@@ -18,27 +18,15 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
         }
-
+        public DataSet dsEsp = new DataSet();
         private string chcon = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source =..\baseLangue.mdb";
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            using (OleDbConnection connec=new OleDbConnection())
-            {
-                try {
-                    connec.ConnectionString = chcon;
-                    connec.Open();
-                 }
-                catch(Exception x)
-                {
-                    MessageBox.Show(x.Message);
-                }
-                finally
-                {
-                    connec.Close();
-                }
-                
-            }
+            setTable(chcon, dsEsp);
+            fillCB(cbName, "Utilisateurs",2, dsEsp);
+
         }
+
         private List<string> GenerateListName(string chcon)
         {
             List<string> listName = new List<string>();
@@ -68,6 +56,7 @@ namespace CasaDeBabbel
             }
             return listName;
         }
+
         public void FillDataSet(List<string> listName, DataSet ds, string chcon)
         {
             using (OleDbConnection connec = new OleDbConnection())
@@ -96,11 +85,43 @@ namespace CasaDeBabbel
                 }
             }
         }
+        private void setTable(string chcon, DataSet dsEsp)
+        {
+            List<string> nameList = GenerateListName(chcon);
+            FillDataSet(nameList, dsEsp, chcon);
+        }
+        private void fillCB(ComboBox cb, string table,DataSet ds)
+        {
+            try
+            {
+                DataTable travelTable = ds.Tables[table];
+                cb.DataSource = travelTable;
+                cb.DisplayMember = travelTable.Columns[0].ColumnName;
+                cb.ValueMember = travelTable.Columns[0].ColumnName;
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
+        private void fillCB(ComboBox cb, string table, int pos, DataSet ds)
+        {
+            try
+            {
+                DataTable travelTable = ds.Tables[table];
+                cb.DataSource = travelTable;
+                cb.DisplayMember = travelTable.Columns[pos].ColumnName;
+                cb.ValueMember = travelTable.Columns[pos].ColumnName;
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
 
     }
 
-
-
-
-
 }
+
+
+
