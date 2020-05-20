@@ -20,10 +20,11 @@ namespace CasaDeBabbel
         }
         public DataSet dsEsp = new DataSet();
         private string chcon = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source =..\baseLangue.mdb";
+        private Dictionary<String, int> codeUser = new Dictionary<string, int>();
         private void frmLogin_Load(object sender, EventArgs e)
         {
             setTable(chcon, dsEsp);
-            fillCB(cbName, "Utilisateurs",2, dsEsp);
+            fillCB(cbName, "Utilisateurs", 1, 2, dsEsp) ;
 
         }
 
@@ -118,7 +119,45 @@ namespace CasaDeBabbel
                 MessageBox.Show(x.Message);
             }
         }
+        private void fillCB(ComboBox cb, string table, int pos, int pos2,DataSet ds)
+        {
+            try
+            {
+                DataTable travelTable = ds.Tables[table];
+               foreach (DataRow line in travelTable.Rows)
+                {
+                    string str = line.Field<String>("pnUtil") + line.Field<String>("nomUtil");
+                    int code = line.Field<int>("codeUtil");
+                    cb.Items.Add(str);
+                    codeUser.Add(str, code);
 
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
+
+        private void cbName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            generateAllLabel();
+        }
+        private void generateAllLabel()
+        {
+            int code;
+            codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+
+            DataTable test = dsEsp.Tables["Utilisateurs"];
+            DataRow[] tEow = test.Select($"codeUtil = '{code}'");
+            DataTable cours = dsEsp.Tables["Cours"];
+            DataRow[] coursRow = cours.Select($"numCours= '{tEow[0].Field<String>("codeCours")}'");
+            lblActualCours.Text = coursRow[0].Field<String>("titreCours");
+
+
+
+
+    }
     }
 
 }
