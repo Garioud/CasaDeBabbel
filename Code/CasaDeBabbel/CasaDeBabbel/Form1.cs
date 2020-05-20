@@ -190,13 +190,11 @@ namespace CasaDeBabbel
         }
         private void progressGeneration(int numberEx,int validate)
         {
+            pgB_Progres.Visible = true;
             pgB_Progres.Maximum = validate;
-            pgB_Progres.Value = numberEx;
-
-
-
-
-
+            if (numberEx < validate)
+                pgB_Progres.Value = numberEx;
+            else pgB_Progres.Visible = false;
 
         }
     }
