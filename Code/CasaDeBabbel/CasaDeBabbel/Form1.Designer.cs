@@ -1,6 +1,6 @@
 ﻿namespace CasaDeBabbel
 {
-    partial class Form1
+    partial class frmLogin
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,13 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCours = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
+            this.cbName = new System.Windows.Forms.ComboBox();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbName);
+            this.groupBox1.Controls.Add(this.lblId);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lblCours);
+            this.groupBox1.Location = new System.Drawing.Point(45, 81);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(560, 536);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // lblCours
+            // 
+            this.lblCours.AutoSize = true;
+            this.lblCours.Location = new System.Drawing.Point(18, 127);
+            this.lblCours.Name = "lblCours";
+            this.lblCours.Size = new System.Drawing.Size(93, 13);
+            this.lblCours.TabIndex = 0;
+            this.lblCours.Text = "Votre cours actuel";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(104, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(104, 210);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "label3";
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(18, 63);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(75, 13);
+            this.lblId.TabIndex = 3;
+            this.lblId.Text = "Identifiez-vous";
+            // 
+            // cbName
+            // 
+            this.cbName.FormattingEnabled = true;
+            this.cbName.Location = new System.Drawing.Point(107, 60);
+            this.cbName.Name = "cbName";
+            this.cbName.Size = new System.Drawing.Size(121, 21);
+            this.cbName.TabIndex = 4;
+            // 
+            // frmLogin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(640, 659);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "frmLogin";
+            this.Text = "La Casa de Babbel";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbName;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCours;
     }
 }
 
