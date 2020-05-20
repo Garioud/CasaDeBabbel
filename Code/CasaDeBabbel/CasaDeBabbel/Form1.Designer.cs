@@ -34,11 +34,15 @@
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.cbName = new System.Windows.Forms.ComboBox();
+            this.lblAcLec = new System.Windows.Forms.Label();
+            this.lblActLec = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblActLec);
+            this.groupBox1.Controls.Add(this.lblAcLec);
             this.groupBox1.Controls.Add(this.cbName);
             this.groupBox1.Controls.Add(this.lblId);
             this.groupBox1.Controls.Add(this.lblDesc);
@@ -71,7 +75,7 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(104, 157);
+            this.lblDesc.Location = new System.Drawing.Point(105, 229);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(19, 13);
             this.lblDesc.TabIndex = 2;
@@ -93,6 +97,25 @@
             this.cbName.Name = "cbName";
             this.cbName.Size = new System.Drawing.Size(121, 21);
             this.cbName.TabIndex = 4;
+            this.cbName.SelectedIndexChanged += new System.EventHandler(this.cbName_SelectedIndexChanged);
+            // 
+            // lblAcLec
+            // 
+            this.lblAcLec.AutoSize = true;
+            this.lblAcLec.Location = new System.Drawing.Point(6, 194);
+            this.lblAcLec.Name = "lblAcLec";
+            this.lblAcLec.Size = new System.Drawing.Size(69, 13);
+            this.lblAcLec.TabIndex = 5;
+            this.lblAcLec.Text = "Leçon actuel";
+            // 
+            // lblActLec
+            // 
+            this.lblActLec.AutoSize = true;
+            this.lblActLec.Location = new System.Drawing.Point(105, 194);
+            this.lblActLec.Name = "lblActLec";
+            this.lblActLec.Size = new System.Drawing.Size(35, 13);
+            this.lblActLec.TabIndex = 6;
+            this.lblActLec.Text = "label2";
             // 
             // frmLogin
             // 
@@ -117,6 +140,8 @@
         private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.Label lblActualCours;
         private System.Windows.Forms.Label lblCours;
+        private System.Windows.Forms.Label lblActLec;
+        private System.Windows.Forms.Label lblAcLec;
     }
 }
 

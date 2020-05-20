@@ -20,6 +20,7 @@ namespace CasaDeBabbel
         }
         public DataSet dsEsp = new DataSet();
         private string chcon = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source =..\baseLangue.mdb";
+        private Dictionary<String, int> codeUser = new Dictionary<string, int>();
         private void frmLogin_Load(object sender, EventArgs e)
         {
             setTable(chcon, dsEsp);
@@ -126,7 +127,9 @@ namespace CasaDeBabbel
                foreach (DataRow line in travelTable.Rows)
                 {
                     string str = line.Field<String>("pnUtil") + line.Field<String>("nomUtil");
+                    int code = line.Field<int>("codeUtil");
                     cb.Items.Add(str);
+                    codeUser.Add(str, code);
 
                 }
             }
@@ -136,6 +139,25 @@ namespace CasaDeBabbel
             }
         }
 
+        private void cbName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            generateAllLabel();
+        }
+        private void generateAllLabel()
+        {
+            int code;
+            codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+
+            DataTable test = dsEsp.Tables["Utilisateurs"];
+            DataRow[] tEow = test.Select($"codeUtil = '{code}'");
+            DataTable cours = dsEsp.Tables["Cours"];
+            DataRow[] coursRow = cours.Select($"numCours= '{tEow[0].Field<String>("codeCours")}'");
+            lblActualCours.Text = coursRow[0].Field<String>("titreCours");
+
+
+
+
+    }
     }
 
 }
