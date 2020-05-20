@@ -197,6 +197,17 @@ namespace CasaDeBabbel
             else pgB_Progres.Visible = false;
 
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+
+
+        }
     }
 
 }

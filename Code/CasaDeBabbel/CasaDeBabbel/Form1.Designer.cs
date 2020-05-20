@@ -39,6 +39,7 @@
             this.lblDesc = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pgB_Progres = new System.Windows.Forms.ProgressBar();
+            this.btnStart = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,6 +126,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnStart);
             this.panel1.Controls.Add(this.pgB_Progres);
             this.panel1.Controls.Add(this.cbName);
             this.panel1.Controls.Add(this.lblDesc);
@@ -148,6 +150,16 @@
             this.pgB_Progres.Step = 1;
             this.pgB_Progres.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pgB_Progres.TabIndex = 9;
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(380, 444);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(122, 47);
+            this.btnStart.TabIndex = 10;
+            this.btnStart.Text = "Continuer";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // frmLogin
             // 
@@ -177,6 +189,7 @@
         private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ProgressBar pgB_Progres;
+        private System.Windows.Forms.Button btnStart;
     }
 }
 

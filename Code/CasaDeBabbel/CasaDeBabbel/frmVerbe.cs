@@ -10,24 +10,11 @@ using System.Windows.Forms;
 
 namespace CasaDeBabbel
 {
-    public partial class frmMotM : Form
+    public partial class frmVerbe : Form
     {
-        public frmMotM()
+        public frmVerbe()
         {
             InitializeComponent();
-        }
-
-        private void frmMotM_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void generatePhrase(string phrase,string pos)
-        {
-           
-
-
-
-
         }
     }
 }

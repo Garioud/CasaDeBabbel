@@ -1,6 +1,6 @@
 ﻿namespace CasaDeBabbel
 {
-    partial class frmMotM
+    partial class frmVerbe
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // frmMotM
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "frmMotM";
-            this.Text = "frmMotM";
-            this.Load += new System.EventHandler(this.frmMotM_Load);
-            this.ResumeLayout(false);
-
+            this.Text = "frmVerbe";
         }
 
         #endregion
