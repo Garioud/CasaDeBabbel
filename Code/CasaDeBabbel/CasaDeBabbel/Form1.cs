@@ -150,14 +150,42 @@ namespace CasaDeBabbel
 
             DataTable test = dsEsp.Tables["Utilisateurs"];
             DataRow[] tEow = test.Select($"codeUtil = '{code}'");
-            DataTable cours = dsEsp.Tables["Cours"];
-            DataRow[] coursRow = cours.Select($"numCours= '{tEow[0].Field<String>("codeCours")}'");
-            lblActualCours.Text = coursRow[0].Field<String>("titreCours");
+            using (DataTable temporaryTable = dsEsp.Tables["Cours"])
+            { 
+            DataRow[] temporaryRow = temporaryTable.Select($"numCours= '{tEow[0].Field<String>("codeCours")}'");
+            lblActualCours.Text = temporaryRow[0].Field<String>("titreCours");
+            }
 
+            using (DataTable temporaryTable = dsEsp.Tables["Lecons"])
+            {
+                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {tEow[0].Field<int>("codeLeçon")} AND numCours = '{tEow[0].Field<String>("codeCours")}'");
+                lblActLec.Text = temporaryRow[0].Field<String>("titreLecon");
+                if (temporaryRow[0].Field<String>("commentLecon") != null)
+                    lblDesc.Text = "--->" + temporaryRow[0].Field<String>("commentLecon");
+                else
+                    lblDesc.Text = null;
+            }
+            using (DataTable temporaryTable = dsEsp.Tables["Lecons"])
+            {
+                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {tEow[0].Field<int>("codeLeçon")} AND numCours = '{tEow[0].Field<String>("codeCours")}'");
+                lblActLec.Text = temporaryRow[0].Field<String>("titreLecon");
+                if (temporaryRow[0].Field<String>("commentLecon") != null)
+                    lblDesc.Text = "--->" + temporaryRow[0].Field<String>("commentLecon");
+                else
+                    lblDesc.Text = null;
+            }
+            using (DataTable temporaryTable = dsEsp.Tables["Exercices"])
+            {
 
+                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {tEow[0].Field<int>("codeLeçon")} AND numCours = '{tEow[0].Field<String>("codeCours")}'");
+                int numberofExercice = temporaryRow.Length;
+                int actExo = tEow[0].Field<int>("codeExo");
 
+                lblNumberExo.Text = $"{actExo}/{numberofExercice}";
+                
+            }
 
-    }
+        }
     }
 
 }

@@ -29,18 +29,22 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblCours = new System.Windows.Forms.Label();
-            this.lblActualCours = new System.Windows.Forms.Label();
-            this.lblDesc = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
-            this.cbName = new System.Windows.Forms.ComboBox();
-            this.lblAcLec = new System.Windows.Forms.Label();
+            this.lblNumberExo = new System.Windows.Forms.Label();
+            this.lblExo = new System.Windows.Forms.Label();
             this.lblActLec = new System.Windows.Forms.Label();
+            this.lblAcLec = new System.Windows.Forms.Label();
+            this.cbName = new System.Windows.Forms.ComboBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.lblDesc = new System.Windows.Forms.Label();
+            this.lblActualCours = new System.Windows.Forms.Label();
+            this.lblCours = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblNumberExo);
+            this.groupBox1.Controls.Add(this.lblExo);
             this.groupBox1.Controls.Add(this.lblActLec);
             this.groupBox1.Controls.Add(this.lblAcLec);
             this.groupBox1.Controls.Add(this.cbName);
@@ -55,49 +59,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // lblCours
+            // lblNumberExo
             // 
-            this.lblCours.AutoSize = true;
-            this.lblCours.Location = new System.Drawing.Point(6, 127);
-            this.lblCours.Name = "lblCours";
-            this.lblCours.Size = new System.Drawing.Size(93, 13);
-            this.lblCours.TabIndex = 0;
-            this.lblCours.Text = "Votre cours actuel";
+            this.lblNumberExo.AutoSize = true;
+            this.lblNumberExo.Location = new System.Drawing.Point(105, 262);
+            this.lblNumberExo.Name = "lblNumberExo";
+            this.lblNumberExo.Size = new System.Drawing.Size(35, 13);
+            this.lblNumberExo.TabIndex = 8;
+            this.lblNumberExo.Text = "label2";
             // 
-            // lblActualCours
+            // lblExo
             // 
-            this.lblActualCours.AutoSize = true;
-            this.lblActualCours.Location = new System.Drawing.Point(105, 127);
-            this.lblActualCours.Name = "lblActualCours";
-            this.lblActualCours.Size = new System.Drawing.Size(0, 13);
-            this.lblActualCours.TabIndex = 1;
+            this.lblExo.AutoSize = true;
+            this.lblExo.Location = new System.Drawing.Point(6, 262);
+            this.lblExo.Name = "lblExo";
+            this.lblExo.Size = new System.Drawing.Size(51, 13);
+            this.lblExo.TabIndex = 7;
+            this.lblExo.Text = "Exercice:";
             // 
-            // lblDesc
+            // lblActLec
             // 
-            this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(105, 229);
-            this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(19, 13);
-            this.lblDesc.TabIndex = 2;
-            this.lblDesc.Text = "-->";
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(6, 63);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(75, 13);
-            this.lblId.TabIndex = 3;
-            this.lblId.Text = "Identifiez-vous";
-            // 
-            // cbName
-            // 
-            this.cbName.FormattingEnabled = true;
-            this.cbName.Location = new System.Drawing.Point(107, 60);
-            this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(121, 21);
-            this.cbName.TabIndex = 4;
-            this.cbName.SelectedIndexChanged += new System.EventHandler(this.cbName_SelectedIndexChanged);
+            this.lblActLec.AutoSize = true;
+            this.lblActLec.Location = new System.Drawing.Point(104, 194);
+            this.lblActLec.Name = "lblActLec";
+            this.lblActLec.Size = new System.Drawing.Size(35, 13);
+            this.lblActLec.TabIndex = 6;
+            this.lblActLec.Text = "label2";
             // 
             // lblAcLec
             // 
@@ -108,14 +95,48 @@
             this.lblAcLec.TabIndex = 5;
             this.lblAcLec.Text = "Leçon actuel";
             // 
-            // lblActLec
+            // cbName
             // 
-            this.lblActLec.AutoSize = true;
-            this.lblActLec.Location = new System.Drawing.Point(105, 194);
-            this.lblActLec.Name = "lblActLec";
-            this.lblActLec.Size = new System.Drawing.Size(35, 13);
-            this.lblActLec.TabIndex = 6;
-            this.lblActLec.Text = "label2";
+            this.cbName.FormattingEnabled = true;
+            this.cbName.Location = new System.Drawing.Point(107, 60);
+            this.cbName.Name = "cbName";
+            this.cbName.Size = new System.Drawing.Size(121, 21);
+            this.cbName.TabIndex = 4;
+            this.cbName.SelectedIndexChanged += new System.EventHandler(this.cbName_SelectedIndexChanged);
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(6, 63);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(75, 13);
+            this.lblId.TabIndex = 3;
+            this.lblId.Text = "Identifiez-vous";
+            // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Location = new System.Drawing.Point(105, 229);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(0, 13);
+            this.lblDesc.TabIndex = 2;
+            // 
+            // lblActualCours
+            // 
+            this.lblActualCours.AutoSize = true;
+            this.lblActualCours.Location = new System.Drawing.Point(105, 127);
+            this.lblActualCours.Name = "lblActualCours";
+            this.lblActualCours.Size = new System.Drawing.Size(0, 13);
+            this.lblActualCours.TabIndex = 1;
+            // 
+            // lblCours
+            // 
+            this.lblCours.AutoSize = true;
+            this.lblCours.Location = new System.Drawing.Point(6, 127);
+            this.lblCours.Name = "lblCours";
+            this.lblCours.Size = new System.Drawing.Size(93, 13);
+            this.lblCours.TabIndex = 0;
+            this.lblCours.Text = "Votre cours actuel";
             // 
             // frmLogin
             // 
@@ -142,6 +163,8 @@
         private System.Windows.Forms.Label lblCours;
         private System.Windows.Forms.Label lblActLec;
         private System.Windows.Forms.Label lblAcLec;
+        private System.Windows.Forms.Label lblNumberExo;
+        private System.Windows.Forms.Label lblExo;
     }
 }
 
