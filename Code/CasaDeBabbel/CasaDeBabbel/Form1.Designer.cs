@@ -28,143 +28,143 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblNumberExo = new System.Windows.Forms.Label();
-            this.lblExo = new System.Windows.Forms.Label();
-            this.lblActLec = new System.Windows.Forms.Label();
-            this.lblAcLec = new System.Windows.Forms.Label();
-            this.cbName = new System.Windows.Forms.ComboBox();
-            this.lblId = new System.Windows.Forms.Label();
-            this.lblDesc = new System.Windows.Forms.Label();
-            this.lblActualCours = new System.Windows.Forms.Label();
             this.lblCours = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.lblId = new System.Windows.Forms.Label();
+            this.cbName = new System.Windows.Forms.ComboBox();
+            this.lblAcLec = new System.Windows.Forms.Label();
+            this.lblActLec = new System.Windows.Forms.Label();
+            this.lblExo = new System.Windows.Forms.Label();
+            this.lblNumberExo = new System.Windows.Forms.Label();
+            this.lblActualCours = new System.Windows.Forms.Label();
+            this.lblDesc = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // lblCours
             // 
-            this.groupBox1.Controls.Add(this.lblNumberExo);
-            this.groupBox1.Controls.Add(this.lblExo);
-            this.groupBox1.Controls.Add(this.lblActLec);
-            this.groupBox1.Controls.Add(this.lblAcLec);
-            this.groupBox1.Controls.Add(this.cbName);
-            this.groupBox1.Controls.Add(this.lblId);
-            this.groupBox1.Controls.Add(this.lblDesc);
-            this.groupBox1.Controls.Add(this.lblActualCours);
-            this.groupBox1.Controls.Add(this.lblCours);
-            this.groupBox1.Location = new System.Drawing.Point(45, 81);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(560, 536);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // lblNumberExo
-            // 
-            this.lblNumberExo.AutoSize = true;
-            this.lblNumberExo.Location = new System.Drawing.Point(105, 262);
-            this.lblNumberExo.Name = "lblNumberExo";
-            this.lblNumberExo.Size = new System.Drawing.Size(35, 13);
-            this.lblNumberExo.TabIndex = 8;
-            this.lblNumberExo.Text = "label2";
-            // 
-            // lblExo
-            // 
-            this.lblExo.AutoSize = true;
-            this.lblExo.Location = new System.Drawing.Point(6, 262);
-            this.lblExo.Name = "lblExo";
-            this.lblExo.Size = new System.Drawing.Size(51, 13);
-            this.lblExo.TabIndex = 7;
-            this.lblExo.Text = "Exercice:";
-            // 
-            // lblActLec
-            // 
-            this.lblActLec.AutoSize = true;
-            this.lblActLec.Location = new System.Drawing.Point(104, 194);
-            this.lblActLec.Name = "lblActLec";
-            this.lblActLec.Size = new System.Drawing.Size(35, 13);
-            this.lblActLec.TabIndex = 6;
-            this.lblActLec.Text = "label2";
-            // 
-            // lblAcLec
-            // 
-            this.lblAcLec.AutoSize = true;
-            this.lblAcLec.Location = new System.Drawing.Point(6, 194);
-            this.lblAcLec.Name = "lblAcLec";
-            this.lblAcLec.Size = new System.Drawing.Size(69, 13);
-            this.lblAcLec.TabIndex = 5;
-            this.lblAcLec.Text = "Leçon actuel";
-            // 
-            // cbName
-            // 
-            this.cbName.FormattingEnabled = true;
-            this.cbName.Location = new System.Drawing.Point(107, 60);
-            this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(121, 21);
-            this.cbName.TabIndex = 4;
-            this.cbName.SelectedIndexChanged += new System.EventHandler(this.cbName_SelectedIndexChanged);
+            this.lblCours.AutoSize = true;
+            this.lblCours.Location = new System.Drawing.Point(104, 183);
+            this.lblCours.Name = "lblCours";
+            this.lblCours.Size = new System.Drawing.Size(93, 13);
+            this.lblCours.TabIndex = 0;
+            this.lblCours.Text = "Votre cours actuel";
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(6, 63);
+            this.lblId.Location = new System.Drawing.Point(104, 138);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(75, 13);
             this.lblId.TabIndex = 3;
             this.lblId.Text = "Identifiez-vous";
             // 
-            // lblDesc
+            // cbName
             // 
-            this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(105, 229);
-            this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(0, 13);
-            this.lblDesc.TabIndex = 2;
+            this.cbName.FormattingEnabled = true;
+            this.cbName.Location = new System.Drawing.Point(229, 135);
+            this.cbName.Name = "cbName";
+            this.cbName.Size = new System.Drawing.Size(121, 21);
+            this.cbName.TabIndex = 4;
+            this.cbName.SelectedIndexChanged += new System.EventHandler(this.cbName_SelectedIndexChanged);
+            // 
+            // lblAcLec
+            // 
+            this.lblAcLec.AutoSize = true;
+            this.lblAcLec.Location = new System.Drawing.Point(104, 232);
+            this.lblAcLec.Name = "lblAcLec";
+            this.lblAcLec.Size = new System.Drawing.Size(69, 13);
+            this.lblAcLec.TabIndex = 5;
+            this.lblAcLec.Text = "Leçon actuel";
+            // 
+            // lblActLec
+            // 
+            this.lblActLec.AutoSize = true;
+            this.lblActLec.Location = new System.Drawing.Point(226, 232);
+            this.lblActLec.Name = "lblActLec";
+            this.lblActLec.Size = new System.Drawing.Size(35, 13);
+            this.lblActLec.TabIndex = 6;
+            this.lblActLec.Text = "label2";
+            // 
+            // lblExo
+            // 
+            this.lblExo.AutoSize = true;
+            this.lblExo.Location = new System.Drawing.Point(104, 299);
+            this.lblExo.Name = "lblExo";
+            this.lblExo.Size = new System.Drawing.Size(51, 13);
+            this.lblExo.TabIndex = 7;
+            this.lblExo.Text = "Exercice:";
+            // 
+            // lblNumberExo
+            // 
+            this.lblNumberExo.AutoSize = true;
+            this.lblNumberExo.Location = new System.Drawing.Point(226, 299);
+            this.lblNumberExo.Name = "lblNumberExo";
+            this.lblNumberExo.Size = new System.Drawing.Size(35, 13);
+            this.lblNumberExo.TabIndex = 8;
+            this.lblNumberExo.Text = "label2";
             // 
             // lblActualCours
             // 
             this.lblActualCours.AutoSize = true;
-            this.lblActualCours.Location = new System.Drawing.Point(105, 127);
+            this.lblActualCours.Location = new System.Drawing.Point(226, 183);
             this.lblActualCours.Name = "lblActualCours";
-            this.lblActualCours.Size = new System.Drawing.Size(0, 13);
+            this.lblActualCours.Size = new System.Drawing.Size(29, 13);
             this.lblActualCours.TabIndex = 1;
+            this.lblActualCours.Text = "label";
             // 
-            // lblCours
+            // lblDesc
             // 
-            this.lblCours.AutoSize = true;
-            this.lblCours.Location = new System.Drawing.Point(6, 127);
-            this.lblCours.Name = "lblCours";
-            this.lblCours.Size = new System.Drawing.Size(93, 13);
-            this.lblCours.TabIndex = 0;
-            this.lblCours.Text = "Votre cours actuel";
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Location = new System.Drawing.Point(226, 265);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(29, 13);
+            this.lblDesc.TabIndex = 2;
+            this.lblDesc.Text = "label";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cbName);
+            this.panel1.Controls.Add(this.lblDesc);
+            this.panel1.Controls.Add(this.lblActualCours);
+            this.panel1.Controls.Add(this.lblId);
+            this.panel1.Controls.Add(this.lblCours);
+            this.panel1.Controls.Add(this.lblNumberExo);
+            this.panel1.Controls.Add(this.lblAcLec);
+            this.panel1.Controls.Add(this.lblActLec);
+            this.panel1.Controls.Add(this.lblExo);
+            this.panel1.Location = new System.Drawing.Point(30, 123);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(567, 524);
+            this.panel1.TabIndex = 9;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 659);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panel1);
             this.Name = "frmLogin";
             this.Text = "La Casa de Babbel";
             this.Load += new System.EventHandler(this.frmLogin_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cbName;
-        private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.Label lblDesc;
-        private System.Windows.Forms.Label lblActualCours;
         private System.Windows.Forms.Label lblCours;
-        private System.Windows.Forms.Label lblActLec;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.ComboBox cbName;
         private System.Windows.Forms.Label lblAcLec;
-        private System.Windows.Forms.Label lblNumberExo;
+        private System.Windows.Forms.Label lblActLec;
         private System.Windows.Forms.Label lblExo;
+        private System.Windows.Forms.Label lblNumberExo;
+        private System.Windows.Forms.Label lblActualCours;
+        private System.Windows.Forms.Label lblDesc;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
