@@ -38,6 +38,7 @@
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pgB_Progres = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,6 +125,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pgB_Progres);
             this.panel1.Controls.Add(this.cbName);
             this.panel1.Controls.Add(this.lblDesc);
             this.panel1.Controls.Add(this.lblActualCours);
@@ -137,6 +139,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(567, 524);
             this.panel1.TabIndex = 9;
+            // 
+            // pgB_Progres
+            // 
+            this.pgB_Progres.Location = new System.Drawing.Point(229, 337);
+            this.pgB_Progres.Name = "pgB_Progres";
+            this.pgB_Progres.Size = new System.Drawing.Size(93, 26);
+            this.pgB_Progres.Step = 1;
+            this.pgB_Progres.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pgB_Progres.TabIndex = 9;
             // 
             // frmLogin
             // 
@@ -165,6 +176,7 @@
         private System.Windows.Forms.Label lblActualCours;
         private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ProgressBar pgB_Progres;
     }
 }
 

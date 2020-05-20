@@ -182,8 +182,21 @@ namespace CasaDeBabbel
                 int actExo = tEow[0].Field<int>("codeExo");
 
                 lblNumberExo.Text = $"{actExo}/{numberofExercice}";
-                
+                progressGeneration(actExo, numberofExercice);
+
+
             }
+
+        }
+        private void progressGeneration(int numberEx,int validate)
+        {
+            pgB_Progres.Maximum = validate;
+            pgB_Progres.Value = numberEx;
+
+
+
+
+
 
         }
     }
