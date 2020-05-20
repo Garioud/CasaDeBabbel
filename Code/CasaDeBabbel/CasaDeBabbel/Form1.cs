@@ -23,7 +23,7 @@ namespace CasaDeBabbel
         private void frmLogin_Load(object sender, EventArgs e)
         {
             setTable(chcon, dsEsp);
-            fillCB(cbName, "Utilisateurs",2, dsEsp);
+            fillCB(cbName, "Utilisateurs", 1, 2, dsEsp) ;
 
         }
 
@@ -112,6 +112,23 @@ namespace CasaDeBabbel
                 cb.DataSource = travelTable;
                 cb.DisplayMember = travelTable.Columns[pos].ColumnName;
                 cb.ValueMember = travelTable.Columns[pos].ColumnName;
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
+        private void fillCB(ComboBox cb, string table, int pos, int pos2,DataSet ds)
+        {
+            try
+            {
+                DataTable travelTable = ds.Tables[table];
+               foreach (DataRow line in travelTable.Rows)
+                {
+                    string str = line.Field<String>("pnUtil") + line.Field<String>("nomUtil");
+                    cb.Items.Add(str);
+
+                }
             }
             catch (Exception x)
             {
