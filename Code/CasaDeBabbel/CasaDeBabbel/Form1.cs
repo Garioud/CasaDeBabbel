@@ -220,28 +220,40 @@ namespace CasaDeBabbel
 
                 if ( temporaryRow[0].Field<bool>("completeOn"))
                 {
+                   
                     frmDeso exer = new frmDeso();
-                    exer.Show();
-                    frmLogin.ActiveForm.Close();
+                    this.Hide();
+                    exer.ShowDialog();
+                  
+
                 }
                 else if(temporaryRow[0].Field<string>("listeMots")!=null)
                 {
-                    frmLogin.ActiveForm.Close();
+                  
+
                     frmMotM exer = new frmMotM();
-                    exer.Show();
-                    
+                    this.Hide();
+                    exer.ShowDialog();
+                   
+
                 }
                 else if ( temporaryRow[0].Field<int>("codeVerbe") >0)
                 {
+                  
                     frmVerbe exer = new frmVerbe();
-                    exer.Show();
-                    frmLogin.ActiveForm.Close();
+                    this.Hide();
+                    exer.ShowDialog();
+                   
+
                 }
                 else
                 {
+              
                     frmVoca exer = new frmVoca();
-                    exer.Show();
-                    frmLogin.ActiveForm.Close();
+                    this.Hide();
+                    exer.ShowDialog();
+                    
+
                 }
 
             }
@@ -287,6 +299,13 @@ namespace CasaDeBabbel
             return tEow[0].Field<String>("codeCours");
         }
 
+        private void frmLogin_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == false)
+            {
+                this.Close();
+            }
+        }
     }
 
 }

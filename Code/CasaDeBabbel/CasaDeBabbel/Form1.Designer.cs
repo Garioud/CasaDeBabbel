@@ -38,8 +38,8 @@
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pgB_Progres = new System.Windows.Forms.ProgressBar();
             this.btnStart = new System.Windows.Forms.Button();
+            this.pgB_Progres = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,15 +142,6 @@
             this.panel1.Size = new System.Drawing.Size(567, 524);
             this.panel1.TabIndex = 9;
             // 
-            // pgB_Progres
-            // 
-            this.pgB_Progres.Location = new System.Drawing.Point(229, 337);
-            this.pgB_Progres.Name = "pgB_Progres";
-            this.pgB_Progres.Size = new System.Drawing.Size(93, 26);
-            this.pgB_Progres.Step = 1;
-            this.pgB_Progres.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.pgB_Progres.TabIndex = 9;
-            // 
             // btnStart
             // 
             this.btnStart.Location = new System.Drawing.Point(380, 444);
@@ -161,6 +152,15 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // pgB_Progres
+            // 
+            this.pgB_Progres.Location = new System.Drawing.Point(229, 337);
+            this.pgB_Progres.Name = "pgB_Progres";
+            this.pgB_Progres.Size = new System.Drawing.Size(93, 26);
+            this.pgB_Progres.Step = 1;
+            this.pgB_Progres.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pgB_Progres.TabIndex = 9;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +170,7 @@
             this.Name = "frmLogin";
             this.Text = "La Casa de Babbel";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.VisibleChanged += new System.EventHandler(this.frmLogin_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
