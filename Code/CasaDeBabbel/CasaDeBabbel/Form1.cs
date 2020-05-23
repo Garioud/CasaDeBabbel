@@ -200,14 +200,93 @@ namespace CasaDeBabbel
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-
-
+            startExo();
+          
 
 
 
 
 
         }
+        public void startExo()
+        {
+            using ( DataTable temporaryTable=dsEsp.Tables["Exercices"])
+            {
+                int nbExo = getExoN();
+                string nbCours = getNumCours();
+                int nbLeçon= getCodeLeçon();
+                DataRow[] temporaryRow = temporaryTable.Select($"numExo='{nbExo}' and numCours='{nbCours}' and numLecon='{nbLeçon}'");
+
+
+                if ( temporaryRow[0].Field<bool>("completeOn"))
+                {
+                    frmDeso exer = new frmDeso();
+                    exer.Show();
+                    frmLogin.ActiveForm.Close();
+                }
+                else if(temporaryRow[0].Field<string>("listeMots")!=null)
+                {
+                    frmLogin.ActiveForm.Close();
+                    frmMotM exer = new frmMotM();
+                    exer.Show();
+                    
+                }
+                else if ( temporaryRow[0].Field<int>("codeVerbe") >0)
+                {
+                    frmVerbe exer = new frmVerbe();
+                    exer.Show();
+                    frmLogin.ActiveForm.Close();
+                }
+                else
+                {
+                    frmVoca exer = new frmVoca();
+                    exer.Show();
+                    frmLogin.ActiveForm.Close();
+                }
+
+            }
+
+        }
+        public int getExoN()
+        {
+            int code;
+            codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+            int actExo;
+            DataTable test = dsEsp.Tables["Utilisateurs"];
+            DataRow[] tEow = test.Select($"codeUtil = '{code}'");
+            using (DataTable temporaryTable = dsEsp.Tables["Exercices"])
+            {
+
+                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {tEow[0].Field<int>("codeLeçon")} AND numCours = '{tEow[0].Field<String>("codeCours")}'");
+                int numberofExercice = temporaryRow.Length;
+                actExo = tEow[0].Field<int>("codeExo");
+
+                lblNumberExo.Text = $"{actExo}/{numberofExercice}";
+                progressGeneration(actExo, numberofExercice);
+
+
+            }
+            return actExo;
+        }
+        public int getCodeLeçon()
+        {
+            int code;
+            codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+          
+            DataTable test = dsEsp.Tables["Utilisateurs"];
+            DataRow[] tEow = test.Select($"codeUtil = '{code}'");
+            return tEow[0].Field<int>("codeLeçon");
+        }
+        public string getNumCours()
+        {
+            int code;
+            codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+    
+            DataTable test = dsEsp.Tables["Utilisateurs"];
+            DataRow[] tEow = test.Select($"codeUtil = '{code}'");
+            return tEow[0].Field<String>("codeCours");
+        }
+
     }
 
 }

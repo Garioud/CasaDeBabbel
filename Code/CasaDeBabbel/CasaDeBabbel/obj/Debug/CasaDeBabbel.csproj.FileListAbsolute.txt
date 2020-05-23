@@ -8,3 +8,4 @@ C:\Users\Standard\Desktop\A21Projetfinal\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBa
 C:\Users\Standard\Desktop\A21Projetfinal\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.csproj.CoreCompileInputs.cache
 C:\Users\Standard\Desktop\A21Projetfinal\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.exe
 C:\Users\Standard\Desktop\A21Projetfinal\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.pdb
+C:\Users\Standard\Desktop\A21Projetfinal\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmMotM.resources
