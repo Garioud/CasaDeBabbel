@@ -299,13 +299,7 @@ namespace CasaDeBabbel
             return tEow[0].Field<String>("codeCours");
         }
 
-        private void frmLogin_VisibleChanged(object sender, EventArgs e)
-        {
-            if (this.Visible == false)
-            {
-                this.Close();
-            }
-        }
+     
     }
 
 }
