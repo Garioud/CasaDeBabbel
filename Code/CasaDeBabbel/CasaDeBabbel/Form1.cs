@@ -222,9 +222,11 @@ namespace CasaDeBabbel
                 {
                    
                     frmDeso exer = new frmDeso();
+                   
                     this.Hide();
-                    exer.ShowDialog();
-                  
+                    var form2 = new frmDeso();                  
+                    form2.Show();
+
 
                 }
                 else if(temporaryRow[0].Field<string>("listeMots")!=null)
@@ -299,7 +301,10 @@ namespace CasaDeBabbel
             return tEow[0].Field<String>("codeCours");
         }
 
-     
+        private void frmLogin_Activated(object sender, EventArgs e)
+        {
+            this.Visible = true;
+        }
     }
 
 }

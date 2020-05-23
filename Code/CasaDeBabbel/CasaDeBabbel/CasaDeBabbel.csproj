@@ -82,8 +82,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDeso.resx">
+      <DependentUpon>frmDeso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMotM.resx">
       <DependentUpon>frmMotM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerbe.resx">
+      <DependentUpon>frmVerbe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVoca.resx">
+      <DependentUpon>frmVoca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

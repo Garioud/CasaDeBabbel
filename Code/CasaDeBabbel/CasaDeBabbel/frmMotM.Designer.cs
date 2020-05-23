@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "frmMotM";
             this.Text = "frmMotM";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMotM_FormClosed);
             this.Load += new System.EventHandler(this.frmMotM_Load);
             this.ResumeLayout(false);
 

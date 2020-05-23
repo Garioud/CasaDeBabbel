@@ -16,5 +16,10 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
         }
+
+        private void frmDeso_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin.ActiveForm.Activate();
+        }
     }
 }
