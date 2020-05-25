@@ -23,6 +23,7 @@ namespace CasaDeBabbel
         private string actualUser;
         public frmVoca()
         {
+            
             InitializeComponent();
             dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
             nbExo = Application.OpenForms.Cast<frmLogin>().First().getExoN();
@@ -56,8 +57,15 @@ namespace CasaDeBabbel
         }
         private void frmVoca_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmLogin.ActiveForm.Activate();
+         
 
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms.Cast<frmLogin>().First().Activate();
+            Application.OpenForms.Cast<frmLogin>().First().Visible = true;
+            this.Close();
         }
     }
 }
