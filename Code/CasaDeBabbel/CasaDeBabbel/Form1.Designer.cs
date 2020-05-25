@@ -39,14 +39,14 @@
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnStart = new System.Windows.Forms.Button();
             this.pgB_Progres = new System.Windows.Forms.ProgressBar();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnWindow = new System.Windows.Forms.Button();
-            this.btnHideWindow = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
+            this.btnHideWindow = new System.Windows.Forms.Button();
+            this.btnWindow = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -78,7 +78,7 @@
             // 
             this.cbName.FormattingEnabled = true;
             this.cbName.Location = new System.Drawing.Point(394, 182);
-            this.cbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbName.Margin = new System.Windows.Forms.Padding(4);
             this.cbName.Name = "cbName";
             this.cbName.Size = new System.Drawing.Size(206, 24);
             this.cbName.TabIndex = 4;
@@ -121,7 +121,7 @@
             // 
             this.lblNumberExo.AutoSize = true;
             this.lblNumberExo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblNumberExo.Location = new System.Drawing.Point(481, 341);
+            this.lblNumberExo.Location = new System.Drawing.Point(473, 364);
             this.lblNumberExo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumberExo.Name = "lblNumberExo";
             this.lblNumberExo.Size = new System.Drawing.Size(46, 17);
@@ -152,8 +152,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.lblNumberExo);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Controls.Add(this.pgB_Progres);
             this.panel1.Controls.Add(this.cbName);
@@ -165,15 +165,24 @@
             this.panel1.Controls.Add(this.lblActLec);
             this.panel1.Controls.Add(this.lblExo);
             this.panel1.Location = new System.Drawing.Point(13, 141);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(974, 443);
             this.panel1.TabIndex = 9;
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Location = new System.Drawing.Point(436, 16);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(130, 130);
+            this.panel2.TabIndex = 11;
+            // 
             // btnStart
             // 
             this.btnStart.Location = new System.Drawing.Point(807, 398);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(163, 41);
             this.btnStart.TabIndex = 10;
@@ -186,21 +195,12 @@
             this.pgB_Progres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.pgB_Progres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.pgB_Progres.Location = new System.Drawing.Point(264, 339);
-            this.pgB_Progres.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pgB_Progres.Margin = new System.Windows.Forms.Padding(4);
             this.pgB_Progres.Name = "pgB_Progres";
             this.pgB_Progres.Size = new System.Drawing.Size(479, 21);
             this.pgB_Progres.Step = 1;
             this.pgB_Progres.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pgB_Progres.TabIndex = 9;
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel2.Location = new System.Drawing.Point(436, 16);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(130, 130);
-            this.panel2.TabIndex = 11;
             // 
             // panel3
             // 
@@ -213,25 +213,15 @@
             this.panel3.Size = new System.Drawing.Size(780, 35);
             this.panel3.TabIndex = 10;
             // 
-            // btnExit
+            // lblName
             // 
-            this.btnExit.BackColor = System.Drawing.Color.Red;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Location = new System.Drawing.Point(743, 4);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(25, 25);
-            this.btnExit.TabIndex = 0;
-            this.btnExit.UseVisualStyleBackColor = false;
-            // 
-            // btnWindow
-            // 
-            this.btnWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(114)))), ((int)(((byte)(32)))));
-            this.btnWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWindow.Location = new System.Drawing.Point(712, 4);
-            this.btnWindow.Name = "btnWindow";
-            this.btnWindow.Size = new System.Drawing.Size(25, 25);
-            this.btnWindow.TabIndex = 1;
-            this.btnWindow.UseVisualStyleBackColor = false;
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(7, 2);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(66, 29);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "Login\r\n";
             // 
             // btnHideWindow
             // 
@@ -243,15 +233,25 @@
             this.btnHideWindow.TabIndex = 2;
             this.btnHideWindow.UseVisualStyleBackColor = false;
             // 
-            // lblName
+            // btnWindow
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(7, 2);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(66, 29);
-            this.lblName.TabIndex = 3;
-            this.lblName.Text = "Login\r\n";
+            this.btnWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(114)))), ((int)(((byte)(32)))));
+            this.btnWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWindow.Location = new System.Drawing.Point(712, 4);
+            this.btnWindow.Name = "btnWindow";
+            this.btnWindow.Size = new System.Drawing.Size(25, 25);
+            this.btnWindow.TabIndex = 1;
+            this.btnWindow.UseVisualStyleBackColor = false;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Location = new System.Drawing.Point(743, 4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(25, 25);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
@@ -269,7 +269,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
