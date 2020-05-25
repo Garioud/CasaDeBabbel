@@ -12,3 +12,16 @@ C:\Users\Standard\Desktop\A21Projetfinal\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBa
 C:\Users\Standard\Desktop\A21Projetfinal\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmDeso.resources
 C:\Users\Standard\Desktop\A21Projetfinal\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmVerbe.resources
 C:\Users\Standard\Desktop\A21Projetfinal\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmVoca.resources
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\bin\Debug\CasaDeBabbel.exe.config
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\bin\Debug\CasaDeBabbel.exe
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\bin\Debug\CasaDeBabbel.pdb
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.csprojAssemblyReference.cache
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmLogin.resources
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmDeso.resources
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmMotM.resources
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmVerbe.resources
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmVoca.resources
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.Properties.Resources.resources
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.csproj.GenerateResource.cache
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.exe
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.pdb

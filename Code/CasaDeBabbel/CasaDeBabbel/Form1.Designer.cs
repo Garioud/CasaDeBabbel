@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.lblCours = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.cbName = new System.Windows.Forms.ComboBox();
@@ -41,93 +42,118 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.pgB_Progres = new System.Windows.Forms.ProgressBar();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnWindow = new System.Windows.Forms.Button();
+            this.btnHideWindow = new System.Windows.Forms.Button();
+            this.lblName = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCours
             // 
             this.lblCours.AutoSize = true;
-            this.lblCours.Location = new System.Drawing.Point(104, 183);
+            this.lblCours.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCours.Location = new System.Drawing.Point(205, 215);
+            this.lblCours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCours.Name = "lblCours";
-            this.lblCours.Size = new System.Drawing.Size(93, 13);
+            this.lblCours.Size = new System.Drawing.Size(158, 23);
             this.lblCours.TabIndex = 0;
-            this.lblCours.Text = "Votre cours actuel";
+            this.lblCours.Text = "Votre cours actuel :";
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(104, 138);
+            this.lblId.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(422, 149);
+            this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(75, 13);
+            this.lblId.Size = new System.Drawing.Size(157, 29);
             this.lblId.TabIndex = 3;
             this.lblId.Text = "Identifiez-vous";
             // 
             // cbName
             // 
             this.cbName.FormattingEnabled = true;
-            this.cbName.Location = new System.Drawing.Point(229, 135);
+            this.cbName.Location = new System.Drawing.Point(394, 182);
+            this.cbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(121, 21);
+            this.cbName.Size = new System.Drawing.Size(206, 24);
             this.cbName.TabIndex = 4;
             this.cbName.SelectedIndexChanged += new System.EventHandler(this.cbName_SelectedIndexChanged);
             // 
             // lblAcLec
             // 
             this.lblAcLec.AutoSize = true;
-            this.lblAcLec.Location = new System.Drawing.Point(104, 232);
+            this.lblAcLec.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcLec.Location = new System.Drawing.Point(236, 258);
+            this.lblAcLec.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAcLec.Name = "lblAcLec";
-            this.lblAcLec.Size = new System.Drawing.Size(69, 13);
+            this.lblAcLec.Size = new System.Drawing.Size(127, 23);
             this.lblAcLec.TabIndex = 5;
-            this.lblAcLec.Text = "Leçon actuel";
+            this.lblAcLec.Text = "Leçon actuelle :";
             // 
             // lblActLec
             // 
             this.lblActLec.AutoSize = true;
-            this.lblActLec.Location = new System.Drawing.Point(226, 232);
+            this.lblActLec.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActLec.Location = new System.Drawing.Point(390, 258);
+            this.lblActLec.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblActLec.Name = "lblActLec";
-            this.lblActLec.Size = new System.Drawing.Size(35, 13);
+            this.lblActLec.Size = new System.Drawing.Size(56, 23);
             this.lblActLec.TabIndex = 6;
             this.lblActLec.Text = "label2";
             // 
             // lblExo
             // 
             this.lblExo.AutoSize = true;
-            this.lblExo.Location = new System.Drawing.Point(104, 299);
+            this.lblExo.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExo.Location = new System.Drawing.Point(180, 339);
+            this.lblExo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExo.Name = "lblExo";
-            this.lblExo.Size = new System.Drawing.Size(51, 13);
+            this.lblExo.Size = new System.Drawing.Size(76, 23);
             this.lblExo.TabIndex = 7;
             this.lblExo.Text = "Exercice:";
             // 
             // lblNumberExo
             // 
             this.lblNumberExo.AutoSize = true;
-            this.lblNumberExo.Location = new System.Drawing.Point(226, 299);
+            this.lblNumberExo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblNumberExo.Location = new System.Drawing.Point(481, 341);
+            this.lblNumberExo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumberExo.Name = "lblNumberExo";
-            this.lblNumberExo.Size = new System.Drawing.Size(35, 13);
+            this.lblNumberExo.Size = new System.Drawing.Size(46, 17);
             this.lblNumberExo.TabIndex = 8;
             this.lblNumberExo.Text = "label2";
-            this.lblNumberExo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblNumberExo_MouseDown);
             // 
             // lblActualCours
             // 
             this.lblActualCours.AutoSize = true;
-            this.lblActualCours.Location = new System.Drawing.Point(226, 183);
+            this.lblActualCours.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActualCours.Location = new System.Drawing.Point(390, 215);
+            this.lblActualCours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblActualCours.Name = "lblActualCours";
-            this.lblActualCours.Size = new System.Drawing.Size(29, 13);
+            this.lblActualCours.Size = new System.Drawing.Size(46, 23);
             this.lblActualCours.TabIndex = 1;
             this.lblActualCours.Text = "label";
             // 
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(226, 265);
+            this.lblDesc.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesc.Location = new System.Drawing.Point(390, 290);
+            this.lblDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(29, 13);
+            this.lblDesc.Size = new System.Drawing.Size(46, 23);
             this.lblDesc.TabIndex = 2;
             this.lblDesc.Text = "label";
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.lblNumberExo);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Controls.Add(this.pgB_Progres);
             this.panel1.Controls.Add(this.cbName);
@@ -135,20 +161,21 @@
             this.panel1.Controls.Add(this.lblActualCours);
             this.panel1.Controls.Add(this.lblId);
             this.panel1.Controls.Add(this.lblCours);
-            this.panel1.Controls.Add(this.lblNumberExo);
             this.panel1.Controls.Add(this.lblAcLec);
             this.panel1.Controls.Add(this.lblActLec);
             this.panel1.Controls.Add(this.lblExo);
-            this.panel1.Location = new System.Drawing.Point(30, 123);
+            this.panel1.Location = new System.Drawing.Point(13, 141);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(567, 524);
+            this.panel1.Size = new System.Drawing.Size(974, 443);
             this.panel1.TabIndex = 9;
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(380, 444);
+            this.btnStart.Location = new System.Drawing.Point(807, 398);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(122, 47);
+            this.btnStart.Size = new System.Drawing.Size(163, 41);
             this.btnStart.TabIndex = 10;
             this.btnStart.Text = "Continuer";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -156,34 +183,102 @@
             // 
             // pgB_Progres
             // 
-            this.pgB_Progres.Location = new System.Drawing.Point(229, 337);
+            this.pgB_Progres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.pgB_Progres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.pgB_Progres.Location = new System.Drawing.Point(264, 339);
+            this.pgB_Progres.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pgB_Progres.Name = "pgB_Progres";
-            this.pgB_Progres.Size = new System.Drawing.Size(93, 26);
+            this.pgB_Progres.Size = new System.Drawing.Size(479, 21);
             this.pgB_Progres.Step = 1;
             this.pgB_Progres.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pgB_Progres.TabIndex = 9;
             // 
             // panel2
             // 
-            this.panel2.AllowDrop = true;
-            this.panel2.Location = new System.Drawing.Point(212, 12);
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Location = new System.Drawing.Point(436, 16);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
-            this.panel2.TabIndex = 10;
+            this.panel2.Size = new System.Drawing.Size(130, 130);
+            this.panel2.TabIndex = 11;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lblName);
+            this.panel3.Controls.Add(this.btnHideWindow);
+            this.panel3.Controls.Add(this.btnWindow);
+            this.panel3.Controls.Add(this.btnExit);
+            this.panel3.Location = new System.Drawing.Point(220, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(780, 35);
+            this.panel3.TabIndex = 10;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Location = new System.Drawing.Point(743, 4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(25, 25);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.UseVisualStyleBackColor = false;
+            // 
+            // btnWindow
+            // 
+            this.btnWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(114)))), ((int)(((byte)(32)))));
+            this.btnWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWindow.Location = new System.Drawing.Point(712, 4);
+            this.btnWindow.Name = "btnWindow";
+            this.btnWindow.Size = new System.Drawing.Size(25, 25);
+            this.btnWindow.TabIndex = 1;
+            this.btnWindow.UseVisualStyleBackColor = false;
+            // 
+            // btnHideWindow
+            // 
+            this.btnHideWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(166)))), ((int)(((byte)(57)))));
+            this.btnHideWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHideWindow.Location = new System.Drawing.Point(681, 4);
+            this.btnHideWindow.Name = "btnHideWindow";
+            this.btnHideWindow.Size = new System.Drawing.Size(25, 25);
+            this.btnHideWindow.TabIndex = 2;
+            this.btnHideWindow.UseVisualStyleBackColor = false;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(7, 2);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(66, 29);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "Login\r\n";
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(220, 135);
+            this.panel4.TabIndex = 11;
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 659);
-            this.Controls.Add(this.panel2);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1000, 597);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmLogin";
-            this.Text = "La Casa de Babbel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = " ";
             this.Activated += new System.EventHandler(this.frmLogin_Activated);
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -203,6 +298,12 @@
         private System.Windows.Forms.ProgressBar pgB_Progres;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnHideWindow;
+        private System.Windows.Forms.Button btnWindow;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 
