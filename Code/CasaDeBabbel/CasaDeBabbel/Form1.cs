@@ -17,6 +17,7 @@ namespace CasaDeBabbel
         public frmLogin()
         {
             InitializeComponent();
+            lblNumberExo.BackColor = Color.Transparent;
         }
         public DataSet dsEsp = new DataSet();
         private string chcon = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source =..\baseLangue.mdb";
@@ -288,8 +289,6 @@ namespace CasaDeBabbel
                 return dsEsp;
             }
         }
-            
-            
     }
 
 }
