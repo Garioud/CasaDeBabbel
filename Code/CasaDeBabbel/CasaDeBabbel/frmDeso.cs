@@ -21,5 +21,11 @@ namespace CasaDeBabbel
         {
             frmLogin.ActiveForm.Activate();
         }
+
+        private void label2_MouseDown(object sender, MouseEventArgs e)
+        {
+            label2.DoDragDrop(label2.Text, DragDropEffects.Copy |
+      DragDropEffects.Move);
+        }
     }
 }
