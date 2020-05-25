@@ -18,6 +18,7 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
             lblNumberExo.BackColor = Color.Transparent;
+        
         }
         public DataSet dsEsp = new DataSet();
         private string chcon = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source =..\baseLangue.mdb";
@@ -154,8 +155,17 @@ namespace CasaDeBabbel
                 int numberofExercice = temporaryRow.Length;
                 int actExo = tRow[0].Field<int>("codeExo");
 
+                if(numberofExercice!=0)
+                { 
                 lblNumberExo.Text = $"{actExo}/{numberofExercice}";
                 progressGeneration(actExo, numberofExercice);
+                }
+                else
+                {
+                    lblNumberExo.Text = "";
+                    pgB_Progres.Visible = false;
+                    lblExo.Text = "";
+                }
 
 
             }

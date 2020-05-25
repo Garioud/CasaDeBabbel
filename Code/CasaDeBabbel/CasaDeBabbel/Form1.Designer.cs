@@ -45,7 +45,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
-            this.btnWindow = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -120,8 +119,8 @@
             // lblNumberExo
             // 
             this.lblNumberExo.AutoSize = true;
-            this.lblNumberExo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblNumberExo.Location = new System.Drawing.Point(481, 341);
+            this.lblNumberExo.BackColor = System.Drawing.Color.Transparent;
+            this.lblNumberExo.Location = new System.Drawing.Point(478, 364);
             this.lblNumberExo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumberExo.Name = "lblNumberExo";
             this.lblNumberExo.Size = new System.Drawing.Size(35, 13);
@@ -210,7 +209,6 @@
             // 
             this.panel3.Controls.Add(this.lblName);
             this.panel3.Controls.Add(this.btnHideWindow);
-            this.panel3.Controls.Add(this.btnWindow);
             this.panel3.Controls.Add(this.btnExit);
             this.panel3.Location = new System.Drawing.Point(220, 0);
             this.panel3.Name = "panel3";
@@ -229,25 +227,14 @@
             // 
             // btnHideWindow
             // 
-            this.btnHideWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(166)))), ((int)(((byte)(57)))));
+            this.btnHideWindow.BackColor = System.Drawing.Color.Black;
             this.btnHideWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHideWindow.Location = new System.Drawing.Point(681, 4);
+            this.btnHideWindow.Location = new System.Drawing.Point(712, 4);
             this.btnHideWindow.Name = "btnHideWindow";
             this.btnHideWindow.Size = new System.Drawing.Size(25, 25);
             this.btnHideWindow.TabIndex = 2;
             this.btnHideWindow.UseVisualStyleBackColor = false;
             this.btnHideWindow.Click += new System.EventHandler(this.btnHideWindow_Click);
-            // 
-            // btnWindow
-            // 
-            this.btnWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(114)))), ((int)(((byte)(32)))));
-            this.btnWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWindow.Location = new System.Drawing.Point(712, 4);
-            this.btnWindow.Name = "btnWindow";
-            this.btnWindow.Size = new System.Drawing.Size(25, 25);
-            this.btnWindow.TabIndex = 1;
-            this.btnWindow.UseVisualStyleBackColor = false;
-            this.btnWindow.Click += new System.EventHandler(this.btnWindow_Click);
             // 
             // btnExit
             // 
@@ -309,7 +296,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnHideWindow;
-        private System.Windows.Forms.Button btnWindow;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Panel panel4;
