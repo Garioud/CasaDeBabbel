@@ -164,10 +164,11 @@
             this.panel1.Controls.Add(this.lblAcLec);
             this.panel1.Controls.Add(this.lblActLec);
             this.panel1.Controls.Add(this.lblExo);
-            this.panel1.Location = new System.Drawing.Point(13, 141);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 135);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(974, 443);
+            this.panel1.Size = new System.Drawing.Size(1000, 465);
             this.panel1.TabIndex = 9;
             // 
             // panel2
@@ -216,7 +217,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(7, 2);
+            this.lblName.Location = new System.Drawing.Point(7, 4);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(51, 23);
             this.lblName.TabIndex = 3;
@@ -226,7 +227,7 @@
             // 
             this.btnHideWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(166)))), ((int)(((byte)(57)))));
             this.btnHideWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHideWindow.Location = new System.Drawing.Point(712, 4);
+            this.btnHideWindow.Location = new System.Drawing.Point(721, 4);
             this.btnHideWindow.Name = "btnHideWindow";
             this.btnHideWindow.Size = new System.Drawing.Size(25, 25);
             this.btnHideWindow.TabIndex = 2;
@@ -237,7 +238,7 @@
             // 
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Location = new System.Drawing.Point(743, 4);
+            this.btnExit.Location = new System.Drawing.Point(752, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(25, 25);
             this.btnExit.TabIndex = 0;
@@ -255,7 +256,7 @@
             // frmLogin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1000, 597);
+            this.ClientSize = new System.Drawing.Size(1000, 600);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);

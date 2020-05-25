@@ -22,10 +22,14 @@ namespace CasaDeBabbel
             frmLogin.ActiveForm.Activate();
         }
 
-        private void label2_MouseDown(object sender, MouseEventArgs e)
+        private void panel4_Paint(object sender, PaintEventArgs e)
         {
-            label2.DoDragDrop(label2.Text, DragDropEffects.Copy |
-      DragDropEffects.Move);
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
