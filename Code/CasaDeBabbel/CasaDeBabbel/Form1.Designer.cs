@@ -40,6 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnStart = new System.Windows.Forms.Button();
             this.pgB_Progres = new System.Windows.Forms.ProgressBar();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,6 +106,7 @@
             this.lblNumberExo.Size = new System.Drawing.Size(35, 13);
             this.lblNumberExo.TabIndex = 8;
             this.lblNumberExo.Text = "label2";
+            this.lblNumberExo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblNumberExo_MouseDown);
             // 
             // lblActualCours
             // 
@@ -161,11 +163,20 @@
             this.pgB_Progres.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pgB_Progres.TabIndex = 9;
             // 
+            // panel2
+            // 
+            this.panel2.AllowDrop = true;
+            this.panel2.Location = new System.Drawing.Point(212, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 100);
+            this.panel2.TabIndex = 10;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 659);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmLogin";
             this.Text = "La Casa de Babbel";
@@ -191,6 +202,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ProgressBar pgB_Progres;
         private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

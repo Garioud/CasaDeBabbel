@@ -288,8 +288,13 @@ namespace CasaDeBabbel
                 return dsEsp;
             }
         }
-            
-            
+
+        private void lblNumberExo_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            lblNumberExo.DoDragDrop(lblNumberExo.Text, DragDropEffects.Copy |
+     DragDropEffects.Move);
+        }
     }
 
 }
