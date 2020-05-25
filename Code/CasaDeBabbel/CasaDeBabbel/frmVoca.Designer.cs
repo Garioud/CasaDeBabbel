@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVoca));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblNomPersonne = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -50,14 +49,6 @@
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(407, 138);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
             // 
             // lblNomPersonne
             // 
@@ -231,7 +222,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnStart);
-            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 135);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
@@ -269,8 +259,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblNomPersonne;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Panel panel4;

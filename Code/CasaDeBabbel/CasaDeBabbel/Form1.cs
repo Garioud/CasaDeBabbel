@@ -300,6 +300,21 @@ namespace CasaDeBabbel
             }
         }
 
+        public Dictionary<String, int> GetDictionnary
+        {
+            get
+            {
+                return codeUser;
+            }
+        }
+
+        public string GetCurrentUser
+        {
+            get
+            {
+                return cbName.SelectedItem.ToString(); ;
+            }
+        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {

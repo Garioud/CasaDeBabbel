@@ -35,8 +35,8 @@
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblNumberExo = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
+            this.lblNumberExo = new System.Windows.Forms.Label();
             this.pgB_Progres = new System.Windows.Forms.ProgressBar();
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblActualCours = new System.Windows.Forms.Label();
@@ -109,6 +109,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1000, 465);
             this.panel1.TabIndex = 12;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(807, 398);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(163, 41);
+            this.btnStart.TabIndex = 10;
+            this.btnStart.Text = "Continuer";
+            this.btnStart.UseVisualStyleBackColor = true;
             // 
             // lblNumberExo
             // 
@@ -121,16 +132,6 @@
             this.lblNumberExo.Size = new System.Drawing.Size(61, 22);
             this.lblNumberExo.TabIndex = 8;
             this.lblNumberExo.Text = "label2";
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(807, 398);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(163, 41);
-            this.btnStart.TabIndex = 10;
-            this.btnStart.Text = "Continuer";
-            this.btnStart.UseVisualStyleBackColor = true;
             // 
             // pgB_Progres
             // 

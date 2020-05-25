@@ -12,12 +12,29 @@ namespace CasaDeBabbel
 {
     public partial class frmVoca : Form
     {
+        private int nbExo;
+        private DataSet dsEsp;
+        private int numLeçon;
+        private string codeCours;
+        private int numPhrase;
+        private string phrase;
+        private string phraseEsp;
+        private Dictionary<String, int> codeUser = new Dictionary<string, int>();
+        private string actualUser;
         public frmVoca()
         {
             InitializeComponent();
-            
+            dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
+            nbExo = Application.OpenForms.Cast<frmLogin>().First().getExoN();
+            numLeçon = Application.OpenForms.Cast<frmLogin>().First().getCodeLeçon();
+            codeCours = Application.OpenForms.Cast<frmLogin>().First().getNumCours();
+            codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
+            actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            lblNomPersonne.Text = actualUser;
 
         }
+       
+
         private void fillCB(ComboBox cb, string table, int pos, int pos2, DataSet ds)
         {
             try
