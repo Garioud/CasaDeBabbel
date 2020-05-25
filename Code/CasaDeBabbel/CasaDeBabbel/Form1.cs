@@ -20,9 +20,20 @@ namespace CasaDeBabbel
             lblNumberExo.BackColor = Color.Transparent;
         
         }
-        public DataSet dsEsp = new DataSet();
+        private DataSet dsEsp = new DataSet();
         private string chcon = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source =..\baseLangue.mdb";
         private Dictionary<String, int> codeUser = new Dictionary<string, int>();
+        private string actualUser;
+        private int nbExo;
+        private int nbExoTotal;
+        private int numLecon;
+        private string codeCours;
+        private string titreCours;
+        private string titreLecon;
+        private string descLecon;
+
+
+
         private void frmLogin_Load(object sender, EventArgs e)
         {
             FillDataSet(chcon, dsEsp);
@@ -117,48 +128,75 @@ namespace CasaDeBabbel
         {
             generateAllLabel();
         }
+
         private void generateAllLabel()
         {
             int code;
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
-
+            actualUser = cbName.SelectedItem.ToString();
             DataTable test = dsEsp.Tables["Utilisateurs"];
             DataRow[] tRow = test.Select($"codeUtil = '{code}'");
+            generateCoursLabel(tRow);
+            generateLeconLabel(tRow);
+            generateExerciceLabel(tRow);
+          
+          
+
+
+        }
+        private void generateCoursLabel(DataRow[] tRow)
+        {
             using (DataTable temporaryTable = dsEsp.Tables["Cours"])
             {
-                DataRow[] temporaryRow = temporaryTable.Select($"numCours= '{tRow[0].Field<String>("codeCours")}'");
-                lblActualCours.Text = temporaryRow[0].Field<String>("titreCours");
+                codeCours = tRow[0].Field<String>("codeCours");
+                DataRow[] temporaryRow = temporaryTable.Select($"numCours= '{codeCours}'");
+                titreCours= temporaryRow[0].Field<String>("titreCours");
+                lblActualCours.Text = titreCours;
             }
+        }
+        private void generateLeconLabel(DataRow[] tRow)
+        {
+            using (DataTable temporaryTable = dsEsp.Tables["Lecons"])
+            {
+                numLecon = tRow[0].Field<int>("codeLeçon");
+                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {numLecon} AND numCours = '{codeCours}'");
+                titreLecon = temporaryRow[0].Field<String>("titreLecon");
+                lblActLec.Text = titreLecon;
+                if (temporaryRow[0].Field<String>("commentLecon") != null)
+                {
+                    descLecon= "--->" + temporaryRow[0].Field<String>("commentLecon");
+                    lblDesc.Text = descLecon;
+                }
+                else
+                {
+                    lblDesc.Text = null;
+                }
+            }
+            using (DataTable temporaryTable = dsEsp.Tables["Lecons"])
+            {
+                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {numLecon} AND numCours = '{codeCours}'");
+                lblActLec.Text = temporaryRow[0].Field<String>("titreLecon");
+                if (temporaryRow[0].Field<String>("commentLecon") != null)
+                    lblDesc.Text = "--->" + temporaryRow[0].Field<String>("commentLecon");
+                else
+                    lblDesc.Text = null;
+            }
+        }
+        private void generateExerciceLabel(DataRow[] tRow)
+        {
 
-            using (DataTable temporaryTable = dsEsp.Tables["Lecons"])
-            {
-                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {tRow[0].Field<int>("codeLeçon")} AND numCours = '{tRow[0].Field<String>("codeCours")}'");
-                lblActLec.Text = temporaryRow[0].Field<String>("titreLecon");
-                if (temporaryRow[0].Field<String>("commentLecon") != null)
-                    lblDesc.Text = "--->" + temporaryRow[0].Field<String>("commentLecon");
-                else
-                    lblDesc.Text = null;
-            }
-            using (DataTable temporaryTable = dsEsp.Tables["Lecons"])
-            {
-                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {tRow[0].Field<int>("codeLeçon")} AND numCours = '{tRow[0].Field<String>("codeCours")}'");
-                lblActLec.Text = temporaryRow[0].Field<String>("titreLecon");
-                if (temporaryRow[0].Field<String>("commentLecon") != null)
-                    lblDesc.Text = "--->" + temporaryRow[0].Field<String>("commentLecon");
-                else
-                    lblDesc.Text = null;
-            }
+
             using (DataTable temporaryTable = dsEsp.Tables["Exercices"])
             {
 
                 DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {tRow[0].Field<int>("codeLeçon")} AND numCours = '{tRow[0].Field<String>("codeCours")}'");
-                int numberofExercice = temporaryRow.Length;
-                int actExo = tRow[0].Field<int>("codeExo");
+                nbExoTotal = temporaryRow.Length;
+               nbExo = tRow[0].Field<int>("codeExo");
 
-                if(numberofExercice!=0)
-                { 
-                lblNumberExo.Text = $"{actExo}/{numberofExercice}";
-                progressGeneration(actExo, numberofExercice);
+                if (nbExoTotal != 0)
+                {
+                    lblNumberExo.Text = $"{nbExo}/{nbExoTotal}";
+                    progressGeneration(nbExo, nbExoTotal);
                 }
                 else
                 {
@@ -169,8 +207,10 @@ namespace CasaDeBabbel
 
 
             }
-
         }
+
+
+
         private void progressGeneration(int numberEx, int validate)
         {
             pgB_Progres.Visible = true;
@@ -292,6 +332,18 @@ namespace CasaDeBabbel
         {
             this.Visible = true;
         }
+        
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnHideWindow_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         public DataSet GetDataSet
         {
             get
@@ -312,18 +364,60 @@ namespace CasaDeBabbel
         {
             get
             {
-                return cbName.SelectedItem.ToString(); ;
+                return actualUser ;
+            }
+        }
+        public int getNumLecon
+        {
+            get
+            {
+                return numLecon;
+            }
+        }
+        public string getTitreLecon
+        {
+            get
+            {
+                return titreLecon;
+            }
+
+        }
+        public string getDescLecon
+        {
+            get
+            {
+                return descLecon;
+            }
+
+        }
+        public string getCodeCours
+        {
+            get
+            {
+                return codeCours;
             }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        public string getTitreCours
         {
-            Application.Exit();
+            get
+            {
+                return titreCours;
+            }
         }
-
-        private void btnHideWindow_Click(object sender, EventArgs e)
+        public int getNumExo
         {
-            this.WindowState = FormWindowState.Minimized;
+            get
+            {
+                return nbExo;
+            }
+        }
+        public int getNumExoTotal
+        {
+            get
+            {
+                return nbExoTotal;
+            }
         }
     }
 

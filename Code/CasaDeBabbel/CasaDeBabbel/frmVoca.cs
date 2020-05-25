@@ -13,12 +13,17 @@ namespace CasaDeBabbel
     public partial class frmVoca : Form
     {
         private int nbExo;
+        private int nbExoTotal;
         private DataSet dsEsp;
         private int numLeçon;
         private string codeCours;
         private int numPhrase;
         private string phrase;
         private string phraseEsp;
+        private string titreCours;
+        private string titreLecon;
+        private string descLecon;
+
         private Dictionary<String, int> codeUser = new Dictionary<string, int>();
         private string actualUser;
         public frmVoca()
@@ -26,13 +31,21 @@ namespace CasaDeBabbel
             
             InitializeComponent();
             dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
-            nbExo = Application.OpenForms.Cast<frmLogin>().First().getExoN();
-            numLeçon = Application.OpenForms.Cast<frmLogin>().First().getCodeLeçon();
-            codeCours = Application.OpenForms.Cast<frmLogin>().First().getNumCours();
+            nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
+            numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
+            codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
             codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
             actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
-            lblNomPersonne.Text = actualUser;
+            titreCours= Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
+            titreLecon = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
+            descLecon = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
+            nbExoTotal = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
 
+            lblNomPersonne.Text = actualUser;
+            lblActualCours.Text = titreCours;
+            lblDesc.Text = descLecon;
+            lblActLec.Text = titreLecon;
+            lblNumberExo.Text = $"{nbExo}/{nbExoTotal}";
         }
        
 
