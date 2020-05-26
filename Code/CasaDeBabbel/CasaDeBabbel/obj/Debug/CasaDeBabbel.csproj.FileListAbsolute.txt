@@ -25,3 +25,16 @@ C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\
 C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.csproj.GenerateResource.cache
 C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.exe
 C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.pdb
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\bin\Debug\CasaDeBabbel.exe.config
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\bin\Debug\CasaDeBabbel.exe
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\bin\Debug\CasaDeBabbel.pdb
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.csprojAssemblyReference.cache
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmLogin.resources
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmDeso.resources
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmMotM.resources
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmVerbe.resources
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmVoca.resources
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.Properties.Resources.resources
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.csproj.GenerateResource.cache
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.exe
+D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.pdb
