@@ -38,3 +38,4 @@ D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDe
 D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.csproj.GenerateResource.cache
 D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.exe
 D:\cours\A21\Projet\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.pdb
+C:\Users\Astral\Desktop\IUT\CsharpTP\CasaDeBabel\CasaDeBabbel\Code\CasaDeBabbel\CasaDeBabbel\obj\Debug\CasaDeBabbel.frmAdmin.resources
