@@ -45,7 +45,7 @@ namespace CasaDeBabbel
 
                     pnlListe.Controls.Add(new TextBox() {
                         Name = "tbxMot" + i,
-                        Width = tabPhrase[i].Length * 12,
+                        Width = 15 * 15,
                         Font = new Font("Arial", 14),
                         Location = new Point(position, 10)
                     });
