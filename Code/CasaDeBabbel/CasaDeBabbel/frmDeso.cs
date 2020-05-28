@@ -54,7 +54,24 @@ namespace CasaDeBabbel
         }
         private void getPhrase()
         {
+            using (DataTable temporaryTable = dsEsp.Tables["Exercices"])
+            {
+                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {numLeçon} AND numCours = '{codeCours}' AND numExo ={nbExo}");
+                numPhrase = temporaryRow[0].Field<int>("codePhrase");
 
+
+            }
+
+
+
+
+            using (DataTable temporaryTable = dsEsp.Tables["Phrases"])
+            {
+                DataRow[] temporaryRow = temporaryTable.Select($"codePhrase={numPhrase}");
+                phraseEsp = temporaryRow[0].Field<string>("textePhrase");
+                phrase = temporaryRow[0].Field<string>("traducPhrase");
+
+            }
 
 
 
