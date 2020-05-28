@@ -272,6 +272,7 @@ namespace CasaDeBabbel
                     string phrase;
                     string traduc;
                     string listMot;
+                    listMot = temporaryRow[0].Field<string>("listeMots");
                     using (DataTable temporyTable2 = dsEsp.Tables["Phrases"])
                     {
                         DataRow[] temporaryRow2 = temporyTable2.Select($"codePhrase={temporaryRow[0].Field<int>("codePhrase")}");
@@ -279,7 +280,7 @@ namespace CasaDeBabbel
                         traduc = temporaryRow2[0].Field<string>("traducPhrase");
                     }
 
-                    frmMotM exer = new frmMotM();
+                    frmMotM exer = new frmMotM(phrase,traduc,listMot,enonceExo);
                     this.Hide();
                     exer.ShowDialog();
 

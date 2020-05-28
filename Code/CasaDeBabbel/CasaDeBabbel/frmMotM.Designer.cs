@@ -46,6 +46,7 @@
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblAcLec = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlListe = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -228,6 +229,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pnlListe);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 135);
@@ -235,6 +237,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1000, 465);
             this.panel1.TabIndex = 25;
+            // 
+            // pnlListe
+            // 
+            this.pnlListe.Location = new System.Drawing.Point(45, 34);
+            this.pnlListe.Name = "pnlListe";
+            this.pnlListe.Size = new System.Drawing.Size(913, 215);
+            this.pnlListe.TabIndex = 11;
             // 
             // frmMotM
             // 
@@ -285,5 +294,6 @@
         private System.Windows.Forms.Label lblActualCours;
         private System.Windows.Forms.Label lblAcLec;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlListe;
     }
 }
