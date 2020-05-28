@@ -308,6 +308,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAdmin";
             this.Text = "frmAdmin";
+            this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

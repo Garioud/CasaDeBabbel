@@ -16,9 +16,9 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
             dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
-            nbExo= Application.OpenForms.Cast<frmLogin>().First().getExoN();
-            numLeçon = Application.OpenForms.Cast<frmLogin>().First().getCodeLeçon();
-            codeCours = Application.OpenForms.Cast<frmLogin>().First().getNumCours();
+            nbExo= Application.OpenForms.Cast<frmLogin>().First().getNumExo;
+            numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
+            codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
             codeUser= Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
             actualUser= Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
             lblNomPersonne.Text = actualUser;
