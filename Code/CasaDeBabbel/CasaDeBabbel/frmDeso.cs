@@ -12,6 +12,17 @@ namespace CasaDeBabbel
 {
     public partial class frmDeso : Form
     {
+        private int nbExo;
+        private DataSet dsEsp;
+        private int numLeçon;
+        private string codeCours;
+        private int numPhrase;
+        private string phrase;
+        private string phraseEsp;
+        private Dictionary<String, int> codeUser = new Dictionary<string, int>();
+        private string actualUser;
+        private string enonce;
+
         public frmDeso()
         {
             InitializeComponent();
@@ -23,35 +34,24 @@ namespace CasaDeBabbel
             actualUser= Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
             lblNomPersonne.Text = actualUser;
         }
-        private int nbExo;
-        private DataSet dsEsp;
-        private int numLeçon;
-        private string codeCours;
-        private int numPhrase;
-        private string phrase;
-        private string phraseEsp;
-        private Dictionary<String, int> codeUser = new Dictionary<string, int>();
-        private string actualUser;
-
-        private void frmDeso_FormClosed(object sender, FormClosedEventArgs e)
+    
+        public frmDeso(string phrase, string trad, string enonce)
         {
-            frmLogin.ActiveForm.Activate();
+            InitializeComponent();
+            dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
+            nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
+            numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
+            codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
+            codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
+            actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            lblNomPersonne.Text = actualUser;
+            this.phraseEsp = phrase;
+            this.phrase = trad;
+            this.enonce = enonce;
         }
+        
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-           
-        }
+     
         private void getPhrase()
         {
             using (DataTable temporaryTable = dsEsp.Tables["Exercices"])

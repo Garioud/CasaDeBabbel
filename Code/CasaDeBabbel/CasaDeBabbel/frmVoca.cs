@@ -17,9 +17,7 @@ namespace CasaDeBabbel
         private DataSet dsEsp;
         private int numLeçon;
         private string codeCours;
-        private int numPhrase;
-        private string phrase;
-        private string phraseEsp;
+        private string[][] listeVoca;
         private string titreCours;
         private string titreLecon;
         private string descLecon;
@@ -27,8 +25,11 @@ namespace CasaDeBabbel
         private Dictionary<String, int> codeUser = new Dictionary<string, int>();
         private string actualUser;
         public frmVoca()
+        {           
+            InitializeComponent();
+        }
+        public frmVoca(string[][] mot)
         {
-            
             InitializeComponent();
             dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
             nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
@@ -36,18 +37,12 @@ namespace CasaDeBabbel
             codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
             codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
             actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
-            titreCours= Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
+            titreCours = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
             titreLecon = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             descLecon = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
             nbExoTotal = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
-
-            lblNomPersonne.Text = actualUser;
-            lblActualCours.Text = titreCours;
-            lblDesc.Text = descLecon;
-            lblActLec.Text = titreLecon;
-            lblNumberExo.Text = $"{nbExo}/{nbExoTotal}";
+            listeVoca = mot;
         }
-       
 
         private void fillCB(ComboBox cb, string table, int pos, int pos2, DataSet ds)
         {

@@ -31,7 +31,8 @@ namespace CasaDeBabbel
         private string titreCours;
         private string titreLecon;
         private string descLecon;
-        private string enoncéExo;
+        private string enonceExo;
+        private string regle;
 
 
 
@@ -225,13 +226,8 @@ namespace CasaDeBabbel
         private void btnStart_Click(object sender, EventArgs e)
         {
             startExo();
-
-
-
-
-
-
         }
+
         public void startExo()
         {
             using (DataTable temporaryTable = dsEsp.Tables["Exercices"])
@@ -240,7 +236,18 @@ namespace CasaDeBabbel
                 string nbCours = getNumCours();
                 int nbLeçon = getCodeLeçon();
                 DataRow[] temporaryRow = temporaryTable.Select($"numExo='{nbExo}' and numCours='{nbCours}' and numLecon='{nbLeçon}'");
+                enonceExo = temporaryRow[0].Field<string>("enonceExo");
+                if(!temporaryRow[0].IsNull("codeRegle"))
+                {
+                    using (DataTable temporaryTable2=dsEsp.Tables["Regles"])
+                            {
+                        DataRow[] temporaryRow2 = temporaryTable2.Select($"codeRegle={temporaryRow[0].Field<string>("codeRegle")}");
+                        regle = temporaryRow2[0].Field<string>("texteRegle");
+                    }
 
+
+
+                }
 
                 if (temporaryRow[0].Field<bool>("completeOn"))
                 {

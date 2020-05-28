@@ -57,7 +57,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(220, 135);
             this.panel4.TabIndex = 14;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            
             // 
             // panel3
             // 
@@ -68,7 +68,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(780, 35);
             this.panel3.TabIndex = 13;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // lblName
             // 
@@ -115,7 +114,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1000, 465);
             this.panel1.TabIndex = 12;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+        
             // 
             // btnStart
             // 
@@ -258,7 +257,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDeso";
             this.Text = "frmDeso";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDeso_FormClosed);
+           
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
