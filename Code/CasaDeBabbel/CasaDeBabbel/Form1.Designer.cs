@@ -43,10 +43,9 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.pgB_Progres = new System.Windows.Forms.ProgressBar();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblName = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -182,7 +181,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(807, 398);
+            this.btnStart.Location = new System.Drawing.Point(810, 400);
             this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(163, 41);
@@ -205,23 +204,12 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.lblName);
             this.panel3.Controls.Add(this.btnHideWindow);
             this.panel3.Controls.Add(this.btnExit);
-            this.panel3.Location = new System.Drawing.Point(220, 0);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(780, 35);
+            this.panel3.Size = new System.Drawing.Size(1000, 35);
             this.panel3.TabIndex = 10;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(7, 4);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(51, 23);
-            this.lblName.TabIndex = 3;
-            this.lblName.Text = "Login\r\n";
             // 
             // btnHideWindow
             // 
@@ -230,7 +218,7 @@
             this.btnHideWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnHideWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHideWindow.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnHideWindow.Location = new System.Drawing.Point(715, 3);
+            this.btnHideWindow.Location = new System.Drawing.Point(930, 3);
             this.btnHideWindow.Name = "btnHideWindow";
             this.btnHideWindow.Size = new System.Drawing.Size(27, 27);
             this.btnHideWindow.TabIndex = 2;
@@ -244,26 +232,26 @@
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnExit.Location = new System.Drawing.Point(750, 3);
+            this.btnExit.Location = new System.Drawing.Point(965, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(27, 27);
             this.btnExit.TabIndex = 0;
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // panel4
+            // panel5
             // 
-            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(220, 135);
-            this.panel4.TabIndex = 11;
+            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
+            this.panel5.Location = new System.Drawing.Point(0, 35);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1000, 100);
+            this.panel5.TabIndex = 12;
             // 
             // frmLogin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -276,7 +264,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -299,8 +286,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnHideWindow;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
     }
 }
 
