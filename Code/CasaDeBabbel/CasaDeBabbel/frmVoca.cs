@@ -80,5 +80,15 @@ namespace CasaDeBabbel
             Application.OpenForms.Cast<frmLogin>().First().Visible = true;
             this.Close();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnHideWindow_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

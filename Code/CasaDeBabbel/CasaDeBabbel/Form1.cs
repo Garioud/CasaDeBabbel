@@ -226,10 +226,6 @@ namespace CasaDeBabbel
             startExo();
 
 
-
-
-
-
         }
         public void startExo()
         {

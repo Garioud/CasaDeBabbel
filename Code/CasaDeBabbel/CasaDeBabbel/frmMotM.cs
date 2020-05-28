@@ -34,5 +34,15 @@ namespace CasaDeBabbel
         {
             frmLogin.ActiveForm.Activate();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnHideWindow_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
