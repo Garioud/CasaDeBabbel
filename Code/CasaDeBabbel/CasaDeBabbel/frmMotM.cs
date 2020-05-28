@@ -16,6 +16,11 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
         }
+        public frmMotM(string phrase, string trad, string pos,string enonce)
+        {
+            InitializeComponent();
+            generatePhrase(phrase, pos);
+        }
 
         private void frmMotM_Load(object sender, EventArgs e)
         {
@@ -36,20 +41,24 @@ namespace CasaDeBabbel
             {
                 if (tabPos.Contains(i))
                 {
-                    this.Controls.Add(new TextBox() {
+
+                    pnlListe.Controls.Add(new TextBox() {
                         Name = "tbxMot" + i,
                         Width = 30,
-                        Location = new Point(10 + i * 30, 500)
+                        Height = 40,
+                        Location = new Point(10 + i * 30, 20)
                     });
                 }
                 else
                 {
-                    this.Controls.Add(new Label() {
+                    
+                   pnlListe.Controls.Add(new Label() {
                         Name = "lblMot" + i,
                         Width = 30,
-                        Location = new Point(10 + i * 30, 500),
+                        Height = 40,
+                        Location = new Point(10 + i * 30, 20),
                         Text = Convert.ToString(tabPhrase[i])
-                    });
+                    }); ;
                 }
                 
             }

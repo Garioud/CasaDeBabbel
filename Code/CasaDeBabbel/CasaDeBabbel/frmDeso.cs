@@ -50,6 +50,8 @@ namespace CasaDeBabbel
             codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
             actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
             lblNomPersonne.Text = actualUser;
+            lblActualCours.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
+            lblActLec.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             this.phraseEsp = phrase;
             this.phrase = trad;
             this.enonce = enonce;
@@ -61,13 +63,15 @@ namespace CasaDeBabbel
         private void generatePhrase()
         {
             tabMot = phraseEsp.Split(' ');
+            Random rnd = new Random();
+            string[] tabMotrnd = tabMot.OrderBy(x => rnd.Next()).ToArray();
             int ix = x;
             int iy = y;
-            for (int i=0;i<tabMot.Length; i++)
+            for (int i=0;i< tabMotrnd.Length; i++)
             {
                 Label lbl = new Label();
                 lbl.Name = "lbl" + i;
-                lbl.Text = tabMot[i];
+                lbl.Text = tabMotrnd[i];
                 lbl.Size = new Size(lx, ly);
                 lbl.BorderStyle = BorderStyle.FixedSingle;
                 lbl.Location = new Point(ix, iy);
