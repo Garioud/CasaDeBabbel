@@ -226,11 +226,7 @@ namespace CasaDeBabbel
         private void btnStart_Click(object sender, EventArgs e)
         {
             startExo();
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 33bcc5d50850c58453c0ca6857bf93f945d2dce4
         }
 
         public void startExo()
@@ -250,23 +246,21 @@ namespace CasaDeBabbel
                         regle = temporaryRow2[0].Field<string>("texteRegle");
                     }
 
-
-
                 }
 
                 if (temporaryRow[0].Field<bool>("completeOn"))
                 {
 
-                    frmDeso exer = new frmDeso();
+                    
                     string phrase;
                     string traduc;
                     using (DataTable temporyTable2 = dsEsp.Tables["Phrases"])
                     {
-                        DataRow[] temporaryRow2 = temporaryTable.Select($"codePhrase={temporaryRow[0].Field<int>("codePhrase")}");
+                        DataRow[] temporaryRow2 = temporyTable2.Select($"codePhrase={temporaryRow[0].Field<int>("codePhrase")}");
                         phrase = temporaryRow2[0].Field<string>("textePhrase");
                         traduc = temporaryRow2[0].Field<string>("traducPhrase");
                     }
-
+                    frmDeso exer = new frmDeso(phrase,traduc,enonceExo);
                     this.Hide();
 
                     exer.Show();

@@ -22,6 +22,11 @@ namespace CasaDeBabbel
         private Dictionary<String, int> codeUser = new Dictionary<string, int>();
         private string actualUser;
         private string enonce;
+        private string[] tabMot;
+        int x = 10;
+        int y = 10;
+        int lx = 75;
+        int ly = 15;
 
         public frmDeso()
         {
@@ -48,31 +53,32 @@ namespace CasaDeBabbel
             this.phraseEsp = phrase;
             this.phrase = trad;
             this.enonce = enonce;
+            generatePhrase();
         }
         
 
      
-        private void getPhrase()
+        private void generatePhrase()
         {
-            using (DataTable temporaryTable = dsEsp.Tables["Exercices"])
+            tabMot = phraseEsp.Split(' ');
+            int ix = x;
+            int iy = y;
+            for (int i=0;i<tabMot.Length; i++)
             {
-                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {numLeçon} AND numCours = '{codeCours}' AND numExo ={nbExo}");
-                numPhrase = temporaryRow[0].Field<int>("codePhrase");
-
-
+                Label lbl = new Label();
+                lbl.Name = "lbl" + i;
+                lbl.Text = tabMot[i];
+                lbl.Size = new Size(lx, ly);
+                lbl.BorderStyle = BorderStyle.FixedSingle;
+                lbl.Location = new Point(ix, iy);
+                pnlDesordre.Controls.Add(lbl);
+                ix += 110;
+                if(i%8==0&&i!=0)
+                {
+                    ix = x;
+                    iy += 30;
+                }
             }
-
-
-
-
-            using (DataTable temporaryTable = dsEsp.Tables["Phrases"])
-            {
-                DataRow[] temporaryRow = temporaryTable.Select($"codePhrase={numPhrase}");
-                phraseEsp = temporaryRow[0].Field<string>("textePhrase");
-                phrase = temporaryRow[0].Field<string>("traducPhrase");
-
-            }
-
 
 
         }
