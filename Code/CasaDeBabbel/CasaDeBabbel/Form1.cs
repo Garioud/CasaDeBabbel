@@ -226,6 +226,11 @@ namespace CasaDeBabbel
         private void btnStart_Click(object sender, EventArgs e)
         {
             startExo();
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 33bcc5d50850c58453c0ca6857bf93f945d2dce4
         }
 
         public void startExo()
