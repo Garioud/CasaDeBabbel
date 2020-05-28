@@ -286,7 +286,7 @@ namespace CasaDeBabbel
             }
         }
 
-        public int getExoN()
+        private int getExoN()
         {
             int code;
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
@@ -308,7 +308,7 @@ namespace CasaDeBabbel
             return actExo;
         }
 
-        public int getCodeLeçon()
+        private int getCodeLeçon()
         {
             int code;
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
@@ -318,7 +318,7 @@ namespace CasaDeBabbel
             return tEow[0].Field<int>("codeLeçon");
         }
 
-        public string getNumCours()
+        private string getNumCours()
         {
             int code;
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
@@ -349,6 +349,10 @@ namespace CasaDeBabbel
             get
             {
                 return dsEsp;
+            }
+            set
+            {
+                dsEsp = value;
             }
         }
 
@@ -418,6 +422,13 @@ namespace CasaDeBabbel
             {
                 return nbExoTotal;
             }
+        }
+        public void Actualize( DataSet ds)
+        {
+            this.GetDataSet = ds;
+            getExoN();
+            startExo();
+
         }
     }
 
