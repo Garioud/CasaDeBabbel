@@ -71,6 +71,7 @@
             this.lblId.Size = new System.Drawing.Size(133, 22);
             this.lblId.TabIndex = 3;
             this.lblId.Text = "Identifiez-vous";
+            this.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbName
             // 
