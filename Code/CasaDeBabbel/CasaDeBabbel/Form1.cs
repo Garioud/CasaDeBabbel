@@ -240,7 +240,7 @@ namespace CasaDeBabbel
                 string nbCours = getNumCours();
                 int nbLeçon = getCodeLeçon();
                 DataRow[] temporaryRow = temporaryTable.Select($"numExo='{nbExo}' and numCours='{nbCours}' and numLecon='{nbLeçon}'");
-              
+
 
                 if (temporaryRow[0].Field<bool>("completeOn"))
                 {
@@ -248,10 +248,10 @@ namespace CasaDeBabbel
                     frmDeso exer = new frmDeso();
                     string phrase;
                     string traduc;
-                    using (DataTable temporyTable2=dsEsp.Tables["Phrases"])
+                    using (DataTable temporyTable2 = dsEsp.Tables["Phrases"])
                     {
                         DataRow[] temporaryRow2 = temporaryTable.Select($"codePhrase={temporaryRow[0].Field<int>("codePhrase")}");
-                        phrase=temporaryRow2[0].Field<string>("textePhrase");
+                        phrase = temporaryRow2[0].Field<string>("textePhrase");
                         traduc = temporaryRow2[0].Field<string>("traducPhrase");
                     }
 
@@ -280,8 +280,8 @@ namespace CasaDeBabbel
 
                 }
                 else if (!temporaryRow[0].IsNull("codeVerbe"))
-               {
-                    if(temporaryRow[0].Field<int>("codeVerbe")>0)
+                {
+                    if (temporaryRow[0].Field<int>("codeVerbe") > 0)
                     {
                         int codeVerbe = temporaryRow[0].Field<int>("codeVerbe");
                         int codeTemp = temporaryRow[0].Field<int>("codetemps");
@@ -292,47 +292,61 @@ namespace CasaDeBabbel
                     }
                     else
                     {
+
+                        int taille;
+                        string[][] tabMot;
+
+                        using (DataTable temporaryTable2 = dsEsp.Tables["ConcerneMots"])
+                        {
+                            DataRow[] temporaryRow2 = temporaryTable2.Select($"numCours='{nbCours}' and numLecon={nbLeçon} and numExo={nbExo}");
+                            taille = temporaryRow2.Length;
+                            tabMot = new string[taille][];
+                            using (DataTable temporaryTable3 = dsEsp.Tables["Mots"])
+                            {
+                                for (int i = 0; i < taille; i++)
+                                {
+                                    int codeMots = temporaryRow2[i].Field<int>("numMot");
+                                    DataRow[] temporaryRow3 = temporaryTable3.Select($"numMot={codeMots}");
+                                    if (!temporaryRow3[0].IsNull("cheminPhoto"))
+                                        tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
+                                    else
+                                        tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
+
+                                }
+
+                            }
+                        }
                         frmVoca exer = new frmVoca();
                         this.Hide();
                         exer.ShowDialog();
                     }
-                }                 
+                }
                 else
                 {
                     int taille;
                     string[][] tabMot;
-                    
+
                     using (DataTable temporaryTable2 = dsEsp.Tables["ConcerneMots"])
                     {
-                        DataRow[] temporaryRow2=temporaryTable2.Select($"numCours='{nbCours}' and numLecon={nbLeçon} and numExo={nbExo}");
+                        DataRow[] temporaryRow2 = temporaryTable2.Select($"numCours='{nbCours}' and numLecon={nbLeçon} and numExo={nbExo}");
                         taille = temporaryRow2.Length;
-                        tabMot=new string[taille][];
-                        using (DataTable temporaryTable3=dsEsp.Tables["Mots"])
+                        tabMot = new string[taille][];
+                        using (DataTable temporaryTable3 = dsEsp.Tables["Mots"])
                         {
-                            for(int i=0;i<taille;i++)
+                            for (int i = 0; i < taille; i++)
                             {
                                 int codeMots = temporaryRow2[i].Field<int>("numMot");
                                 DataRow[] temporaryRow3 = temporaryTable3.Select($"numMot={codeMots}");
-                                if (!temporaryRow3[i].IsNull("cheminPhoto"))
-                                tabMot[i] = new string[4] { temporaryRow3[i].Field<string>("libMot"), temporaryRow3[i].Field<string>("libMot"), temporaryRow3[i].Field<string>("libMot"), temporaryRow3[i].Field<string>("libMot") };
+                                if (!temporaryRow3[0].IsNull("cheminPhoto"))
+                                    tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
                                 else
-                                    tabMot[i] = new string[4] { temporaryRow3[i].Field<string>("libMot"), temporaryRow3[i].Field<string>("libMot"), temporaryRow3[i].Field<string>("libMot"), temporaryRow3[i].Field<string>("libMot") };
-
+                                    tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
 
                             }
-
-
-
-
-
 
                         }
                     }
 
-
-
-
-                   
                     frmVoca exer = new frmVoca();
                     this.Hide();
                     exer.ShowDialog();
@@ -340,8 +354,10 @@ namespace CasaDeBabbel
             }
         }
 
+
         private int getExoN()
         {
+
             int code;
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
             int actExo;
@@ -357,17 +373,6 @@ namespace CasaDeBabbel
                 lblNumberExo.Text = $"{actExo}/{numberofExercice}";
                 progressGeneration(actExo, numberofExercice);
             }
-
-
-
-
-
-
-
-
-
-
-
             return actExo;
         }
 
