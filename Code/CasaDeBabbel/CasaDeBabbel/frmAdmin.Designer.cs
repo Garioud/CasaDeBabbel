@@ -34,6 +34,7 @@
             this.lblNumberExo = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblAcLec = new System.Windows.Forms.Label();
             this.pgB_Progres = new System.Windows.Forms.ProgressBar();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -108,6 +108,13 @@
             this.panel4.Size = new System.Drawing.Size(220, 135);
             this.panel4.TabIndex = 27;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 135);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 465);
+            this.flowLayoutPanel1.TabIndex = 11;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnStart);
@@ -129,11 +136,14 @@
             // 
             // btnHideWindow
             // 
-            this.btnHideWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(166)))), ((int)(((byte)(57)))));
+            this.btnHideWindow.BackColor = System.Drawing.Color.Transparent;
+            this.btnHideWindow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHideWindow.BackgroundImage")));
+            this.btnHideWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnHideWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHideWindow.Location = new System.Drawing.Point(721, 4);
+            this.btnHideWindow.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHideWindow.Location = new System.Drawing.Point(715, 3);
             this.btnHideWindow.Name = "btnHideWindow";
-            this.btnHideWindow.Size = new System.Drawing.Size(25, 25);
+            this.btnHideWindow.Size = new System.Drawing.Size(27, 27);
             this.btnHideWindow.TabIndex = 2;
             this.btnHideWindow.UseVisualStyleBackColor = false;
             // 
@@ -149,11 +159,14 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Location = new System.Drawing.Point(752, 4);
+            this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnExit.Location = new System.Drawing.Point(750, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(25, 25);
+            this.btnExit.Size = new System.Drawing.Size(27, 27);
             this.btnExit.TabIndex = 0;
             this.btnExit.UseVisualStyleBackColor = false;
             // 
@@ -234,13 +247,6 @@
             this.pgB_Progres.Step = 1;
             this.pgB_Progres.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pgB_Progres.TabIndex = 24;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 135);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 465);
-            this.flowLayoutPanel1.TabIndex = 11;
             // 
             // button1
             // 

@@ -82,21 +82,27 @@
             // 
             // btnHideWindow
             // 
-            this.btnHideWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(166)))), ((int)(((byte)(57)))));
+            this.btnHideWindow.BackColor = System.Drawing.Color.Transparent;
+            this.btnHideWindow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHideWindow.BackgroundImage")));
+            this.btnHideWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnHideWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHideWindow.Location = new System.Drawing.Point(721, 4);
+            this.btnHideWindow.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHideWindow.Location = new System.Drawing.Point(715, 3);
             this.btnHideWindow.Name = "btnHideWindow";
-            this.btnHideWindow.Size = new System.Drawing.Size(25, 25);
+            this.btnHideWindow.Size = new System.Drawing.Size(27, 27);
             this.btnHideWindow.TabIndex = 2;
             this.btnHideWindow.UseVisualStyleBackColor = false;
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Location = new System.Drawing.Point(752, 4);
+            this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnExit.Location = new System.Drawing.Point(750, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(25, 25);
+            this.btnExit.Size = new System.Drawing.Size(27, 27);
             this.btnExit.TabIndex = 0;
             this.btnExit.UseVisualStyleBackColor = false;
             // 
