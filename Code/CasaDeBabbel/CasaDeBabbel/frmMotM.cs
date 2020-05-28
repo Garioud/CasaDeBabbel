@@ -53,6 +53,7 @@ namespace CasaDeBabbel
                     if (position >= 900)
                     {
                         ligne += 40;
+                        position = 50;
                     }
                 }
                 else
@@ -70,6 +71,7 @@ namespace CasaDeBabbel
                     if (position >= 900)
                     {
                         ligne += 40;
+                        position = 50;
                     }
                 }
                 
