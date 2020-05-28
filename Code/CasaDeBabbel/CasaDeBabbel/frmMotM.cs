@@ -23,7 +23,36 @@ namespace CasaDeBabbel
         }
         private void generatePhrase(string phrase,string pos)
         {
-           
+            string[] tabPhrase = phrase.Split(' ');
+            string[] intPos = pos.Split('/');
+            int[] tabPos = new int[intPos.Length];
+
+            for(int i = 0; i < intPos.Length; i++)
+            {
+                tabPos[i] = int.Parse(intPos[i]);
+            }
+            
+            for(int i = 0; i < tabPhrase.Length; i++)
+            {
+                if (tabPos.Contains(i))
+                {
+                    this.Controls.Add(new TextBox() {
+                        Name = "tbxMot" + i,
+                        Width = 30,
+                        Location = new Point(10 + i * 30, 500)
+                    });
+                }
+                else
+                {
+                    this.Controls.Add(new Label() {
+                        Name = "lblMot" + i,
+                        Width = 30,
+                        Location = new Point(10 + i * 30, 500),
+                        Text = Convert.ToString(tabPhrase[i])
+                    });
+                }
+                
+            }
 
 
 
