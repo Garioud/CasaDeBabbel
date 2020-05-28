@@ -32,6 +32,7 @@ namespace CasaDeBabbel
             string[] intPos = pos.Split('/');
             int[] tabPos = new int[intPos.Length];
             int position = 50;
+            int ligne = 10;
 
             for(int i = 0; i < intPos.Length; i++)
             {
@@ -42,14 +43,17 @@ namespace CasaDeBabbel
             {
                 if (tabPos.Contains(i))
                 {
-
                     pnlListe.Controls.Add(new TextBox() {
                         Name = "tbxMot" + i,
                         Width = 15 * 15,
                         Font = new Font("Arial", 14),
-                        Location = new Point(position, 10)
+                        Location = new Point(position, ligne)
                     });
-                    position += tabPhrase[i].Length * 15;
+                    position += 15 * 15;
+                    if (position >= 900)
+                    {
+                        ligne += 40;
+                    }
                 }
                 else
                 {
@@ -59,10 +63,14 @@ namespace CasaDeBabbel
                         Height = 30,
                         Font = new Font("Arial", 14),
                         TextAlign = ContentAlignment.TopCenter,
-                        Location = new Point(position, 10),
+                        Location = new Point(position, ligne),
                         Text = Convert.ToString(tabPhrase[i])
                     });
                     position += tabPhrase[i].Length * 15;
+                    if (position >= 900)
+                    {
+                        ligne += 40;
+                    }
                 }
                 
             }
