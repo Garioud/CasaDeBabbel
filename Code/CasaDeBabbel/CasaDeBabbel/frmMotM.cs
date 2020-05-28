@@ -31,6 +31,7 @@ namespace CasaDeBabbel
             string[] tabPhrase = phrase.Split(' ');
             string[] intPos = pos.Split('/');
             int[] tabPos = new int[intPos.Length];
+            int position = 50;
 
             for(int i = 0; i < intPos.Length; i++)
             {
@@ -44,21 +45,24 @@ namespace CasaDeBabbel
 
                     pnlListe.Controls.Add(new TextBox() {
                         Name = "tbxMot" + i,
-                        Width = 30,
-                        Height = 40,
-                        Location = new Point(10 + i * 30, 20)
+                        Width = tabPhrase[i].Length * 12,
+                        Font = new Font("Arial", 14),
+                        Location = new Point(position, 10)
                     });
+                    position += tabPhrase[i].Length * 15;
                 }
                 else
                 {
-                    
                    pnlListe.Controls.Add(new Label() {
                         Name = "lblMot" + i,
-                        Width = 30,
-                        Height = 40,
-                        Location = new Point(10 + i * 30, 20),
+                        Width = tabPhrase[i].Length * 15,
+                        Height = 30,
+                        Font = new Font("Arial", 14),
+                        TextAlign = ContentAlignment.TopCenter,
+                        Location = new Point(position, 10),
                         Text = Convert.ToString(tabPhrase[i])
-                    }); ;
+                    });
+                    position += tabPhrase[i].Length * 15;
                 }
                 
             }

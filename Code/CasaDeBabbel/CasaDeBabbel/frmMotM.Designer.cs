@@ -198,6 +198,7 @@
             // 
             this.lblActLec.AutoSize = true;
             this.lblActLec.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActLec.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lblActLec.Location = new System.Drawing.Point(403, 60);
             this.lblActLec.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblActLec.Name = "lblActLec";
@@ -240,9 +241,9 @@
             // 
             // pnlListe
             // 
-            this.pnlListe.Location = new System.Drawing.Point(45, 34);
+            this.pnlListe.Location = new System.Drawing.Point(0, 153);
             this.pnlListe.Name = "pnlListe";
-            this.pnlListe.Size = new System.Drawing.Size(913, 215);
+            this.pnlListe.Size = new System.Drawing.Size(1000, 200);
             this.pnlListe.TabIndex = 11;
             // 
             // frmMotM
