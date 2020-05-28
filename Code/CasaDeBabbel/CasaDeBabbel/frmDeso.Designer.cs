@@ -35,6 +35,8 @@
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlDesordre = new System.Windows.Forms.Panel();
+            this.pnlEndroit = new System.Windows.Forms.Panel();
             this.btnStart = new System.Windows.Forms.Button();
             this.lblNumberExo = new System.Windows.Forms.Label();
             this.pgB_Progres = new System.Windows.Forms.ProgressBar();
@@ -46,8 +48,6 @@
             this.lblExo = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
             this.lblNomPersonne = new System.Windows.Forms.Label();
-            this.pnlEndroit = new System.Windows.Forms.Panel();
-            this.pnlDesordre = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -117,6 +117,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1000, 465);
             this.panel1.TabIndex = 12;
+            // 
+            // pnlDesordre
+            // 
+            this.pnlDesordre.Location = new System.Drawing.Point(36, 224);
+            this.pnlDesordre.Name = "pnlDesordre";
+            this.pnlDesordre.Size = new System.Drawing.Size(861, 153);
+            this.pnlDesordre.TabIndex = 12;
+            // 
+            // pnlEndroit
+            // 
+            this.pnlEndroit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlEndroit.Location = new System.Drawing.Point(36, 19);
+            this.pnlEndroit.Name = "pnlEndroit";
+            this.pnlEndroit.Size = new System.Drawing.Size(861, 153);
+            this.pnlEndroit.TabIndex = 11;
             // 
             // btnStart
             // 
@@ -238,20 +253,6 @@
             this.lblNomPersonne.TabIndex = 16;
             this.lblNomPersonne.Text = "NomPersonne";
             this.lblNomPersonne.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pnlEndroit
-            // 
-            this.pnlEndroit.Location = new System.Drawing.Point(36, 19);
-            this.pnlEndroit.Name = "pnlEndroit";
-            this.pnlEndroit.Size = new System.Drawing.Size(861, 153);
-            this.pnlEndroit.TabIndex = 11;
-            // 
-            // pnlDesordre
-            // 
-            this.pnlDesordre.Location = new System.Drawing.Point(36, 224);
-            this.pnlDesordre.Name = "pnlDesordre";
-            this.pnlDesordre.Size = new System.Drawing.Size(861, 153);
-            this.pnlDesordre.TabIndex = 12;
             // 
             // frmDeso
             // 

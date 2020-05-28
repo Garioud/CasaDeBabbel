@@ -54,9 +54,6 @@ namespace CasaDeBabbel
                 
             }
 
-
-
-
         }
 
         private void frmMotM_FormClosed(object sender, FormClosedEventArgs e)
