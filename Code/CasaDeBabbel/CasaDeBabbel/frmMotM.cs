@@ -16,23 +16,24 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
         }
-        public frmMotM(string phrase, string trad, string pos,string enonce)
+        public frmMotM(string phrase, string trad, string pos, string enonce)
         {
             InitializeComponent();
-            generatePhrase(phrase, pos);
+            generatePhrase(phrase, pos, trad);
         }
 
         private void frmMotM_Load(object sender, EventArgs e)
         {
 
         }
-        private void generatePhrase(string phrase,string pos)
+        private void generatePhrase(string phrase,string pos, string traduction)
         {
             string[] tabPhrase = phrase.Split(' ');
             string[] intPos = pos.Split('/');
             int[] tabPos = new int[intPos.Length];
+            
             int position = 50;
-            int ligne = 10;
+            int ligne = 200;
 
             for(int i = 0; i < intPos.Length; i++)
             {
@@ -43,13 +44,14 @@ namespace CasaDeBabbel
             {
                 if (tabPos.Contains(i))
                 {
-                    pnlListe.Controls.Add(new TextBox() {
-                        Name = "tbxMot" + i,
-                        Width = 15 * 15,
-                        Font = new Font("Arial", 14),
-                        Location = new Point(position, ligne)
-                    });
+                    TextBox txtb = new TextBox();
+                    pnlListe.Controls.Add(txtb);
+                    txtb.Name = "txtMot" + i;
+                    txtb.Width = 15 * 15;
+                    txtb.Font = new Font("Arial", 14);
+                    txtb.Location = new Point(position, ligne);
                     position += 15 * 15;
+
                     if (position >= 900)
                     {
                         ligne += 40;
@@ -58,25 +60,33 @@ namespace CasaDeBabbel
                 }
                 else
                 {
-                   pnlListe.Controls.Add(new Label() {
-                        Name = "lblMot" + i,
-                        Width = tabPhrase[i].Length * 15,
-                        Height = 30,
-                        Font = new Font("Arial", 14),
-                        TextAlign = ContentAlignment.TopCenter,
-                        Location = new Point(position, ligne),
-                        Text = Convert.ToString(tabPhrase[i])
-                    });
-                    position += tabPhrase[i].Length * 15;
+                    Label lbl = new Label();
+                    pnlListe.Controls.Add(lbl);
+                    lbl.Name = "lblMot" + i;
+                    lbl.AutoSize = true;             
+                    lbl.Font = new Font("Arial", 14);
+                    lbl.Location = new Point(position, ligne);
+                    lbl.Text = tabPhrase[i];
+                    position += lbl.Width;
+
                     if (position >= 900)
                     {
                         ligne += 40;
                         position = 50;
                     }
                 }
-                
             }
-
+            
+            pnlListe.Controls.Add(new Label()
+            {
+                Name = "lblPhrase",
+                Height = 30,
+                AutoSize = true,
+                Font = new Font("Arial", 14),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(50, 100),
+                Text = Convert.ToString(traduction)
+            });
         }
 
         private void frmMotM_FormClosed(object sender, FormClosedEventArgs e)
@@ -93,5 +103,33 @@ namespace CasaDeBabbel
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        
+        private void btnAide_Click(/*string phrase,*/ object sender, EventArgs e)
+        {
+            /*
+            pnlListe.Controls.Add(new Label()
+            {
+                Name = "lblReponse",
+                Height = 30,
+                Font = new Font("Arial", 14),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(50, 300),
+                Text = Convert.ToString(phrase)
+            });
+            */
+        }
+
+        private void verif(string phrase, string pos)
+        {
+            string[] tabPhrase = phrase.Split(' ');
+            string[] intPos = pos.Split('/');
+            int[] tabPos = new int[intPos.Length];
+
+            for (int i = 0; i < tabPos.Length; i++) {
+                
+            }
+        }
+
     }
 }

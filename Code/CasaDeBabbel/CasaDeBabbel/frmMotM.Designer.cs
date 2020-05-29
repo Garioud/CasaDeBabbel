@@ -47,8 +47,10 @@
             this.lblAcLec = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlListe = new System.Windows.Forms.Panel();
+            this.btnAide = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.pnlListe.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNomPersonne
@@ -241,10 +243,21 @@
             // 
             // pnlListe
             // 
-            this.pnlListe.Location = new System.Drawing.Point(0, 153);
+            this.pnlListe.Controls.Add(this.btnAide);
+            this.pnlListe.Location = new System.Drawing.Point(0, 0);
             this.pnlListe.Name = "pnlListe";
-            this.pnlListe.Size = new System.Drawing.Size(1000, 200);
+            this.pnlListe.Size = new System.Drawing.Size(1000, 376);
             this.pnlListe.TabIndex = 11;
+            // 
+            // btnAide
+            // 
+            this.btnAide.Location = new System.Drawing.Point(908, 12);
+            this.btnAide.Name = "btnAide";
+            this.btnAide.Size = new System.Drawing.Size(80, 29);
+            this.btnAide.TabIndex = 0;
+            this.btnAide.Text = "Aide";
+            this.btnAide.UseVisualStyleBackColor = true;
+            this.btnAide.Click += new System.EventHandler(this.btnAide_Click);
             // 
             // frmMotM
             // 
@@ -271,6 +284,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.pnlListe.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,5 +310,6 @@
         private System.Windows.Forms.Label lblAcLec;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlListe;
+        private System.Windows.Forms.Button btnAide;
     }
 }
