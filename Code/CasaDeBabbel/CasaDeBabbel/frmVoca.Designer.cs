@@ -111,6 +111,7 @@
             this.btnHideWindow.Size = new System.Drawing.Size(27, 27);
             this.btnHideWindow.TabIndex = 2;
             this.btnHideWindow.UseVisualStyleBackColor = false;
+            this.btnHideWindow.Click += new System.EventHandler(this.btnHideWindow_Click);
             // 
             // btnExit
             // 
@@ -124,6 +125,7 @@
             this.btnExit.Size = new System.Drawing.Size(27, 27);
             this.btnExit.TabIndex = 0;
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // lblExo
             // 

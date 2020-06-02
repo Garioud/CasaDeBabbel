@@ -12,6 +12,8 @@ namespace CasaDeBabbel
 {
     public partial class frmMotM : Form
     {
+
+        List<TextBox> textBoxList = new List<TextBox>();
         public frmMotM()
         {
             InitializeComponent();
@@ -51,6 +53,8 @@ namespace CasaDeBabbel
                     txtb.Font = new Font("Arial", 14);
                     txtb.Location = new Point(position, ligne);
                     position += 15 * 15;
+
+                    textBoxList.Add(txtb);
 
                     if (position >= 900)
                     {
@@ -94,15 +98,7 @@ namespace CasaDeBabbel
             frmLogin.ActiveForm.Activate();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnHideWindow_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+        
 
         
         private void btnAide_Click(/*string phrase,*/ object sender, EventArgs e)
@@ -127,9 +123,26 @@ namespace CasaDeBabbel
             int[] tabPos = new int[intPos.Length];
 
             for (int i = 0; i < tabPos.Length; i++) {
-                
+                if (textBoxList[i].Text == tabPhrase[tabPos[i]])
+                {
+                    textBoxList[i].BackColor = Color.Green;
+                }
+                else
+                {
+                    textBoxList[i].BackColor = Color.Red;
+                }
             }
+
         }
 
+        private void btnHideWindow_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

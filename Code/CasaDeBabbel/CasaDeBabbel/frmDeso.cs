@@ -25,8 +25,6 @@ namespace CasaDeBabbel
         private string[] tabMot;
         int x = 10;
         int y = 10;
-        int lx = 75;
-        int ly = 15;
 
         public frmDeso()
         {
@@ -70,21 +68,23 @@ namespace CasaDeBabbel
             for (int i=0;i< tabMotrnd.Length; i++)
             {
                 Label lbl = new Label();
+                pnlDesordre.Controls.Add(lbl);
                 lbl.Name = "lbl" + i;
                 lbl.Text = tabMotrnd[i];
-                lbl.Size = new Size(lx, ly);
+
+                lbl.AutoSize = true;
+                lbl.Font = new Font("Arial", 14);
                 lbl.BorderStyle = BorderStyle.FixedSingle;
                 lbl.Location = new Point(ix, iy);
-                pnlDesordre.Controls.Add(lbl);
-                ix += 110;
+                
+                ix += lbl.Width+50;
+
                 if(i%8==0&&i!=0)
                 {
                     ix = x;
-                    iy += 30;
+                    iy += 40;
                 }
             }
-
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)
