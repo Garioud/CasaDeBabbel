@@ -25,6 +25,10 @@ namespace CasaDeBabbel
         private string[] tabMot;
         int x = 10;
         int y = 10;
+        int riX = 10;
+        int riY = 10;
+        int rX = 10;
+        int rY = 10;
 
         public frmDeso()
         {
@@ -71,7 +75,7 @@ namespace CasaDeBabbel
                 pnlDesordre.Controls.Add(lbl);
                 lbl.Name = "lbl" + i;
                 lbl.Text = tabMotrnd[i];
-
+                lbl.Click += new EventHandler(this.moveToPhrase);
                 lbl.AutoSize = true;
                 lbl.Font = new Font("Arial", 14);
                 lbl.BorderStyle = BorderStyle.FixedSingle;
@@ -91,12 +95,67 @@ namespace CasaDeBabbel
         {
             Application.Exit();
         }
+        private void moveToPhrase(object sender, EventArgs e)
+        {
+            Label lb = (Label)sender;
+            pnlDesordre.Controls.Remove(lb);
+            lb.Location = new Point(rX, rY);
 
+            pnlEndroit.Controls.Add(lb);
+
+            if (pnlEndroit.Controls.Count%6==0&& pnlEndroit.Controls.Count !=0)
+            {
+                rX = riX;
+                rY += 40;
+            }
+            else
+            {
+                rX += lb.Width + 50;
+            }
+
+            UpdatePanel();
+
+
+
+        }
         private void btnHideWindow_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void UpdatePanel()
+        {
+
+            int x = riX;
+            int y = riY;
+            int i = 0;
+            foreach(Label lbl in pnlDesordre.Controls)
+            {
+
+                lbl.Location = new Point(x, y);
+
+                if (i % 6 == 0 &&i != 0)
+                {
+                    x = riX;
+                    y += 40;
+                }
+                else
+                {
+                    x += lbl.Width + 50;
+                }
+
+
+                i++;
+
+
+            }
+
+
+
+
+
+
+        }
 
     }
 }
