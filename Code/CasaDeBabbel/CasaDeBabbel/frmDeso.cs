@@ -23,8 +23,10 @@ namespace CasaDeBabbel
         private string actualUser;
         private string enonce;
         private string[] tabMot;
+        int ix = 10;
+        int iy = 10;
         int x = 10;
-        int y = 10;
+        int y=10;
         int riX = 10;
         int riY = 10;
         int rX = 10;
@@ -67,8 +69,7 @@ namespace CasaDeBabbel
             tabMot = phraseEsp.Split(' ');
             Random rnd = new Random();
             string[] tabMotrnd = tabMot.OrderBy(x => rnd.Next()).ToArray();
-            int ix = x;
-            int iy = y;
+       
             for (int i=0;i< tabMotrnd.Length; i++)
             {
                 Label lbl = new Label();
@@ -79,14 +80,14 @@ namespace CasaDeBabbel
                 lbl.AutoSize = true;
                 lbl.Font = new Font("Arial", 14);
                 lbl.BorderStyle = BorderStyle.FixedSingle;
-                lbl.Location = new Point(ix, iy);
+                lbl.Location = new Point(x, y);
                 
-                ix += lbl.Width+50;
+                x += lbl.Width+50;
 
-                if(i%8==0&&i!=0)
+                if(i%6==0&&i!=0)
                 {
-                    ix = x;
-                    iy += 40;
+                    x = ix;
+                    y += 40;
                 }
             }
         }
@@ -126,8 +127,8 @@ namespace CasaDeBabbel
         private void UpdatePanel()
         {
 
-            int x = riX;
-            int y = riY;
+            x = ix;
+            y = iy;
             int i = 0;
             foreach(Label lbl in pnlDesordre.Controls)
             {
@@ -136,7 +137,7 @@ namespace CasaDeBabbel
 
                 if (i % 6 == 0 &&i != 0)
                 {
-                    x = riX;
+                    x = ix;
                     y += 40;
                 }
                 else
@@ -157,5 +158,60 @@ namespace CasaDeBabbel
 
         }
 
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            pnlDesordre.Controls.Clear();
+            pnlEndroit.Controls.Clear();
+            x = ix;
+            y = iy;
+            for (int i = 0;i<tabMot.Length;i++)
+            {
+
+                Label lbl = new Label();
+                pnlEndroit.Controls.Add(lbl);
+                lbl.Name = "lbl" + i;
+                lbl.Text = tabMot[i];   
+                lbl.AutoSize = true;
+                lbl.Font = new Font("Arial", 14);
+                lbl.BorderStyle = BorderStyle.FixedSingle;
+                lbl.Location = new Point(x, y);
+
+                x += lbl.Width + 50;
+
+                if (i % 6 == 0 && i != 0)
+                {
+                    x = ix;
+                    y += 40;
+                }
+
+            }
+            pnlEndroit.Enabled = false;
+            pnlDesordre.Enabled=false;
+
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            if (pnlEndroit.Controls.Count > 0)
+            {
+                Label lbl = (Label)pnlEndroit.Controls[pnlEndroit.Controls.Count - 1];
+                rX -= (lbl.Width + 50);
+                pnlEndroit.Controls.Remove(lbl);
+                pnlDesordre.Controls.Add(lbl);
+                UpdatePanel();
+                if (pnlEndroit.Controls.Count%6==0&& pnlEndroit.Controls.Count!=0)
+                {
+                    rY -= 40;
+                    
+                }
+            }
+
+
+
+
+
+
+
+        }
     }
 }

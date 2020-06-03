@@ -48,6 +48,8 @@
             this.lblExo = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
             this.lblNomPersonne = new System.Windows.Forms.Label();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -110,6 +112,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnReturn);
+            this.panel1.Controls.Add(this.btnHelp);
             this.panel1.Controls.Add(this.pnlDesordre);
             this.panel1.Controls.Add(this.pnlEndroit);
             this.panel1.Controls.Add(this.btnStart);
@@ -256,6 +260,26 @@
             this.lblNomPersonne.Text = "NomPersonne";
             this.lblNomPersonne.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Location = new System.Drawing.Point(913, 19);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(75, 23);
+            this.btnHelp.TabIndex = 13;
+            this.btnHelp.Text = "button1";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(913, 62);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnReturn.TabIndex = 14;
+            this.btnReturn.Text = "button2";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // frmDeso
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -305,5 +329,7 @@
         private System.Windows.Forms.Label lblNomPersonne;
         private System.Windows.Forms.Panel pnlDesordre;
         private System.Windows.Forms.Panel pnlEndroit;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
