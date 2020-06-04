@@ -12,8 +12,14 @@ namespace CasaDeBabbel
 {
     public partial class frmAdmin : Form
     {
+        private DataSet dsExo;
         public frmAdmin()
         {
+            InitializeComponent();
+        }
+        public frmAdmin(DataSet ds)
+        {
+
             InitializeComponent();
         }
 
