@@ -23,8 +23,14 @@ namespace CasaDeBabbel
         private string actualUser;
         private string enonce;
         private string[] tabMot;
+        int ix = 10;
+        int iy = 10;
         int x = 10;
-        int y = 10;
+        int y=10;
+        int riX = 10;
+        int riY = 10;
+        int rX = 10;
+        int rY = 10;
 
         public frmDeso()
         {
@@ -63,26 +69,25 @@ namespace CasaDeBabbel
             tabMot = phraseEsp.Split(' ');
             Random rnd = new Random();
             string[] tabMotrnd = tabMot.OrderBy(x => rnd.Next()).ToArray();
-            int ix = x;
-            int iy = y;
+       
             for (int i=0;i< tabMotrnd.Length; i++)
             {
                 Label lbl = new Label();
                 pnlDesordre.Controls.Add(lbl);
                 lbl.Name = "lbl" + i;
                 lbl.Text = tabMotrnd[i];
-
+                lbl.Click += new EventHandler(this.moveToPhrase);
                 lbl.AutoSize = true;
                 lbl.Font = new Font("Arial", 14);
                 lbl.BorderStyle = BorderStyle.FixedSingle;
-                lbl.Location = new Point(ix, iy);
+                lbl.Location = new Point(x, y);
                 
-                ix += lbl.Width+50;
+                x += lbl.Width+50;
 
-                if(i%8==0&&i!=0)
+                if(i%6==0&&i!=0)
                 {
-                    ix = x;
-                    iy += 40;
+                    x = ix;
+                    y += 40;
                 }
             }
         }
@@ -91,12 +96,122 @@ namespace CasaDeBabbel
         {
             Application.Exit();
         }
+        private void moveToPhrase(object sender, EventArgs e)
+        {
+            Label lb = (Label)sender;
+            pnlDesordre.Controls.Remove(lb);
+            lb.Location = new Point(rX, rY);
 
+            pnlEndroit.Controls.Add(lb);
+
+            if (pnlEndroit.Controls.Count%6==0&& pnlEndroit.Controls.Count !=0)
+            {
+                rX = riX;
+                rY += 40;
+            }
+            else
+            {
+                rX += lb.Width + 50;
+            }
+
+            UpdatePanel();
+
+
+
+        }
         private void btnHideWindow_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void UpdatePanel()
+        {
 
+            x = ix;
+            y = iy;
+            int i = 0;
+            foreach(Label lbl in pnlDesordre.Controls)
+            {
+
+                lbl.Location = new Point(x, y);
+
+                if (i % 6 == 0 &&i != 0)
+                {
+                    x = ix;
+                    y += 40;
+                }
+                else
+                {
+                    x += lbl.Width + 50;
+                }
+
+
+                i++;
+
+
+            }
+
+
+
+
+
+
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            pnlDesordre.Controls.Clear();
+            pnlEndroit.Controls.Clear();
+            x = ix;
+            y = iy;
+            for (int i = 0;i<tabMot.Length;i++)
+            {
+
+                Label lbl = new Label();
+                pnlEndroit.Controls.Add(lbl);
+                lbl.Name = "lbl" + i;
+                lbl.Text = tabMot[i];   
+                lbl.AutoSize = true;
+                lbl.Font = new Font("Arial", 14);
+                lbl.BorderStyle = BorderStyle.FixedSingle;
+                lbl.Location = new Point(x, y);
+
+                x += lbl.Width + 50;
+
+                if (i % 6 == 0 && i != 0)
+                {
+                    x = ix;
+                    y += 40;
+                }
+
+            }
+            pnlEndroit.Enabled = false;
+            pnlDesordre.Enabled=false;
+
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            if (pnlEndroit.Controls.Count > 0)
+            {
+                Label lbl = (Label)pnlEndroit.Controls[pnlEndroit.Controls.Count - 1];
+                rX -= (lbl.Width + 50);
+                pnlEndroit.Controls.Remove(lbl);
+                pnlDesordre.Controls.Add(lbl);
+                UpdatePanel();
+                if (pnlEndroit.Controls.Count%6==0&& pnlEndroit.Controls.Count!=0)
+                {
+                    rY -= 40;
+                    
+                }
+            }
+
+
+
+
+
+
+
+        }
     }
 }

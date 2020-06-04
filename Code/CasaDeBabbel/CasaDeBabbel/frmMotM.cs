@@ -14,6 +14,10 @@ namespace CasaDeBabbel
     {
 
         List<TextBox> textBoxList = new List<TextBox>();
+        private string phrase;
+        private string trad;
+        private string pos;
+        private string enonce;
         public frmMotM()
         {
             InitializeComponent();
@@ -22,6 +26,10 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
             generatePhrase(phrase, pos, trad);
+            this.phrase = phrase;
+            this.trad = trad;
+            this.pos = pos;
+            this.enonce = enonce;
         }
 
         private void frmMotM_Load(object sender, EventArgs e)
@@ -85,7 +93,7 @@ namespace CasaDeBabbel
             {
                 Name = "lblPhrase",
                 Height = 30,
-                AutoSize = true,
+                AutoSize = true,               
                 Font = new Font("Arial", 14),
                 TextAlign = ContentAlignment.TopLeft,
                 Location = new Point(50, 100),
@@ -101,18 +109,19 @@ namespace CasaDeBabbel
         
 
         
-        private void btnAide_Click(/*string phrase,*/ object sender, EventArgs e)
+        private void btnAide_Click(object sender, EventArgs e)
         {
-            
-            /*pnlListe.Controls.Add(new Label()
+
+            pnlListe.Controls.Add(new Label()
             {
                 Name = "lblReponse",
                 Height = 30,
                 Font = new Font("Arial", 14),
                 TextAlign = ContentAlignment.TopLeft,
                 Location = new Point(50, 300),
+                AutoSize = true,
                 Text = Convert.ToString(phrase)
-            });*/
+            }); ;
             
         }
 
