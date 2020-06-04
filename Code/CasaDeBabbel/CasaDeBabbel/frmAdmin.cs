@@ -19,7 +19,7 @@ namespace CasaDeBabbel
         }
         public frmAdmin(DataSet ds)
         {
-
+            dsExo = ds;
             InitializeComponent();
         }
 

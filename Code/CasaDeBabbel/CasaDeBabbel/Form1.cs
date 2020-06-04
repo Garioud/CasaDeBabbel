@@ -40,6 +40,7 @@ namespace CasaDeBabbel
         {
             FillDataSet(chcon, dsEsp);
             fillCB(cbName, "Utilisateurs", 1, 2, dsEsp);
+            frmAdmin test=new frmAdmin(dsEsp);
 
         }
 
