@@ -103,8 +103,8 @@ namespace CasaDeBabbel
         
         private void btnAide_Click(/*string phrase,*/ object sender, EventArgs e)
         {
-            /*
-            pnlListe.Controls.Add(new Label()
+            
+            /*pnlListe.Controls.Add(new Label()
             {
                 Name = "lblReponse",
                 Height = 30,
@@ -112,8 +112,8 @@ namespace CasaDeBabbel
                 TextAlign = ContentAlignment.TopLeft,
                 Location = new Point(50, 300),
                 Text = Convert.ToString(phrase)
-            });
-            */
+            });*/
+            
         }
 
         private void verif(string phrase, string pos)
