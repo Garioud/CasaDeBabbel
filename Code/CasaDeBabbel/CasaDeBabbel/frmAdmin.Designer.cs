@@ -47,10 +47,13 @@
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblAcLec = new System.Windows.Forms.Label();
             this.pgB_Progres = new System.Windows.Forms.ProgressBar();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnCours1 = new System.Windows.Forms.Button();
+            this.btnCours2 = new System.Windows.Forms.Button();
+            this.btnCours3 = new System.Windows.Forms.Button();
+            this.btnCours4 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnAvant = new System.Windows.Forms.Button();
+            this.btnApres = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -76,6 +79,7 @@
             this.btnMenu.TabIndex = 28;
             this.btnMenu.Text = "Menu";
             this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // lblNumberExo
             // 
@@ -117,6 +121,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnApres);
+            this.panel1.Controls.Add(this.btnAvant);
+            this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Location = new System.Drawing.Point(220, 135);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
@@ -130,9 +137,9 @@
             this.lblName.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(7, 4);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(182, 23);
+            this.lblName.Size = new System.Drawing.Size(125, 23);
             this.lblName.TabIndex = 3;
-            this.lblName.Text = "Mots dans le désordre";
+            this.lblName.Text = "Administration";
             // 
             // btnHideWindow
             // 
@@ -250,50 +257,76 @@
             this.pgB_Progres.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pgB_Progres.TabIndex = 24;
             // 
-            // button1
+            // btnCours1
             // 
-            this.button1.Location = new System.Drawing.Point(0, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 80);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCours1.Location = new System.Drawing.Point(0, 135);
+            this.btnCours1.Name = "btnCours1";
+            this.btnCours1.Size = new System.Drawing.Size(220, 80);
+            this.btnCours1.TabIndex = 11;
+            this.btnCours1.Text = "btnCours1";
+            this.btnCours1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCours2
             // 
-            this.button2.Location = new System.Drawing.Point(0, 215);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(220, 80);
-            this.button2.TabIndex = 30;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCours2.Location = new System.Drawing.Point(0, 215);
+            this.btnCours2.Name = "btnCours2";
+            this.btnCours2.Size = new System.Drawing.Size(220, 80);
+            this.btnCours2.TabIndex = 30;
+            this.btnCours2.Text = "btnCours2";
+            this.btnCours2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnCours3
             // 
-            this.button3.Location = new System.Drawing.Point(0, 295);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(220, 80);
-            this.button3.TabIndex = 31;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCours3.Location = new System.Drawing.Point(0, 295);
+            this.btnCours3.Name = "btnCours3";
+            this.btnCours3.Size = new System.Drawing.Size(220, 80);
+            this.btnCours3.TabIndex = 31;
+            this.btnCours3.Text = "btnCours3";
+            this.btnCours3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnCours4
             // 
-            this.button4.Location = new System.Drawing.Point(0, 375);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(220, 80);
-            this.button4.TabIndex = 32;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnCours4.Location = new System.Drawing.Point(0, 375);
+            this.btnCours4.Name = "btnCours4";
+            this.btnCours4.Size = new System.Drawing.Size(220, 80);
+            this.btnCours4.TabIndex = 32;
+            this.btnCours4.Text = "btnCours4";
+            this.btnCours4.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 18;
+            this.listBox1.Location = new System.Drawing.Point(25, 18);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(260, 256);
+            this.listBox1.TabIndex = 11;
+            // 
+            // btnAvant
+            // 
+            this.btnAvant.Location = new System.Drawing.Point(687, 18);
+            this.btnAvant.Name = "btnAvant";
+            this.btnAvant.Size = new System.Drawing.Size(30, 30);
+            this.btnAvant.TabIndex = 12;
+            this.btnAvant.UseVisualStyleBackColor = true;
+            // 
+            // btnApres
+            // 
+            this.btnApres.Location = new System.Drawing.Point(723, 18);
+            this.btnApres.Name = "btnApres";
+            this.btnApres.Size = new System.Drawing.Size(30, 30);
+            this.btnApres.TabIndex = 13;
+            this.btnApres.UseVisualStyleBackColor = true;
             // 
             // frmAdmin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCours4);
+            this.Controls.Add(this.btnCours3);
+            this.Controls.Add(this.btnCours2);
+            this.Controls.Add(this.btnCours1);
             this.Controls.Add(this.lblNomPersonne);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.lblNumberExo);
@@ -340,9 +373,12 @@
         private System.Windows.Forms.Label lblActualCours;
         private System.Windows.Forms.Label lblAcLec;
         private System.Windows.Forms.ProgressBar pgB_Progres;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnCours1;
+        private System.Windows.Forms.Button btnCours2;
+        private System.Windows.Forms.Button btnCours3;
+        private System.Windows.Forms.Button btnCours4;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnApres;
+        private System.Windows.Forms.Button btnAvant;
     }
 }

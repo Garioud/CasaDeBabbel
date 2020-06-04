@@ -126,22 +126,30 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(913, 62);
+            this.btnReturn.BackColor = System.Drawing.Color.Transparent;
+            this.btnReturn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReturn.BackgroundImage")));
+            this.btnReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnReturn.Location = new System.Drawing.Point(913, 71);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(75, 36);
+            this.btnReturn.Size = new System.Drawing.Size(75, 46);
             this.btnReturn.TabIndex = 14;
-            this.btnReturn.Text = "button2";
-            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // btnHelp
             // 
+            this.btnHelp.BackColor = System.Drawing.Color.Transparent;
+            this.btnHelp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHelp.BackgroundImage")));
+            this.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.ForeColor = System.Drawing.SystemColors.Control;
             this.btnHelp.Location = new System.Drawing.Point(913, 19);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(75, 37);
+            this.btnHelp.Size = new System.Drawing.Size(75, 46);
             this.btnHelp.TabIndex = 13;
-            this.btnHelp.Text = "button1";
-            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // pnlDesordre
@@ -268,6 +276,7 @@
             this.btnMenu.TabIndex = 15;
             this.btnMenu.Text = "Menu";
             this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // lblNomPersonne
             // 
