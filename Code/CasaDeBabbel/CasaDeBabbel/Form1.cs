@@ -142,10 +142,6 @@ namespace CasaDeBabbel
             generateCoursLabel(tRow);
             generateLeconLabel(tRow);
             generateExerciceLabel(tRow);
-          
-          
-
-
         }
         private void generateCoursLabel(DataRow[] tRow)
         {
@@ -506,8 +502,17 @@ namespace CasaDeBabbel
             startExo();
 
         }
-    }
 
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {  
+             frmAdmin exer = new frmAdmin(dsEsp);
+             this.Hide();
+
+             exer.Show();
+        }
+    }
 }
 
 

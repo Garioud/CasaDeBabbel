@@ -221,5 +221,13 @@ namespace CasaDeBabbel
 
 
         }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            frmLogin exer = new frmLogin();
+            this.Hide();
+
+            exer.Show();
+        }
     }
 }
