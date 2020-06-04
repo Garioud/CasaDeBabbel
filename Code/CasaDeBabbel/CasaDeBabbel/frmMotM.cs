@@ -61,7 +61,7 @@ namespace CasaDeBabbel
                     txtb.Font = new Font("Arial", 14);
                     txtb.Location = new Point(position, ligne);
                     position += 15 * 15;
-
+                    txtb.TextChanged += new EventHandler(this.checkTXT);
                     textBoxList.Add(txtb);
 
                     if (position >= 900)
@@ -131,19 +131,22 @@ namespace CasaDeBabbel
             string[] intPos = pos.Split('/');
             int[] tabPos = new int[intPos.Length];
 
-            for (int i = 0; i < tabPos.Length; i++) {
-                if (textBoxList[i].Text == tabPhrase[tabPos[i]])
+            for (int i = 0; i < intPos.Length; i++) {
+                if (textBoxList[i].Text == tabPhrase[int.Parse(intPos[i])])
                 {
-                    textBoxList[i].BackColor = Color.Green;
+                    textBoxList[i].BackColor = Color.LightGreen;
                 }
                 else
                 {
-                    textBoxList[i].BackColor = Color.Red;
+                    textBoxList[i].BackColor = Color.Pink;
                 }
             }
 
         }
-
+        private void checkTXT(object sebder, EventArgs e)
+        {
+            verif(this.phrase, this.pos);
+        }
         private void btnHideWindow_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;

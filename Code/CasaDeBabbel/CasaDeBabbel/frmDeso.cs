@@ -101,7 +101,7 @@ namespace CasaDeBabbel
             Label lb = (Label)sender;
             pnlDesordre.Controls.Remove(lb);
             lb.Location = new Point(rX, rY);
-
+            lb.Click -= new EventHandler(this.moveToPhrase);
             pnlEndroit.Controls.Add(lb);
 
             if (pnlEndroit.Controls.Count%6==0&& pnlEndroit.Controls.Count !=0)
@@ -164,6 +164,7 @@ namespace CasaDeBabbel
             pnlEndroit.Controls.Clear();
             x = ix;
             y = iy;
+           
             for (int i = 0;i<tabMot.Length;i++)
             {
 
@@ -187,23 +188,30 @@ namespace CasaDeBabbel
             }
             pnlEndroit.Enabled = false;
             pnlDesordre.Enabled=false;
-
+            btnReturn.Enabled = false;
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
             if (pnlEndroit.Controls.Count > 0)
             {
+                int endX;
+            
+                   
+
                 Label lbl = (Label)pnlEndroit.Controls[pnlEndroit.Controls.Count - 1];
                 rX -= (lbl.Width + 50);
-                pnlEndroit.Controls.Remove(lbl);
-                pnlDesordre.Controls.Add(lbl);
-                UpdatePanel();
+             
                 if (pnlEndroit.Controls.Count%6==0&& pnlEndroit.Controls.Count!=0)
                 {
+                    endX = ((Label)pnlEndroit.Controls[5]).Location.X;
                     rY -= 40;
-                    
+                    rX = endX;
                 }
+                pnlEndroit.Controls.Remove(lbl);
+                pnlDesordre.Controls.Add(lbl);
+                lbl.Click += new EventHandler(this.moveToPhrase);
+                UpdatePanel();
             }
 
 
