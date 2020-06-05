@@ -36,6 +36,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnApres = new System.Windows.Forms.Button();
+            this.btnAvant = new System.Windows.Forms.Button();
+            this.lb_Lecons = new System.Windows.Forms.ListBox();
             this.lblName = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -51,9 +54,6 @@
             this.btnCours2 = new System.Windows.Forms.Button();
             this.btnCours3 = new System.Windows.Forms.Button();
             this.btnCours4 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.btnAvant = new System.Windows.Forms.Button();
-            this.btnApres = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -123,13 +123,40 @@
             // 
             this.panel1.Controls.Add(this.btnApres);
             this.panel1.Controls.Add(this.btnAvant);
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.lb_Lecons);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Location = new System.Drawing.Point(220, 135);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(780, 465);
             this.panel1.TabIndex = 25;
+            // 
+            // btnApres
+            // 
+            this.btnApres.Location = new System.Drawing.Point(723, 18);
+            this.btnApres.Name = "btnApres";
+            this.btnApres.Size = new System.Drawing.Size(30, 30);
+            this.btnApres.TabIndex = 13;
+            this.btnApres.UseVisualStyleBackColor = true;
+            // 
+            // btnAvant
+            // 
+            this.btnAvant.Location = new System.Drawing.Point(687, 18);
+            this.btnAvant.Name = "btnAvant";
+            this.btnAvant.Size = new System.Drawing.Size(30, 30);
+            this.btnAvant.TabIndex = 12;
+            this.btnAvant.UseVisualStyleBackColor = true;
+            // 
+            // lb_Lecons
+            // 
+            this.lb_Lecons.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Lecons.FormattingEnabled = true;
+            this.lb_Lecons.ItemHeight = 18;
+            this.lb_Lecons.Location = new System.Drawing.Point(25, 18);
+            this.lb_Lecons.Name = "lb_Lecons";
+            this.lb_Lecons.Size = new System.Drawing.Size(260, 148);
+            this.lb_Lecons.TabIndex = 11;
+            this.lb_Lecons.SelectedIndexChanged += new System.EventHandler(this.lb_Lecons_SelectedIndexChanged);
             // 
             // lblName
             // 
@@ -265,6 +292,7 @@
             this.btnCours1.TabIndex = 11;
             this.btnCours1.Text = "btnCours1";
             this.btnCours1.UseVisualStyleBackColor = true;
+            this.btnCours1.Click += new System.EventHandler(this.btnCours1_Click);
             // 
             // btnCours2
             // 
@@ -274,6 +302,7 @@
             this.btnCours2.TabIndex = 30;
             this.btnCours2.Text = "btnCours2";
             this.btnCours2.UseVisualStyleBackColor = true;
+            this.btnCours2.Click += new System.EventHandler(this.btnCours2_Click);
             // 
             // btnCours3
             // 
@@ -283,6 +312,7 @@
             this.btnCours3.TabIndex = 31;
             this.btnCours3.Text = "btnCours3";
             this.btnCours3.UseVisualStyleBackColor = true;
+            this.btnCours3.Click += new System.EventHandler(this.btnCours3_Click);
             // 
             // btnCours4
             // 
@@ -292,32 +322,7 @@
             this.btnCours4.TabIndex = 32;
             this.btnCours4.Text = "btnCours4";
             this.btnCours4.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(25, 18);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(260, 256);
-            this.listBox1.TabIndex = 11;
-            // 
-            // btnAvant
-            // 
-            this.btnAvant.Location = new System.Drawing.Point(687, 18);
-            this.btnAvant.Name = "btnAvant";
-            this.btnAvant.Size = new System.Drawing.Size(30, 30);
-            this.btnAvant.TabIndex = 12;
-            this.btnAvant.UseVisualStyleBackColor = true;
-            // 
-            // btnApres
-            // 
-            this.btnApres.Location = new System.Drawing.Point(723, 18);
-            this.btnApres.Name = "btnApres";
-            this.btnApres.Size = new System.Drawing.Size(30, 30);
-            this.btnApres.TabIndex = 13;
-            this.btnApres.UseVisualStyleBackColor = true;
+            this.btnCours4.Click += new System.EventHandler(this.btnCours4_Click);
             // 
             // frmAdmin
             // 
@@ -377,7 +382,7 @@
         private System.Windows.Forms.Button btnCours2;
         private System.Windows.Forms.Button btnCours3;
         private System.Windows.Forms.Button btnCours4;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lb_Lecons;
         private System.Windows.Forms.Button btnApres;
         private System.Windows.Forms.Button btnAvant;
     }
