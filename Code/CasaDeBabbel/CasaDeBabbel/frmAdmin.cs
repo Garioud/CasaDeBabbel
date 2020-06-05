@@ -13,6 +13,13 @@ namespace CasaDeBabbel
     public partial class frmAdmin : Form
     {
         private DataSet dsExo;
+        private string NomCours;
+        private string NomLecon;
+
+        List<string> Exo = new List<string>();
+        List<string> EnonceExo = new List<string>();
+        List<string> NumExo = new List<string>();
+        List<string> Phrase = new List<string>();
         public frmAdmin()
         {
             InitializeComponent();
@@ -21,8 +28,8 @@ namespace CasaDeBabbel
         {
             dsExo = ds;
             InitializeComponent();
-            FillListBox(ds);
-            NommerBoutons(this, ds);
+            
+            NommerBoutons(this, dsExo);
         }
 
         private void frmAdmin_Load(object sender, EventArgs e)
@@ -77,7 +84,7 @@ namespace CasaDeBabbel
             }
         }
 
-        private void FillListBox(DataSet ds)
+        private void FillListBox(DataSet ds, string nomCours)
         {
             try
             {
@@ -85,10 +92,16 @@ namespace CasaDeBabbel
                 DataTable temporaryTable = ds.Tables["Lecons"];
                 foreach (DataRow r in temporaryTable.Rows)
                 {
-                    Lecon.Add(r["titreLecon"].ToString());
+                    if (r["numCours"].ToString() == nomCours)
+                    {
+                        Lecon.Add(r["titreLecon"].ToString());
+                    }
+                    else
+                    {
 
+                    }
                 }
-                listBox1.DataSource = Lecon;
+                lb_Lecons.DataSource = Lecon;
             }
             catch (Exception x)
             {
@@ -96,26 +109,34 @@ namespace CasaDeBabbel
             }
         }
 
-        private void Exercices(DataSet ds)
+
+        private void btnCours1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                List<string> Exo = new List<string>();
-                List<string> EnonceExo = new List<string>();
-                List<string> NumExo = new List<string>();
-                List<string> Phrase = new List<string>();
+            NomCours = "PAYSCULT";
+            FillListBox(dsExo, NomCours);
+        }
 
-                DataTable temporaryTable = ds.Tables["Lecons"];
-                foreach (DataRow r in temporaryTable.Rows)
-                {
-                    exo.Add(r["titreLecon"].ToString());
+        private void btnCours2_Click(object sender, EventArgs e)
+        {
+            NomCours = "GRAMM1";
+            FillListBox(dsExo, NomCours);
+        }
 
-                }
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show(x.Message);
-            }
+        private void btnCours3_Click(object sender, EventArgs e)
+        {
+            NomCours = "DEBUT1";
+            FillListBox(dsExo, NomCours);
+        }
+
+        private void btnCours4_Click(object sender, EventArgs e)
+        {
+            NomCours = "DEBUT2";
+            FillListBox(dsExo, NomCours);
+        }
+
+        private void lb_Lecons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
