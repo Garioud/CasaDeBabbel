@@ -108,7 +108,7 @@ namespace CasaDeBabbel
                 DataTable temporaryTable = ds.Tables["Lecons"];
                 foreach (DataRow r in temporaryTable.Rows)
                 {
-                    exo.Add(r["titreLecon"].ToString());
+                    Exo.Add(r["titreLecon"].ToString());
 
                 }
             }
