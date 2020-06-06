@@ -19,9 +19,8 @@ namespace CasaDeBabbel
         public FicheVoca()
         {
             InitializeComponent();
-            pctbVoca.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-        public Image Image
+        public Image setImage
         {
             get
             {
@@ -32,50 +31,6 @@ namespace CasaDeBabbel
                 pctbVoca.Image = value;
             }
 
-     
-        
         }
-
-        public string Origin
-        {
-            get
-            {
-                return lblOrigine.Text;
-            }
-            set
-            {
-                lblOrigine.Text = value;
-            }
-        }
-
-        public string Word
-        {
-            get
-            {
-                return lblMot.Text;
-            }
-            set
-            {
-                lblMot.Text = value;
-            }
-        }
-        public string Trad
-        {
-            get
-            {
-                return lblTrad.Text;
-            }
-            set
-            {
-                lblTrad.Text = value;
-            }
-        }
-
-
-
-
-
-
-
     }
 }

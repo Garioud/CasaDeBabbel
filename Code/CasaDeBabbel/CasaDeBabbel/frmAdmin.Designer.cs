@@ -32,7 +32,6 @@
             this.lblNomPersonne = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
             this.lblNumberExo = new System.Windows.Forms.Label();
-            this.btnStart = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -54,6 +53,11 @@
             this.btnCours2 = new System.Windows.Forms.Button();
             this.btnCours3 = new System.Windows.Forms.Button();
             this.btnCours4 = new System.Windows.Forms.Button();
+            this.btnDebut = new System.Windows.Forms.Button();
+            this.btnFin = new System.Windows.Forms.Button();
+            this.lblEnonce = new System.Windows.Forms.Label();
+            this.lblNum = new System.Windows.Forms.Label();
+            this.lblPhrase = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -93,16 +97,6 @@
             this.lblNumberExo.TabIndex = 23;
             this.lblNumberExo.Text = "label2";
             // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(590, 400);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(163, 41);
-            this.btnStart.TabIndex = 10;
-            this.btnStart.Text = "Continuer";
-            this.btnStart.UseVisualStyleBackColor = true;
-            // 
             // panel4
             // 
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
@@ -121,10 +115,14 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblPhrase);
+            this.panel1.Controls.Add(this.lblNum);
+            this.panel1.Controls.Add(this.lblEnonce);
+            this.panel1.Controls.Add(this.btnFin);
+            this.panel1.Controls.Add(this.btnDebut);
             this.panel1.Controls.Add(this.btnApres);
             this.panel1.Controls.Add(this.btnAvant);
             this.panel1.Controls.Add(this.lb_Lecons);
-            this.panel1.Controls.Add(this.btnStart);
             this.panel1.Location = new System.Drawing.Point(220, 135);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -133,7 +131,7 @@
             // 
             // btnApres
             // 
-            this.btnApres.Location = new System.Drawing.Point(723, 18);
+            this.btnApres.Location = new System.Drawing.Point(394, 240);
             this.btnApres.Name = "btnApres";
             this.btnApres.Size = new System.Drawing.Size(30, 30);
             this.btnApres.TabIndex = 13;
@@ -141,7 +139,7 @@
             // 
             // btnAvant
             // 
-            this.btnAvant.Location = new System.Drawing.Point(687, 18);
+            this.btnAvant.Location = new System.Drawing.Point(358, 240);
             this.btnAvant.Name = "btnAvant";
             this.btnAvant.Size = new System.Drawing.Size(30, 30);
             this.btnAvant.TabIndex = 12;
@@ -149,12 +147,12 @@
             // 
             // lb_Lecons
             // 
-            this.lb_Lecons.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Lecons.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Lecons.FormattingEnabled = true;
-            this.lb_Lecons.ItemHeight = 18;
-            this.lb_Lecons.Location = new System.Drawing.Point(25, 18);
+            this.lb_Lecons.ItemHeight = 29;
+            this.lb_Lecons.Location = new System.Drawing.Point(98, 15);
             this.lb_Lecons.Name = "lb_Lecons";
-            this.lb_Lecons.Size = new System.Drawing.Size(260, 148);
+            this.lb_Lecons.Size = new System.Drawing.Size(568, 207);
             this.lb_Lecons.TabIndex = 11;
             this.lb_Lecons.SelectedIndexChanged += new System.EventHandler(this.lb_Lecons_SelectedIndexChanged);
             // 
@@ -324,6 +322,52 @@
             this.btnCours4.UseVisualStyleBackColor = true;
             this.btnCours4.Click += new System.EventHandler(this.btnCours4_Click);
             // 
+            // btnDebut
+            // 
+            this.btnDebut.Location = new System.Drawing.Point(322, 240);
+            this.btnDebut.Name = "btnDebut";
+            this.btnDebut.Size = new System.Drawing.Size(30, 30);
+            this.btnDebut.TabIndex = 14;
+            this.btnDebut.UseVisualStyleBackColor = true;
+            // 
+            // btnFin
+            // 
+            this.btnFin.Location = new System.Drawing.Point(430, 240);
+            this.btnFin.Name = "btnFin";
+            this.btnFin.Size = new System.Drawing.Size(30, 30);
+            this.btnFin.TabIndex = 15;
+            this.btnFin.UseVisualStyleBackColor = true;
+            // 
+            // lblEnonce
+            // 
+            this.lblEnonce.AutoSize = true;
+            this.lblEnonce.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnonce.Location = new System.Drawing.Point(21, 295);
+            this.lblEnonce.Name = "lblEnonce";
+            this.lblEnonce.Size = new System.Drawing.Size(66, 23);
+            this.lblEnonce.TabIndex = 16;
+            this.lblEnonce.Text = "Enonce";
+            // 
+            // lblNum
+            // 
+            this.lblNum.AutoSize = true;
+            this.lblNum.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNum.Location = new System.Drawing.Point(21, 339);
+            this.lblNum.Name = "lblNum";
+            this.lblNum.Size = new System.Drawing.Size(47, 23);
+            this.lblNum.TabIndex = 17;
+            this.lblNum.Text = "Num";
+            // 
+            // lblPhrase
+            // 
+            this.lblPhrase.AutoSize = true;
+            this.lblPhrase.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhrase.Location = new System.Drawing.Point(21, 382);
+            this.lblPhrase.Name = "lblPhrase";
+            this.lblPhrase.Size = new System.Drawing.Size(63, 23);
+            this.lblPhrase.TabIndex = 18;
+            this.lblPhrase.Text = "Phrase";
+            // 
             // frmAdmin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -351,6 +395,7 @@
             this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -363,7 +408,6 @@
         private System.Windows.Forms.Label lblNomPersonne;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Label lblNumberExo;
-        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
@@ -385,5 +429,10 @@
         private System.Windows.Forms.ListBox lb_Lecons;
         private System.Windows.Forms.Button btnApres;
         private System.Windows.Forms.Button btnAvant;
+        private System.Windows.Forms.Button btnFin;
+        private System.Windows.Forms.Button btnDebut;
+        private System.Windows.Forms.Label lblPhrase;
+        private System.Windows.Forms.Label lblNum;
+        private System.Windows.Forms.Label lblEnonce;
     }
 }

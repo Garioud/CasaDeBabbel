@@ -302,15 +302,15 @@ namespace CasaDeBabbel
                                     int codeMots = temporaryRow2[i].Field<int>("numMot");
                                     DataRow[] temporaryRow3 = temporaryTable3.Select($"numMot={codeMots}");
                                     if (!temporaryRow3[0].IsNull("cheminPhoto"))
-                                        tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("traducMot"), temporaryRow3[0].Field<string>("origine"), temporaryRow3[0].Field<string>("cheminPhoto") };
+                                        tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
                                     else
-                                        tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("traducMot"), temporaryRow3[0].Field<string>("origine"), null };
+                                        tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
 
                                 }
 
                             }
                         }
-                        frmVoca exer = new frmVoca(tabMot);
+                        frmVoca exer = new frmVoca();
                         this.Hide();
                         exer.ShowDialog();
                     }
@@ -332,9 +332,9 @@ namespace CasaDeBabbel
                                 int codeMots = temporaryRow2[i].Field<int>("numMot");
                                 DataRow[] temporaryRow3 = temporaryTable3.Select($"numMot={codeMots}");
                                 if (!temporaryRow3[0].IsNull("cheminPhoto"))
-                                    tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("traducMot"), temporaryRow3[0].Field<string>("origine"), temporaryRow3[0].Field<string>("cheminPhoto") };
+                                    tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
                                 else
-                                    tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("traducMot"), temporaryRow3[0].Field<string>("origine"), null };
+                                    tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
 
                             }
 

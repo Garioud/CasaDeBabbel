@@ -17,12 +17,11 @@ namespace CasaDeBabbel
         private DataSet dsEsp;
         private int numLeçon;
         private string codeCours;
-        private string[][] tabVoca;
+        private string[][] listeVoca;
         private string titreCours;
         private string titreLecon;
         private string descLecon;
-        int xi = 30;
-        int xy = 30;
+
         private Dictionary<String, int> codeUser = new Dictionary<string, int>();
         private string actualUser;
         public frmVoca()
@@ -52,15 +51,14 @@ namespace CasaDeBabbel
             titreLecon = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             descLecon = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
             nbExoTotal = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
-            tabVoca = mot;
-            generateImg();
+            listeVoca = mot;
         }
 
-
-
+      
+   
         private void frmVoca_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+         
 
         }
 
@@ -69,44 +67,6 @@ namespace CasaDeBabbel
             Application.OpenForms.Cast<frmLogin>().First().Activate();
             Application.OpenForms.Cast<frmLogin>().First().Visible = true;
             this.Close();
-        }
-        private void generateImg()
-        {
-            for (int i=0; i<tabVoca.GetLength(0);i++)
-            {
-                string fileAdress = tabVoca[i][3];
-                if(fileAdress!=null)
-                {
-                    Image img = Image.FromFile(@"..\baseImages\" + fileAdress);
-                    FicheVoca fch = new FicheVoca();
-                    fch.Image = img;
-                    fch.Origin = tabVoca[i][2];
-                    fch.Word = tabVoca[i][0];
-                    fch.Trad = tabVoca[i][1];
-                    fch.Location = new Point(xi, xy);
-                    xi += 50 + fch.Width;
-                    pnlVoca.Controls.Add(fch);
-
-                }
-                else
-                {               
-                        FicheVoca fch = new FicheVoca(); 
-                        fch.Origin = tabVoca[i][2];
-                        fch.Word = tabVoca[i][0];
-                        fch.Trad = tabVoca[i][1];
-                        fch.Location = new Point(xi, xy);
-                         xi += 50 + fch.Width;
-                    pnlVoca.Controls.Add(fch);
-
-                }
-            
-
-
-
-
-            }
-
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)
