@@ -33,7 +33,7 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
         }
-        public frmMotM(string phrase, string trad, string pos, string enonce)
+        public frmMotM(string phrase, string trad, string pos, string enonce, string nomTable, string regle)
         {
             InitializeComponent();
             dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
@@ -52,8 +52,11 @@ namespace CasaDeBabbel
             this.trad = trad;
             this.pos = pos;
             this.enonce = enonce;
-            lblDesc.Text ="-->"+ enonce;
+            lblEnnonce.Text = enonce;
+            lblDesc.Text = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
+            lblRegle.Text = regle;
             EstJuste = true;
+            nomDT = nomTable;
         }
         public frmMotM(string phrase, string trad, string pos, string enonce,string nomTable)
         {
@@ -75,7 +78,8 @@ namespace CasaDeBabbel
             this.trad = trad;
             this.pos = pos;
             this.enonce = enonce;
-            lblDesc.Text = "-->" + enonce;
+            lblEnnonce.Text = enonce;
+            lblDesc.Text = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
             EstJuste = true;
         }
 

@@ -264,9 +264,9 @@ namespace CasaDeBabbel
 
                     frmMotM exer;
                     if (!temporaryRow[0].IsNull("codeRegle"))
-                        exer = new frmMotM(phrase,traduc,listMot,enonceExo);
+                        exer = new frmMotM(phrase, traduc, listMot, enonceExo, nameDT, regle);
                     else
-                        exer = new frmMotM(phrase, traduc, listMot, enonceExo);
+                        exer = new frmMotM(phrase, traduc, listMot, enonceExo,nameDT) ;
 
                     this.Hide();
                     exer.ShowDialog();

@@ -64,9 +64,11 @@ namespace CasaDeBabbel
             this.phraseEsp = phrase;
             this.phrase = trad;
             this.enonce = enonce;
-            lblDesc.Text = "-->" + enonce;
+            lblDesc.Text = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
+            lblEnnoncer.Text = enonce;
             generatePhrase();
             nomDT = nomTable;
+            lblTrad.Text = trad;
         }
         public frmDeso(string phrase, string trad, string enonce, string nomTable,string regle)
         {
@@ -88,6 +90,8 @@ namespace CasaDeBabbel
             lblDesc.Text = "-->" + enonce;
             generatePhrase();
             nomDT = nomTable;
+            lblTrad.Text = trad;
+            lblRegle.Text = regle;
         }
 
 
