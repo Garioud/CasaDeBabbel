@@ -225,7 +225,9 @@ namespace CasaDeBabbel
         {
             if (numAdmin.Contains(code))
             {
-
+                frmAdmin admin = new frmAdmin(dsEsp);
+                this.Hide();
+                admin.Show();
             }
             else
             { 
