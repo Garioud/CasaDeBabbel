@@ -341,7 +341,7 @@ namespace CasaDeBabbel
                         }
                     }
 
-                    frmVoca exer = new frmVoca();
+                    frmVoca exer = new frmVoca(tabMot);
                     this.Hide();
                     exer.ShowDialog();
                 }
