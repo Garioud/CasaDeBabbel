@@ -36,6 +36,7 @@ namespace CasaDeBabbel
             titreLecon = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             descLecon = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
             nbExoTotal = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            lblActualCours = codeCours;
             InitializeComponent();
         }
         public frmVoca(string[][] mot)
