@@ -45,9 +45,9 @@
             this.lblActLec = new System.Windows.Forms.Label();
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblAcLec = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlVoca = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlVoca.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNomPersonne
@@ -227,15 +227,15 @@
             this.lblAcLec.TabIndex = 20;
             this.lblAcLec.Text = "Leçon actuelle :";
             // 
-            // panel1
+            // pnlVoca
             // 
-            this.panel1.Controls.Add(this.btnStart);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 135);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 465);
-            this.panel1.TabIndex = 25;
+            this.pnlVoca.Controls.Add(this.btnStart);
+            this.pnlVoca.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlVoca.Location = new System.Drawing.Point(0, 135);
+            this.pnlVoca.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlVoca.Name = "pnlVoca";
+            this.pnlVoca.Size = new System.Drawing.Size(1000, 465);
+            this.pnlVoca.TabIndex = 25;
             // 
             // frmVoca
             // 
@@ -253,14 +253,14 @@
             this.Controls.Add(this.lblActLec);
             this.Controls.Add(this.lblActualCours);
             this.Controls.Add(this.lblAcLec);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlVoca);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVoca";
             this.Text = "frmVoca";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmVoca_FormClosed);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.pnlVoca.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,6 +283,6 @@
         private System.Windows.Forms.Label lblActLec;
         private System.Windows.Forms.Label lblActualCours;
         private System.Windows.Forms.Label lblAcLec;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlVoca;
     }
 }
