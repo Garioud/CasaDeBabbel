@@ -173,33 +173,52 @@
             // 
             // btnFin
             // 
+            this.btnFin.BackColor = System.Drawing.Color.Transparent;
+            this.btnFin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFin.BackgroundImage")));
+            this.btnFin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnFin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFin.ForeColor = System.Drawing.SystemColors.Control;
             this.btnFin.Location = new System.Drawing.Point(430, 240);
             this.btnFin.Name = "btnFin";
             this.btnFin.Size = new System.Drawing.Size(30, 30);
             this.btnFin.TabIndex = 15;
-            this.btnFin.UseVisualStyleBackColor = true;
+            this.btnFin.UseVisualStyleBackColor = false;
             this.btnFin.Click += new System.EventHandler(this.btnFin_Click);
             // 
             // btnDebut
             // 
+            this.btnDebut.BackColor = System.Drawing.Color.Transparent;
+            this.btnDebut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDebut.BackgroundImage")));
+            this.btnDebut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDebut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDebut.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDebut.Location = new System.Drawing.Point(322, 240);
             this.btnDebut.Name = "btnDebut";
             this.btnDebut.Size = new System.Drawing.Size(30, 30);
             this.btnDebut.TabIndex = 14;
-            this.btnDebut.UseVisualStyleBackColor = true;
+            this.btnDebut.UseVisualStyleBackColor = false;
             this.btnDebut.Click += new System.EventHandler(this.btnDebut_Click);
             // 
             // btnApres
             // 
+            this.btnApres.BackColor = System.Drawing.Color.Transparent;
+            this.btnApres.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnApres.BackgroundImage")));
+            this.btnApres.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnApres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApres.ForeColor = System.Drawing.SystemColors.Control;
             this.btnApres.Location = new System.Drawing.Point(394, 240);
             this.btnApres.Name = "btnApres";
             this.btnApres.Size = new System.Drawing.Size(30, 30);
             this.btnApres.TabIndex = 13;
-            this.btnApres.UseVisualStyleBackColor = true;
+            this.btnApres.UseVisualStyleBackColor = false;
             this.btnApres.Click += new System.EventHandler(this.btnApres_Click);
             // 
             // btnAvant
             // 
+            this.btnAvant.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAvant.BackgroundImage")));
+            this.btnAvant.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAvant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAvant.ForeColor = System.Drawing.SystemColors.Control;
             this.btnAvant.Location = new System.Drawing.Point(358, 240);
             this.btnAvant.Name = "btnAvant";
             this.btnAvant.Size = new System.Drawing.Size(30, 30);

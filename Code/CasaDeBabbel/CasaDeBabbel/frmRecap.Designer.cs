@@ -40,7 +40,11 @@
             this.pnlGood = new System.Windows.Forms.Panel();
             this.btnContinue = new System.Windows.Forms.Button();
             this.pnl_Avancement = new System.Windows.Forms.Panel();
-            this.lblNomLecon = new System.Windows.Forms.Label();
+            this.lblNomPersonne = new System.Windows.Forms.Label();
+            this.lblCours = new System.Windows.Forms.Label();
+            this.lblActualCours = new System.Windows.Forms.Label();
+            this.lblActLec = new System.Windows.Forms.Label();
+            this.lblAcLec = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -152,21 +156,70 @@
             this.pnl_Avancement.Size = new System.Drawing.Size(780, 31);
             this.pnl_Avancement.TabIndex = 19;
             // 
-            // lblNomLecon
+            // lblNomPersonne
             // 
-            this.lblNomLecon.AutoSize = true;
-            this.lblNomLecon.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomLecon.Location = new System.Drawing.Point(226, 62);
-            this.lblNomLecon.Name = "lblNomLecon";
-            this.lblNomLecon.Size = new System.Drawing.Size(55, 23);
-            this.lblNomLecon.TabIndex = 20;
-            this.lblNomLecon.Text = "Lecon";
+            this.lblNomPersonne.AutoSize = true;
+            this.lblNomPersonne.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomPersonne.Location = new System.Drawing.Point(833, 38);
+            this.lblNomPersonne.Name = "lblNomPersonne";
+            this.lblNomPersonne.Size = new System.Drawing.Size(120, 23);
+            this.lblNomPersonne.TabIndex = 30;
+            this.lblNomPersonne.Text = "NomPersonne";
+            this.lblNomPersonne.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCours
+            // 
+            this.lblCours.AutoSize = true;
+            this.lblCours.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCours.Location = new System.Drawing.Point(227, 44);
+            this.lblCours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCours.Name = "lblCours";
+            this.lblCours.Size = new System.Drawing.Size(172, 22);
+            this.lblCours.TabIndex = 33;
+            this.lblCours.Text = "Votre cours actuel :";
+            // 
+            // lblActualCours
+            // 
+            this.lblActualCours.AutoSize = true;
+            this.lblActualCours.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActualCours.Location = new System.Drawing.Point(403, 44);
+            this.lblActualCours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblActualCours.Name = "lblActualCours";
+            this.lblActualCours.Size = new System.Drawing.Size(50, 22);
+            this.lblActualCours.TabIndex = 34;
+            this.lblActualCours.Text = "label";
+            // 
+            // lblActLec
+            // 
+            this.lblActLec.AutoSize = true;
+            this.lblActLec.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActLec.Location = new System.Drawing.Point(374, 74);
+            this.lblActLec.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblActLec.Name = "lblActLec";
+            this.lblActLec.Size = new System.Drawing.Size(61, 22);
+            this.lblActLec.TabIndex = 37;
+            this.lblActLec.Text = "label2";
+            // 
+            // lblAcLec
+            // 
+            this.lblAcLec.AutoSize = true;
+            this.lblAcLec.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcLec.Location = new System.Drawing.Point(227, 74);
+            this.lblAcLec.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAcLec.Name = "lblAcLec";
+            this.lblAcLec.Size = new System.Drawing.Size(143, 22);
+            this.lblAcLec.TabIndex = 36;
+            this.lblAcLec.Text = "Leçon actuelle :";
             // 
             // frmRecap
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Controls.Add(this.lblNomLecon);
+            this.Controls.Add(this.lblActLec);
+            this.Controls.Add(this.lblAcLec);
+            this.Controls.Add(this.lblCours);
+            this.Controls.Add(this.lblActualCours);
+            this.Controls.Add(this.lblNomPersonne);
             this.Controls.Add(this.pnl_Avancement);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -195,8 +248,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnContinue;
         private System.Windows.Forms.Panel pnl_Avancement;
-        private System.Windows.Forms.Label lblNomLecon;
         private System.Windows.Forms.Panel pnlBad;
         private System.Windows.Forms.Panel pnlGood;
+        private System.Windows.Forms.Label lblNomPersonne;
+        private System.Windows.Forms.Label lblCours;
+        private System.Windows.Forms.Label lblActualCours;
+        private System.Windows.Forms.Label lblActLec;
+        private System.Windows.Forms.Label lblAcLec;
     }
 }
