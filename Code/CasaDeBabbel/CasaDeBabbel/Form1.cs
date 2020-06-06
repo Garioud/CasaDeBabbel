@@ -33,7 +33,7 @@ namespace CasaDeBabbel
         private string titreCours;
         private string titreLecon;
         private string descLecon;
-
+        private int[] numAdmin;
         private string enonceExo;
         private string regle;
         private string nameDT;
@@ -44,7 +44,7 @@ namespace CasaDeBabbel
         {
             FillDataSet(chcon, dsEsp);
             fillCB(cbName, "Utilisateurs", 1, 2, dsEsp);
-           
+            numAdmin = new int[2] { 5, 6 };
          
 
         }
@@ -106,13 +106,40 @@ namespace CasaDeBabbel
 
         private void cbName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            generateAllLabel();
+
+            codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+            if (numAdmin.Contains(code))
+            {
+                lblActualCours.Visible = true;
+                lblActualCours.Text = "Vous êtes administrateur";
+                lblActLec.Visible = false;
+                lblExo.Visible = false;
+                lblCours.Visible = false;
+                lblAcLec.Visible = false;
+                lblDesc.Visible = false;
+                lblExo.Visible = false;
+                pgB_Progres.Visible = false;
+                lblNumberExo.Visible = false ;
+
+            }
+            else
+            {
+                lblNumberExo.Visible = true;
+                lblActLec.Visible = false;
+                lblExo.Visible = true;
+                lblCours.Visible = true;
+                lblAcLec.Visible = true;
+                lblDesc.Visible = true;
+                lblExo.Visible = true;
+                pgB_Progres.Visible = true;
+                generateAllLabel();
+            }
+           
         }
 
         private void generateAllLabel()
         {
 
-            codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
             actualUser = cbName.SelectedItem.ToString();
             DataTable test = dsEsp.Tables["Utilisateurs"];
             DataRow[] tRow = test.Select($"codeUtil = '{code}'");
@@ -196,9 +223,15 @@ namespace CasaDeBabbel
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            generateDataTable();
-            startExo();
+            if (numAdmin.Contains(code))
+            {
 
+            }
+            else
+            { 
+                generateDataTable();
+                startExo();
+            }
 
         }
 
@@ -215,7 +248,7 @@ namespace CasaDeBabbel
                 {
                     using (DataTable temporaryTable2 = dsEsp.Tables["Regles"])
                     {
-                        DataRow[] temporaryRow2 = temporaryTable2.Select($"codeRegle={temporaryRow[0].Field<string>("codeRegle")}");
+                        DataRow[] temporaryRow2 = temporaryTable2.Select($"codeRegle='{temporaryRow[0].Field<string>("codeRegle")}'");
                         regle = temporaryRow2[0].Field<string>("texteRegle");
                     }
 
