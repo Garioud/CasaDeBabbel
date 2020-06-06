@@ -42,7 +42,9 @@ namespace CasaDeBabbel
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            if (dsEsp.Tables.Count == 0)
             FillDataSet(chcon, dsEsp);
+
             fillCB(cbName, "Utilisateurs", 1, 2, dsEsp);
             numAdmin = new int[2] { 5, 6 };
          
@@ -106,10 +108,12 @@ namespace CasaDeBabbel
 
         private void cbName_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+
             if (numAdmin.Contains(code))
             {
+                actualUser = cbName.SelectedItem.ToString();
+                codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
                 lblActualCours.Visible = true;
                 lblActualCours.Text = "Vous êtes administrateur";
                 lblActLec.Visible = false;
@@ -124,6 +128,8 @@ namespace CasaDeBabbel
             }
             else
             {
+                actualUser = cbName.SelectedItem.ToString();
+                codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
                 lblNumberExo.Visible = true;
                 lblActLec.Visible = false;
                 lblExo.Visible = true;
@@ -133,6 +139,7 @@ namespace CasaDeBabbel
                 lblExo.Visible = true;
                 pgB_Progres.Visible = true;
                 generateAllLabel();
+                generateDataTable();
             }
            
         }
@@ -342,9 +349,9 @@ namespace CasaDeBabbel
                         }
                         frmVoca exer;
                         if (!temporaryRow[0].IsNull("codeRegle"))
-                            exer = new frmVoca(tabMot, enonceExo, nameDT, regle);
+                            exer = new frmVoca(dsEsp,tabMot, enonceExo, nameDT, regle);
                         else
-                            exer = new frmVoca(tabMot, enonceExo, nameDT);
+                            exer = new frmVoca(dsEsp,tabMot, enonceExo, nameDT);
                         this.Hide();
                         exer.Show();
                     }
@@ -377,9 +384,9 @@ namespace CasaDeBabbel
 
                     frmVoca exer;
                     if (!temporaryRow[0].IsNull("codeRegle"))
-                        exer = new frmVoca(tabMot, enonceExo, nameDT, regle);
+                        exer = new frmVoca(dsEsp,tabMot, enonceExo, nameDT, regle);
                     else
-                        exer = new frmVoca(tabMot, enonceExo, nameDT);
+                        exer = new frmVoca(dsEsp,tabMot, enonceExo, nameDT);
                     this.Hide();
                     exer.Show();
                 }

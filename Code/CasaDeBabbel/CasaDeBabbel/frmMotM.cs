@@ -58,6 +58,8 @@ namespace CasaDeBabbel
             lblRegle.Text = regle;
             EstJuste = true;
             nomDT = nomTable;
+            lblRegle.Visible = true;
+            lblRegle.Text = regle;
             pgB_Progres.Maximum = nbExoMax;
             pgB_Progres.Value = nbExo;
         }
@@ -84,6 +86,8 @@ namespace CasaDeBabbel
             lblEnnonce.Text = enonce;
             lblDesc.Text = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
             EstJuste = true;
+            lblRegle.Visible = false;
+        
             pgB_Progres.Maximum = nbExoMax;
             pgB_Progres.Value = nbExo;
         }
@@ -175,18 +179,28 @@ namespace CasaDeBabbel
         
         private void btnAide_Click(object sender, EventArgs e)
         {
-            EstJuste = false;
-            pnlListe.Controls.Add(new Label()
+            string[] tabPhrase = phrase.Split(' ');
+            string[] intPos = pos.Split('/');
+            int[] tabPos = new int[intPos.Length];
+            for (int i = 0; i < intPos.Length; i++)
             {
-                Name = "lblReponse",
-                Height = 30,
-                Font = new Font("Arial", 14),
-                TextAlign = ContentAlignment.TopLeft,
-                Location = new Point(50, 300),
-                AutoSize = true,
-                Text = Convert.ToString(phrase)
-            }); ;
-            
+                tabPos[i] = int.Parse(intPos[i]) - 1;
+            }
+
+            EstJuste = false;
+            int x = 0;
+            for (int i = 0; i < tabPhrase.Length; i++)
+            {
+                if (tabPos.Contains(i))
+                {
+                    textBoxList[x].Text = tabPhrase[i];
+                    textBoxList[x].Enabled = false;
+
+                    x++;
+                }
+               
+            }
+
         }
 
         private void verif(string phrase, string pos)

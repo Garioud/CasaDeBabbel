@@ -69,6 +69,7 @@ namespace CasaDeBabbel
             generatePhrase();
             nomDT = nomTable;
             lblTrad.Text = trad;
+            lblRegle.Visible = false;
             EstBon = true;
             pgB_Progres.Maximum = nbExoMax;
             pgB_Progres.Value = nbExo;
@@ -94,6 +95,7 @@ namespace CasaDeBabbel
             generatePhrase();
             nomDT = nomTable;
             lblTrad.Text = trad;
+            lblRegle.Visible = true;
             lblRegle.Text = regle;
             EstBon = true;
             pgB_Progres.Maximum = nbExoMax;

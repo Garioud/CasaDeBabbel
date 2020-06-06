@@ -128,6 +128,7 @@
             // 
             // pnlBad
             // 
+            this.pnlBad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlBad.Location = new System.Drawing.Point(515, 29);
             this.pnlBad.Name = "pnlBad";
             this.pnlBad.Size = new System.Drawing.Size(473, 378);
@@ -135,6 +136,7 @@
             // 
             // pnlGood
             // 
+            this.pnlGood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlGood.Location = new System.Drawing.Point(27, 29);
             this.pnlGood.Name = "pnlGood";
             this.pnlGood.Size = new System.Drawing.Size(473, 378);
