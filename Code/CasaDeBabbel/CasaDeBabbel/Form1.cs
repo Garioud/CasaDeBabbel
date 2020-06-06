@@ -302,15 +302,19 @@ namespace CasaDeBabbel
                                     int codeMots = temporaryRow2[i].Field<int>("numMot");
                                     DataRow[] temporaryRow3 = temporaryTable3.Select($"numMot={codeMots}");
                                     if (!temporaryRow3[0].IsNull("cheminPhoto"))
-                                        tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
+                                        tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("traducMot"), temporaryRow3[0].Field<string>("origine"), temporaryRow3[0].Field<string>("cheminPhoto") };
                                     else
-                                        tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
+                                        tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("traducMot"), temporaryRow3[0].Field<string>("origine"), null };
 
                                 }
 
                             }
                         }
-                        frmVoca exer = new frmVoca();
+                        frmVoca exer;
+                        if (!temporaryRow[0].IsNull("codeRegle"))
+                            exer = new frmVoca(tabMot, enonceExo, nameDT, regle);
+                        else
+                            exer = new frmVoca(tabMot, enonceExo, nameDT);
                         this.Hide();
                         exer.ShowDialog();
                     }
@@ -334,7 +338,7 @@ namespace CasaDeBabbel
                                 if (!temporaryRow3[0].IsNull("cheminPhoto"))
                                     tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
                                 else
-                                    tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
+                                    tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("traducMot"), temporaryRow3[0].Field<string>("origine"), null };
 
                             }
 

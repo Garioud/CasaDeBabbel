@@ -17,15 +17,21 @@ namespace CasaDeBabbel
         private DataSet dsEsp;
         private int numLeçon;
         private string codeCours;
-        private string[][] listeVoca;
+        
         private string titreCours;
         private string titreLecon;
         private string descLecon;
+        private string[][] tabVoca;
 
         private Dictionary<String, int> codeUser = new Dictionary<string, int>();
         private string actualUser;
+        private int xi = 30;
+        private int xy = 30;
+        private object lblActLect;
+        private int nbExoMax;
         public frmVoca()
         {
+            InitializeComponent();
             dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
             nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
             numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
@@ -36,10 +42,12 @@ namespace CasaDeBabbel
             titreLecon = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             descLecon = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
             nbExoTotal = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
-            lblActualCours = codeCours;
-            InitializeComponent();
+            lblActualCours.Text = titreCours;
+            lblDesc.Text = descLecon;
+            generateImg();
+      
         }
-        public frmVoca(string[][] mot)
+        public frmVoca(string[][] mot,string ennonce,string nomTable)
         {
             InitializeComponent();
             dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
@@ -52,11 +60,79 @@ namespace CasaDeBabbel
             titreLecon = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             descLecon = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
             nbExoTotal = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
-            listeVoca = mot;
+            lblActualCours.Text = titreCours;
+            lblDesc.Text = descLecon;
+            lblNomPersonne.Text = actualUser;
+            lblActLec.Text = titreLecon;
+            lblDesc.Text = descLecon;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            lblNumberExo.Text = $"{nbExo}/{nbExoMax}";
+            tabVoca = mot;
+            generateImg();
+        }
+        public frmVoca(string[][] mot, string ennonce, string nomTable,string regle)
+        {
+            InitializeComponent();
+            dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
+            nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
+            numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
+            codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
+            codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
+            actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            titreCours = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
+            titreLecon = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
+            descLecon = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
+            nbExoTotal = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            lblActualCours.Text = titreCours;
+            lblDesc.Text = descLecon;
+            lblNomPersonne.Text = actualUser;
+            lblActLec.Text = titreLecon;
+            lblDesc.Text = descLecon;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            lblNumberExo.Text = $"{nbExo}/{nbExoMax}";
+            tabVoca = mot;
+            generateImg();
         }
 
-      
-   
+        private void generateImg()
+        {
+            for (int i = 0; i < tabVoca.GetLength(0); i++)
+            {
+                string fileAdress = tabVoca[i][3];
+                if (fileAdress != null)
+                {
+                    Image img = Image.FromFile(@"..\baseImages\" + fileAdress);
+                    FicheVoca fch = new FicheVoca();
+                    fch.Image = img;
+                    fch.Origin = tabVoca[i][2];
+                    fch.Word = tabVoca[i][0];
+                    fch.Trad = tabVoca[i][1];
+                    fch.Location = new Point(xi, xy);
+                    xi += 50 + fch.Width;
+                    pnlVoca.Controls.Add(fch);
+
+                }
+                else
+                {
+                    FicheVoca fch = new FicheVoca();
+                    fch.Origin = tabVoca[i][2];
+                    fch.Word = tabVoca[i][0];
+                    fch.Trad = tabVoca[i][1];
+                    fch.Location = new Point(xi, xy);
+                    xi += 50 + fch.Width;
+                    pnlVoca.Controls.Add(fch);
+
+                }
+
+
+
+
+
+            }
+
+
+        }
+
         private void frmVoca_FormClosed(object sender, FormClosedEventArgs e)
         {
          
