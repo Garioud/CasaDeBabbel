@@ -32,7 +32,7 @@
             this.lblNomPersonne = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlToolbar = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblAcLec = new System.Windows.Forms.Label();
             this.pnlVoca = new System.Windows.Forms.Panel();
-            this.panel3.SuspendLayout();
+            this.pnlToolbar.SuspendLayout();
             this.pnlVoca.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,15 +80,15 @@
             this.panel4.Size = new System.Drawing.Size(220, 135);
             this.panel4.TabIndex = 27;
             // 
-            // panel3
+            // pnlToolbar
             // 
-            this.panel3.Controls.Add(this.lblName);
-            this.panel3.Controls.Add(this.btnHideWindow);
-            this.panel3.Controls.Add(this.btnExit);
-            this.panel3.Location = new System.Drawing.Point(220, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(780, 35);
-            this.panel3.TabIndex = 26;
+            this.pnlToolbar.Controls.Add(this.lblName);
+            this.pnlToolbar.Controls.Add(this.btnHideWindow);
+            this.pnlToolbar.Controls.Add(this.btnExit);
+            this.pnlToolbar.Location = new System.Drawing.Point(220, 0);
+            this.pnlToolbar.Name = "pnlToolbar";
+            this.pnlToolbar.Size = new System.Drawing.Size(780, 35);
+            this.pnlToolbar.TabIndex = 26;
             // 
             // lblName
             // 
@@ -245,7 +245,7 @@
             this.Controls.Add(this.lblNomPersonne);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnlToolbar);
             this.Controls.Add(this.lblExo);
             this.Controls.Add(this.lblNumberExo);
             this.Controls.Add(this.pgB_Progres);
@@ -260,8 +260,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVoca";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmVoca_FormClosed);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnlToolbar.ResumeLayout(false);
+            this.pnlToolbar.PerformLayout();
             this.pnlVoca.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -272,7 +272,7 @@
         private System.Windows.Forms.Label lblNomPersonne;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlToolbar;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnHideWindow;
         private System.Windows.Forms.Button btnExit;
