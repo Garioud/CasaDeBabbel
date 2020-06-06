@@ -51,10 +51,10 @@
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
             this.lblEnnoncer = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlToolbar = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pnlToolbar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -307,16 +307,16 @@
             this.lblEnnoncer.TabIndex = 4;
             this.lblEnnoncer.Text = "Mots dans le désordre";
             // 
-            // panel3
+            // pnlToolbar
             // 
-            this.panel3.Controls.Add(this.lblEnnoncer);
-            this.panel3.Controls.Add(this.lblName);
-            this.panel3.Controls.Add(this.btnHideWindow);
-            this.panel3.Controls.Add(this.btnExit);
-            this.panel3.Location = new System.Drawing.Point(220, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(780, 35);
-            this.panel3.TabIndex = 13;
+            this.pnlToolbar.Controls.Add(this.lblEnnoncer);
+            this.pnlToolbar.Controls.Add(this.lblName);
+            this.pnlToolbar.Controls.Add(this.btnHideWindow);
+            this.pnlToolbar.Controls.Add(this.btnExit);
+            this.pnlToolbar.Location = new System.Drawing.Point(220, 0);
+            this.pnlToolbar.Name = "pnlToolbar";
+            this.pnlToolbar.Size = new System.Drawing.Size(780, 35);
+            this.pnlToolbar.TabIndex = 13;
             // 
             // panel4
             // 
@@ -334,7 +334,7 @@
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.lblNumberExo);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnlToolbar);
             this.Controls.Add(this.lblExo);
             this.Controls.Add(this.pgB_Progres);
             this.Controls.Add(this.panel1);
@@ -349,8 +349,8 @@
             this.Text = "frmDeso";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnlToolbar.ResumeLayout(false);
+            this.pnlToolbar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,7 +379,7 @@
         private System.Windows.Forms.Button btnHideWindow;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblEnnoncer;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlToolbar;
         private System.Windows.Forms.Panel panel4;
     }
 }
