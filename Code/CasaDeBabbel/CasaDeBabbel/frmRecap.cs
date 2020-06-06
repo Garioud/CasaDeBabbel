@@ -53,6 +53,7 @@ namespace CasaDeBabbel
                         lbl.Location = new Point(10, y);
                         lbl.TextAlign = ContentAlignment.MiddleCenter;
                         lbl.BorderStyle = BorderStyle.FixedSingle;
+                        lbl.AutoSize = true;
                         y += 40;
                        
                     }
@@ -69,6 +70,7 @@ namespace CasaDeBabbel
                             lbl.Text = lmot[i];
                             lbl.Location = new Point(10, y);
                             lbl.TextAlign = ContentAlignment.MiddleCenter;
+                            lbl.AutoSize = true;
                             y += 40;
 
                         }
@@ -81,6 +83,7 @@ namespace CasaDeBabbel
                         Label lbl = new Label();
                         pnlBad.Controls.Add(lbl);
                         lbl.ForeColor = Color.Red;
+                        lbl.AutoSize = true;
                         lbl.Text = dr.Field<string>("phrase");
                         lbl.Location = new Point(10, yB);
                         lbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -96,10 +99,11 @@ namespace CasaDeBabbel
                         for (int i = 0; i < lmot.Length; i++)
                         {
                             Label lbl = new Label();
+                            lbl.AutoSize = true;
                             pnlBad.Controls.Add(lbl);
                             lbl.ForeColor = Color.Red;
                             lbl.Text = lmot[i];
-                            lbl.Location = new Point(20, yB);
+                            lbl.Location = new Point(10, yB);
                             lbl.TextAlign = ContentAlignment.MiddleCenter;
                             lbl.BorderStyle = BorderStyle.FixedSingle;
                             yB += 40;

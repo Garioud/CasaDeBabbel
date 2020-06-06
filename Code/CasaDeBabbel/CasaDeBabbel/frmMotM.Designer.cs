@@ -33,6 +33,7 @@
             this.btnMenu = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblEnnonce = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -46,10 +47,9 @@
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblAcLec = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblRegle = new System.Windows.Forms.Label();
             this.pnlListe = new System.Windows.Forms.Panel();
             this.btnAide = new System.Windows.Forms.Button();
-            this.lblEnnonce = new System.Windows.Forms.Label();
-            this.lblRegle = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlListe.SuspendLayout();
@@ -96,6 +96,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(780, 35);
             this.panel3.TabIndex = 26;
+            // 
+            // lblEnnonce
+            // 
+            this.lblEnnonce.AutoSize = true;
+            this.lblEnnonce.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnnonce.Location = new System.Drawing.Point(183, 7);
+            this.lblEnnonce.Name = "lblEnnonce";
+            this.lblEnnonce.Size = new System.Drawing.Size(141, 23);
+            this.lblEnnonce.TabIndex = 4;
+            this.lblEnnonce.Text = "Mots manquants";
             // 
             // lblName
             // 
@@ -249,6 +259,16 @@
             this.panel1.Size = new System.Drawing.Size(1000, 465);
             this.panel1.TabIndex = 25;
             // 
+            // lblRegle
+            // 
+            this.lblRegle.AutoSize = true;
+            this.lblRegle.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegle.Location = new System.Drawing.Point(12, 418);
+            this.lblRegle.Name = "lblRegle";
+            this.lblRegle.Size = new System.Drawing.Size(141, 23);
+            this.lblRegle.TabIndex = 12;
+            this.lblRegle.Text = "Mots manquants";
+            // 
             // pnlListe
             // 
             this.pnlListe.Controls.Add(this.btnAide);
@@ -266,26 +286,6 @@
             this.btnAide.Text = "Aide";
             this.btnAide.UseVisualStyleBackColor = true;
             this.btnAide.Click += new System.EventHandler(this.btnAide_Click);
-            // 
-            // lblEnnonce
-            // 
-            this.lblEnnonce.AutoSize = true;
-            this.lblEnnonce.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnnonce.Location = new System.Drawing.Point(183, 7);
-            this.lblEnnonce.Name = "lblEnnonce";
-            this.lblEnnonce.Size = new System.Drawing.Size(141, 23);
-            this.lblEnnonce.TabIndex = 4;
-            this.lblEnnonce.Text = "Mots manquants";
-            // 
-            // lblRegle
-            // 
-            this.lblRegle.AutoSize = true;
-            this.lblRegle.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegle.Location = new System.Drawing.Point(12, 418);
-            this.lblRegle.Name = "lblRegle";
-            this.lblRegle.Size = new System.Drawing.Size(141, 23);
-            this.lblRegle.TabIndex = 12;
-            this.lblRegle.Text = "Mots manquants";
             // 
             // frmMotM
             // 
@@ -306,6 +306,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMotM";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMotM";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMotM_FormClosed);
             this.Load += new System.EventHandler(this.frmMotM_Load);

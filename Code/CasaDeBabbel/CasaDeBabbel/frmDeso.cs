@@ -69,6 +69,7 @@ namespace CasaDeBabbel
             generatePhrase();
             nomDT = nomTable;
             lblTrad.Text = trad;
+            EstBon = true;
         }
         public frmDeso(string phrase, string trad, string enonce, string nomTable,string regle)
         {
@@ -92,6 +93,7 @@ namespace CasaDeBabbel
             nomDT = nomTable;
             lblTrad.Text = trad;
             lblRegle.Text = regle;
+            EstBon = true;
         }
 
 
@@ -315,6 +317,7 @@ namespace CasaDeBabbel
                     {
                         EstBon = false;
                     }
+                    i++;
 
                 }
 
