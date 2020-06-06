@@ -28,7 +28,7 @@ namespace CasaDeBabbel
         private string regle;
         private string[][] tabMot;
 
-        
+
         public frmAdmin()
         {
             InitializeComponent();
@@ -127,7 +127,7 @@ namespace CasaDeBabbel
             nbExo = 1;
             NomCours = "PAYSCULT";
             FillListBox(dsExo, NomCours);
-           
+
             affichageExos(nbExo);
         }
 
@@ -136,7 +136,7 @@ namespace CasaDeBabbel
             nbExo = 1;
             NomCours = "GRAMM1";
             FillListBox(dsExo, NomCours);
-         
+
             affichageExos(nbExo);
         }
 
@@ -145,7 +145,7 @@ namespace CasaDeBabbel
             nbExo = 1;
             NomCours = "DEBUT1";
             FillListBox(dsExo, NomCours);
-          
+
             affichageExos(nbExo);
         }
 
@@ -154,17 +154,17 @@ namespace CasaDeBabbel
             nbExo = 1;
             NomCours = "DEBUT2";
             FillListBox(dsExo, NomCours);
-           
+
             affichageExos(nbExo);
         }
 
         private void lb_Lecons_SelectedIndexChanged(object sender, EventArgs e)
         {
             nbExo = 1;
-            int num = lb_Lecons.SelectedIndex; 
+            int num = lb_Lecons.SelectedIndex;
             num += 1;
             NumLecon = num.ToString();
-           
+
             affichageExos(nbExo);
         }
 
@@ -173,7 +173,7 @@ namespace CasaDeBabbel
 
             try
             {
-           
+
 
                 List<string> codePhrase = new List<string>();
                 DataTable temporaryTable = ds.Tables["Exercices"];
@@ -273,7 +273,7 @@ namespace CasaDeBabbel
                 DataRow[] temporaryRow = temporaryTable.Select($"numCours='{NomCours}' and numLecon='{NumLecon}'");
                 nbMax = temporaryRow.Length;
                 temporaryRow = temporaryTable.Select($"numExo='{nbExo}' and numCours='{NomCours}' and numLecon='{NumLecon}'");
-              
+
                 ennonce = temporaryRow[0].Field<string>("enonceExo");
 
                 if (!temporaryRow[0].IsNull("codeRegle"))
@@ -285,7 +285,7 @@ namespace CasaDeBabbel
                     }
 
                 }
-                if (temporaryRow[0].Field<bool>("completeOn")|| temporaryRow[0].Field<string>("listeMots") != null)
+                if (temporaryRow[0].Field<bool>("completeOn") || temporaryRow[0].Field<string>("listeMots") != null)
                 {
 
 
@@ -300,7 +300,7 @@ namespace CasaDeBabbel
                     }
 
                 }
-            
+
                 else if (!temporaryRow[0].IsNull("codeVerbe"))
                 {
                     if (temporaryRow[0].Field<int>("codeVerbe") > 0)
@@ -308,7 +308,7 @@ namespace CasaDeBabbel
                         phrase = "Exercice Verbe";
                         lblPhrase.Text = phrase;
                         lblEnonce.Text = ennonce;
-                        lblPhraseTrad.Text = trad;
+                       
                     }
                     else
                     {
@@ -319,7 +319,7 @@ namespace CasaDeBabbel
                         using (DataTable temporaryTable2 = dsExo.Tables["ConcerneMots"])
                         {
                             DataRow[] temporaryRow2 = temporaryTable2.Select($"numCours='{dsExo}' and numLecon={NumLecon} and numExo={nbExo}");
-                            taille = temporaryRow2.Length;
+                            taille = temporaryRow2.GetLength(0);
                             tabMot = new string[taille][];
                             using (DataTable temporaryTable3 = dsExo.Tables["Mots"])
                             {
@@ -337,12 +337,26 @@ namespace CasaDeBabbel
                             }
                         }
                         lblEnonce.Text = ennonce;
+                        for (int i = 0; i < tabMot.GetLength(0); i++)
+                        {
+                            if(lblPhrase.Width < 500)
+                            {
+                              
+                                lblPhrase.Text += $"    {tabMot[i][0]}/{tabMot[i][1]}/{tabMot[i][2]}";
+                             }
+                            else
+                            {
+                                lblPhraseTrad.Text += $"    {tabMot[i][0]}/{tabMot[i][1]}/{tabMot[i][2]}";
+                            }
+
+                        }
                     }
                 }
+
                 else
                 {
                     int taille;
-                    string[][] tabMot;
+
 
                     using (DataTable temporaryTable2 = dsExo.Tables["ConcerneMots"])
                     {
@@ -365,11 +379,26 @@ namespace CasaDeBabbel
                         }
 
                     }
+
                     lblEnonce.Text = ennonce;
+                    for (int i = 0; i < tabMot.GetLength(0); i++)
+                    {
+                        if (lblPhrase.Width < 500)
+                        {
+                            lblPhrase.Text += $"    {tabMot[i][0]}/{tabMot[i][1]}/{tabMot[i][2]}";
+                        }
+                        else
+                        {
+                            lblPhraseTrad.Text += $"    {tabMot[i][0]}/{tabMot[i][1]}/{tabMot[i][2]}";
+                        }
+
+                    }
                 }
 
-               
+
             }
         }
     }
 }
+    
+

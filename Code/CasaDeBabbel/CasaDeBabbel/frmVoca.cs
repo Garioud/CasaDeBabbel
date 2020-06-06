@@ -173,18 +173,19 @@ namespace CasaDeBabbel
                     }
                 }
 
-                this.Close();
+             
 
 
                 dsEsp.Tables[nomDT].Rows.Add(nbExo, true, null, null);
-
+                this.Close();
                 Application.OpenForms.Cast<frmLogin>().First().Actualize(dsEsp);
 
             }
             else
             {
-                this.Close();
+               
                 dsEsp.Tables[nomDT].Rows.Add(nbExo, true, null, null);
+                this.Close();
                 Application.OpenForms.Cast<frmLogin>().First().afficheRecap(dsEsp);
 
             }
