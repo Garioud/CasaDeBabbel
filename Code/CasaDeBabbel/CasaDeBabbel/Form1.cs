@@ -31,9 +31,11 @@ namespace CasaDeBabbel
         private string titreCours;
         private string titreLecon;
         private string descLecon;
+
         private string enonceExo;
         private string regle;
-
+        private string nameDT;
+        private int code;
 
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -79,34 +81,6 @@ namespace CasaDeBabbel
         }
 
       
-        private void fillCB(ComboBox cb, string table, DataSet ds)
-        {
-            try
-            {
-                DataTable temporaryTable = ds.Tables[table];
-                cb.DataSource = temporaryTable;
-                cb.DisplayMember = temporaryTable.Columns[0].ColumnName;
-                cb.ValueMember = temporaryTable.Columns[0].ColumnName;
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show(x.Message);
-            }
-        }
-        private void fillCB(ComboBox cb, string table, int pos, DataSet ds)
-        {
-            try
-            {
-                DataTable temporaryTable = ds.Tables[table];
-                cb.DataSource = temporaryTable;
-                cb.DisplayMember = temporaryTable.Columns[pos].ColumnName;
-                cb.ValueMember = temporaryTable.Columns[pos].ColumnName;
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show(x.Message);
-            }
-        }
         private void fillCB(ComboBox cb, string table, int pos, int pos2, DataSet ds)
         {
             try
@@ -134,7 +108,7 @@ namespace CasaDeBabbel
 
         private void generateAllLabel()
         {
-            int code;
+         
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
             actualUser = cbName.SelectedItem.ToString();
             DataTable test = dsEsp.Tables["Utilisateurs"];
@@ -142,6 +116,11 @@ namespace CasaDeBabbel
             generateCoursLabel(tRow);
             generateLeconLabel(tRow);
             generateExerciceLabel(tRow);
+            lblDesc.Visible = true;
+            lblActualCours.Visible = true;
+            lblActLec.Visible = true;
+            lblNumberExo.Visible = true;
+
         }
         private void generateCoursLabel(DataRow[] tRow)
         {
@@ -222,7 +201,9 @@ namespace CasaDeBabbel
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            generateDataTable();
             startExo();
+
 
         }
 
@@ -257,9 +238,13 @@ namespace CasaDeBabbel
                         phrase = temporaryRow2[0].Field<string>("textePhrase");
                         traduc = temporaryRow2[0].Field<string>("traducPhrase");
                     }
-                    frmDeso exer = new frmDeso(phrase,traduc,enonceExo);
-                    this.Hide();
+                    frmDeso exer;
+                    if (!temporaryRow[0].IsNull("codeRegle"))
+                        exer = new frmDeso(phrase, traduc, enonceExo, nameDT, regle);
+                    else
+                        exer = new frmDeso(phrase, traduc, enonceExo, nameDT);
 
+                    this.Hide();
                     exer.Show();
 
 
@@ -277,7 +262,12 @@ namespace CasaDeBabbel
                         traduc = temporaryRow2[0].Field<string>("traducPhrase");
                     }
 
-                    frmMotM exer = new frmMotM(phrase,traduc,listMot,enonceExo);
+                    frmMotM exer;
+                    if (!temporaryRow[0].IsNull("codeRegle"))
+                        exer = new frmMotM(phrase, traduc, listMot, enonceExo, nameDT, regle);
+                    else
+                        exer = new frmMotM(phrase, traduc, listMot, enonceExo,nameDT) ;
+
                     this.Hide();
                     exer.ShowDialog();
 
@@ -502,7 +492,28 @@ namespace CasaDeBabbel
             startExo();
 
         }
+        public void generateDataTable()
+        {
+            nameDT = code + codeCours + numLecon;
+            if (!dsEsp.Tables.Contains(nameDT))
+            {
+                DataTable dexo = new DataTable(nameDT);
+                DataColumn dcExo = new DataColumn("nExo");
+                dcExo.DataType = System.Type.GetType("System.Int32");
+                DataColumn dcComplete = new DataColumn("complete");
+                dcComplete.DataType = System.Type.GetType("System.Boolean");
+                DataColumn dcPhrase = new DataColumn("phrase");
+                dcComplete.DataType = System.Type.GetType("System.Boolean");
+                DataColumn dcMot = new DataColumn("listMot");
+                dcComplete.DataType = System.Type.GetType("System.Boolean");
+                dexo.Columns.Add(dcExo);
+                dexo.Columns.Add(dcComplete);
+                dexo.Columns.Add(dcPhrase);
+                dexo.Columns.Add(dcMot);
+                dsEsp.Tables.Add(dexo);
+            }
 
+        }
 
 
         private void button1_Click(object sender, EventArgs e)

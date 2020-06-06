@@ -48,6 +48,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlListe = new System.Windows.Forms.Panel();
             this.btnAide = new System.Windows.Forms.Button();
+            this.lblEnnonce = new System.Windows.Forms.Label();
+            this.lblRegle = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlListe.SuspendLayout();
@@ -57,7 +59,7 @@
             // 
             this.lblNomPersonne.AutoSize = true;
             this.lblNomPersonne.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomPersonne.Location = new System.Drawing.Point(863, 48);
+            this.lblNomPersonne.Location = new System.Drawing.Point(842, 38);
             this.lblNomPersonne.Name = "lblNomPersonne";
             this.lblNomPersonne.Size = new System.Drawing.Size(120, 23);
             this.lblNomPersonne.TabIndex = 29;
@@ -86,6 +88,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.lblEnnonce);
             this.panel3.Controls.Add(this.lblName);
             this.panel3.Controls.Add(this.btnHideWindow);
             this.panel3.Controls.Add(this.btnExit);
@@ -152,6 +155,7 @@
             this.btnStart.TabIndex = 10;
             this.btnStart.Text = "Continuer";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // lblNumberExo
             // 
@@ -235,6 +239,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblRegle);
             this.panel1.Controls.Add(this.pnlListe);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -262,6 +267,26 @@
             this.btnAide.UseVisualStyleBackColor = true;
             this.btnAide.Click += new System.EventHandler(this.btnAide_Click);
             // 
+            // lblEnnonce
+            // 
+            this.lblEnnonce.AutoSize = true;
+            this.lblEnnonce.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnnonce.Location = new System.Drawing.Point(183, 7);
+            this.lblEnnonce.Name = "lblEnnonce";
+            this.lblEnnonce.Size = new System.Drawing.Size(141, 23);
+            this.lblEnnonce.TabIndex = 4;
+            this.lblEnnonce.Text = "Mots manquants";
+            // 
+            // lblRegle
+            // 
+            this.lblRegle.AutoSize = true;
+            this.lblRegle.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegle.Location = new System.Drawing.Point(12, 418);
+            this.lblRegle.Name = "lblRegle";
+            this.lblRegle.Size = new System.Drawing.Size(141, 23);
+            this.lblRegle.TabIndex = 12;
+            this.lblRegle.Text = "Mots manquants";
+            // 
             // frmMotM
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -287,6 +312,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pnlListe.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -314,5 +340,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlListe;
         private System.Windows.Forms.Button btnAide;
+        private System.Windows.Forms.Label lblEnnonce;
+        private System.Windows.Forms.Label lblRegle;
     }
 }

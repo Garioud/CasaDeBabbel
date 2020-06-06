@@ -50,6 +50,9 @@
             this.lblExo = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
             this.lblNomPersonne = new System.Windows.Forms.Label();
+            this.lblEnnoncer = new System.Windows.Forms.Label();
+            this.lblRegle = new System.Windows.Forms.Label();
+            this.lblTrad = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +67,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lblEnnoncer);
             this.panel3.Controls.Add(this.lblName);
             this.panel3.Controls.Add(this.btnHideWindow);
             this.panel3.Controls.Add(this.btnExit);
@@ -112,6 +116,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblTrad);
+            this.panel1.Controls.Add(this.lblRegle);
             this.panel1.Controls.Add(this.btnReturn);
             this.panel1.Controls.Add(this.btnHelp);
             this.panel1.Controls.Add(this.pnlDesordre);
@@ -176,6 +182,7 @@
             this.btnStart.TabIndex = 10;
             this.btnStart.Text = "Continuer";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // lblNumberExo
             // 
@@ -289,6 +296,36 @@
             this.lblNomPersonne.Text = "NomPersonne";
             this.lblNomPersonne.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lblEnnoncer
+            // 
+            this.lblEnnoncer.AutoSize = true;
+            this.lblEnnoncer.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnnoncer.Location = new System.Drawing.Point(195, 4);
+            this.lblEnnoncer.Name = "lblEnnoncer";
+            this.lblEnnoncer.Size = new System.Drawing.Size(182, 23);
+            this.lblEnnoncer.TabIndex = 4;
+            this.lblEnnoncer.Text = "Mots dans le désordre";
+            // 
+            // lblRegle
+            // 
+            this.lblRegle.AutoSize = true;
+            this.lblRegle.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegle.Location = new System.Drawing.Point(32, 418);
+            this.lblRegle.Name = "lblRegle";
+            this.lblRegle.Size = new System.Drawing.Size(141, 23);
+            this.lblRegle.TabIndex = 15;
+            this.lblRegle.Text = "Mots manquants";
+            // 
+            // lblTrad
+            // 
+            this.lblTrad.AutoSize = true;
+            this.lblTrad.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrad.Location = new System.Drawing.Point(32, 186);
+            this.lblTrad.Name = "lblTrad";
+            this.lblTrad.Size = new System.Drawing.Size(141, 23);
+            this.lblTrad.TabIndex = 16;
+            this.lblTrad.Text = "Mots manquants";
+            // 
             // frmDeso
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -312,6 +349,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,5 +378,8 @@
         private System.Windows.Forms.Panel pnlEndroit;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Label lblEnnoncer;
+        private System.Windows.Forms.Label lblRegle;
+        private System.Windows.Forms.Label lblTrad;
     }
 }

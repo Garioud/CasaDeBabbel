@@ -30,6 +30,8 @@ namespace CasaDeBabbel
             InitializeComponent();
             
             NommerBoutons(this, dsExo);
+            NomCours = "PAYSCULT";
+            FillListBox(dsExo, NomCours);
         }
 
         private void frmAdmin_Load(object sender, EventArgs e)

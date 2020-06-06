@@ -18,18 +18,69 @@ namespace CasaDeBabbel
         private string trad;
         private string pos;
         private string enonce;
+        private int nbExo;
+        private int nbExoMax;
+        private DataSet dsEsp;
+        private int numLeçon;
+        private string codeCours;     
+        private Dictionary<String, int> codeUser = new Dictionary<string, int>();
+        private string actualUser;
+        private bool EstJuste;
+        private string nomDT;
+
+     
         public frmMotM()
         {
             InitializeComponent();
         }
-        public frmMotM(string phrase, string trad, string pos, string enonce)
+        public frmMotM(string phrase, string trad, string pos, string enonce, string nomTable, string regle)
         {
             InitializeComponent();
+            dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
+            nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
+            numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
+            codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
+            codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
+            actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            lblNomPersonne.Text = actualUser;
+            lblActualCours.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
+            lblActLec.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            lblNumberExo.Text = $"{nbExo}/{nbExoMax}";
             generatePhrase(phrase, pos, trad);
             this.phrase = phrase;
             this.trad = trad;
             this.pos = pos;
             this.enonce = enonce;
+            lblEnnonce.Text = enonce;
+            lblDesc.Text = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
+            lblRegle.Text = regle;
+            EstJuste = true;
+            nomDT = nomTable;
+        }
+        public frmMotM(string phrase, string trad, string pos, string enonce,string nomTable)
+        {
+            InitializeComponent();
+            dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
+            nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
+            numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
+            codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
+            codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
+            actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            lblNomPersonne.Text = actualUser;
+            lblActualCours.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
+            lblActLec.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            lblNumberExo.Text = $"{nbExo}/{nbExoMax}";
+            generatePhrase(phrase, pos, trad);
+            nomDT = nomTable;
+            this.phrase = phrase;
+            this.trad = trad;
+            this.pos = pos;
+            this.enonce = enonce;
+            lblEnnonce.Text = enonce;
+            lblDesc.Text = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
+            EstJuste = true;
         }
 
         private void frmMotM_Load(object sender, EventArgs e)
@@ -111,7 +162,7 @@ namespace CasaDeBabbel
         
         private void btnAide_Click(object sender, EventArgs e)
         {
-
+            EstJuste = false;
             pnlListe.Controls.Add(new Label()
             {
                 Name = "lblReponse",
@@ -143,6 +194,25 @@ namespace CasaDeBabbel
             }
 
         }
+        private void verify()
+        {
+            string[] tabPhrase = phrase.Split(' ');
+            string[] intPos = pos.Split('/');
+            int[] tabPos = new int[intPos.Length];
+
+            for (int i = 0; i < intPos.Length && EstJuste; i++ )
+            {
+                if (textBoxList[i].Text == tabPhrase[int.Parse(intPos[i])])
+                {
+                    textBoxList[i].BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    EstJuste = false;
+                    textBoxList[i].BackColor = Color.Pink;
+                }
+            }
+        }
         private void checkTXT(object sebder, EventArgs e)
         {
             verif(this.phrase, this.pos);
@@ -163,6 +233,38 @@ namespace CasaDeBabbel
             this.Hide();
 
             exer.Show();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            int codeUtil;
+            codeUser.TryGetValue(actualUser, out codeUtil);
+            if (nbExo + 1 <= nbExoMax && codeUtil != -1)
+            {
+                foreach (DataRow dr in dsEsp.Tables["Utilisateurs"].Rows)
+                {
+                    if (dr.Field<int>("codeUtil") == codeUtil)
+                    {
+                        dr["codeExo"] = nbExo + 1;
+                    }
+                }
+
+                this.Close();
+                verify();
+                if (EstJuste)
+                    dsEsp.Tables[nomDT].Rows.Add(nbExo, true, null, null);
+                else
+                    dsEsp.Tables[nomDT].Rows.Add(nbExo, false, null, null);
+
+                Application.OpenForms.Cast<frmLogin>().First().Actualize(dsEsp);
+
+            }
+            else
+            {
+
+
+
+            }
         }
     }
 }
