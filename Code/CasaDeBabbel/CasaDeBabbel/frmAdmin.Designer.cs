@@ -35,8 +35,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblPhraseTrad = new System.Windows.Forms.Label();
             this.lblPhrase = new System.Windows.Forms.Label();
-            this.lblNum = new System.Windows.Forms.Label();
+            this.lblRegle = new System.Windows.Forms.Label();
             this.lblEnonce = new System.Windows.Forms.Label();
             this.btnFin = new System.Windows.Forms.Button();
             this.btnDebut = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@
             this.btnCours2 = new System.Windows.Forms.Button();
             this.btnCours3 = new System.Windows.Forms.Button();
             this.btnCours4 = new System.Windows.Forms.Button();
-            this.lblPhraseTrad = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -68,7 +68,7 @@
             // 
             this.lblNomPersonne.AutoSize = true;
             this.lblNomPersonne.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomPersonne.Location = new System.Drawing.Point(863, 48);
+            this.lblNomPersonne.Location = new System.Drawing.Point(842, 38);
             this.lblNomPersonne.Name = "lblNomPersonne";
             this.lblNomPersonne.Size = new System.Drawing.Size(120, 23);
             this.lblNomPersonne.TabIndex = 29;
@@ -118,7 +118,7 @@
             // 
             this.panel1.Controls.Add(this.lblPhraseTrad);
             this.panel1.Controls.Add(this.lblPhrase);
-            this.panel1.Controls.Add(this.lblNum);
+            this.panel1.Controls.Add(this.lblRegle);
             this.panel1.Controls.Add(this.lblEnonce);
             this.panel1.Controls.Add(this.btnFin);
             this.panel1.Controls.Add(this.btnDebut);
@@ -131,25 +131,35 @@
             this.panel1.Size = new System.Drawing.Size(780, 465);
             this.panel1.TabIndex = 25;
             // 
+            // lblPhraseTrad
+            // 
+            this.lblPhraseTrad.AutoSize = true;
+            this.lblPhraseTrad.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhraseTrad.Location = new System.Drawing.Point(21, 364);
+            this.lblPhraseTrad.Name = "lblPhraseTrad";
+            this.lblPhraseTrad.Size = new System.Drawing.Size(97, 23);
+            this.lblPhraseTrad.TabIndex = 19;
+            this.lblPhraseTrad.Text = "PhraseTrad";
+            // 
             // lblPhrase
             // 
             this.lblPhrase.AutoSize = true;
             this.lblPhrase.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhrase.Location = new System.Drawing.Point(21, 362);
+            this.lblPhrase.Location = new System.Drawing.Point(21, 331);
             this.lblPhrase.Name = "lblPhrase";
             this.lblPhrase.Size = new System.Drawing.Size(63, 23);
             this.lblPhrase.TabIndex = 18;
             this.lblPhrase.Text = "Phrase";
             // 
-            // lblNum
+            // lblRegle
             // 
-            this.lblNum.AutoSize = true;
-            this.lblNum.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNum.Location = new System.Drawing.Point(21, 327);
-            this.lblNum.Name = "lblNum";
-            this.lblNum.Size = new System.Drawing.Size(47, 23);
-            this.lblNum.TabIndex = 17;
-            this.lblNum.Text = "Num";
+            this.lblRegle.AutoSize = true;
+            this.lblRegle.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegle.Location = new System.Drawing.Point(21, 397);
+            this.lblRegle.Name = "lblRegle";
+            this.lblRegle.Size = new System.Drawing.Size(47, 23);
+            this.lblRegle.TabIndex = 17;
+            this.lblRegle.Text = "Num";
             // 
             // lblEnonce
             // 
@@ -374,16 +384,6 @@
             this.btnCours4.UseVisualStyleBackColor = true;
             this.btnCours4.Click += new System.EventHandler(this.btnCours4_Click);
             // 
-            // lblPhraseTrad
-            // 
-            this.lblPhraseTrad.AutoSize = true;
-            this.lblPhraseTrad.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhraseTrad.Location = new System.Drawing.Point(21, 397);
-            this.lblPhraseTrad.Name = "lblPhraseTrad";
-            this.lblPhraseTrad.Size = new System.Drawing.Size(97, 23);
-            this.lblPhraseTrad.TabIndex = 19;
-            this.lblPhraseTrad.Text = "PhraseTrad";
-            // 
             // frmAdmin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -448,7 +448,7 @@
         private System.Windows.Forms.Button btnFin;
         private System.Windows.Forms.Button btnDebut;
         private System.Windows.Forms.Label lblPhrase;
-        private System.Windows.Forms.Label lblNum;
+        private System.Windows.Forms.Label lblRegle;
         private System.Windows.Forms.Label lblEnonce;
         private System.Windows.Forms.Label lblPhraseTrad;
     }

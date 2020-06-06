@@ -16,7 +16,9 @@ namespace CasaDeBabbel
     {
         public frmLogin()
         {
+           
             InitializeComponent();
+          
             lblNumberExo.BackColor = Color.Transparent;
 
         }
@@ -42,7 +44,8 @@ namespace CasaDeBabbel
         {
             FillDataSet(chcon, dsEsp);
             fillCB(cbName, "Utilisateurs", 1, 2, dsEsp);
-            frmAdmin test = new frmAdmin(dsEsp);
+           
+         
 
         }
 
@@ -150,15 +153,7 @@ namespace CasaDeBabbel
                     lblDesc.Text = null;
                 }
             }
-            using (DataTable temporaryTable = dsEsp.Tables["Lecons"])
-            {
-                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {numLecon} AND numCours = '{codeCours}'");
-                lblActLec.Text = temporaryRow[0].Field<String>("titreLecon");
-                if (temporaryRow[0].Field<String>("commentLecon") != null)
-                    lblDesc.Text = "--->" + temporaryRow[0].Field<String>("commentLecon");
-                else
-                    lblDesc.Text = null;
-            }
+           
         }
         private void generateExerciceLabel(DataRow[] tRow)
         {

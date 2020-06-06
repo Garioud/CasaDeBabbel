@@ -252,7 +252,7 @@
             // 
             this.lblNomPersonne.AutoSize = true;
             this.lblNomPersonne.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomPersonne.Location = new System.Drawing.Point(863, 48);
+            this.lblNomPersonne.Location = new System.Drawing.Point(842, 38);
             this.lblNomPersonne.Name = "lblNomPersonne";
             this.lblNomPersonne.Size = new System.Drawing.Size(120, 23);
             this.lblNomPersonne.TabIndex = 16;

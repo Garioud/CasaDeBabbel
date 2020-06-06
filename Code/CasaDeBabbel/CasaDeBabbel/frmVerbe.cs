@@ -33,6 +33,7 @@ namespace CasaDeBabbel
             codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
             codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
             actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
         }
         public frmVerbe(string nomTable)
         {
@@ -44,13 +45,14 @@ namespace CasaDeBabbel
             codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
             codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
             actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
             nomDT = nomTable;
         }
 
 
         private void frmVerbe_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmLogin.ActiveForm.Activate();
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
