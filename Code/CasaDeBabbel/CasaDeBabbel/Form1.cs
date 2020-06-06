@@ -345,12 +345,11 @@ namespace CasaDeBabbel
                         }
                     }
 
-                      frmVoca exer;
-                        if (!temporaryRow[0].IsNull("codeRegle"))
-                            exer = new frmVoca(tabMot, enonceExo, nameDT, regle);
-                        else
-                            exer = new frmVoca(tabMot, enonceExo, nameDT);
-
+                    frmVoca exer;
+                    if (!temporaryRow[0].IsNull("codeRegle"))
+                        exer = new frmVoca(tabMot, enonceExo, nameDT, regle);
+                    else
+                        exer = new frmVoca(tabMot, enonceExo, nameDT);
                     this.Hide();
                     exer.ShowDialog();
                 }
