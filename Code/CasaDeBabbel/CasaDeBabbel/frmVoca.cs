@@ -13,7 +13,7 @@ namespace CasaDeBabbel
     public partial class frmVoca : Form
     {
         private int nbExo;
-        private int nbExoTotal;
+
         private DataSet dsEsp;
         private int numLeçon;
         private string codeCours;
@@ -42,10 +42,12 @@ namespace CasaDeBabbel
             titreCours = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
             titreLecon = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             descLecon = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
-            nbExoTotal = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
             lblActualCours.Text = titreCours;
             lblDesc.Text = descLecon;
             generateImg();
+            pgB_Progres.Maximum = nbExoMax;
+            pgB_Progres.Value = nbExo;
       
         }
         public frmVoca(string[][] mot,string ennonce,string nomTable)
@@ -60,7 +62,7 @@ namespace CasaDeBabbel
             titreCours = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
             titreLecon = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             descLecon = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
-            nbExoTotal = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
             lblActualCours.Text = titreCours;
             lblDesc.Text = descLecon;
             lblNomPersonne.Text = actualUser;
@@ -71,6 +73,8 @@ namespace CasaDeBabbel
             tabVoca = mot;
             generateImg();
             nomDT = nomTable;
+            pgB_Progres.Maximum = nbExoMax;
+            pgB_Progres.Value = nbExo;
         }
         public frmVoca(string[][] mot, string ennonce, string nomTable,string regle)
         {
@@ -84,7 +88,7 @@ namespace CasaDeBabbel
             titreCours = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
             titreLecon = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             descLecon = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
-            nbExoTotal = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
             lblActualCours.Text = titreCours;
             lblDesc.Text = descLecon;
             lblNomPersonne.Text = actualUser;
@@ -95,6 +99,8 @@ namespace CasaDeBabbel
             tabVoca = mot;
             nomDT = nomTable;
             generateImg();
+            pgB_Progres.Maximum = nbExoMax;
+            pgB_Progres.Value = nbExo;
         }
 
         private void generateImg()
