@@ -58,6 +58,8 @@ namespace CasaDeBabbel
             lblRegle.Text = regle;
             EstJuste = true;
             nomDT = nomTable;
+            pgB_Progres.Maximum = nbExoMax;
+            pgB_Progres.Value = nbExo;
         }
         public frmMotM(string phrase, string trad, string pos, string enonce,string nomTable)
         {
@@ -82,6 +84,8 @@ namespace CasaDeBabbel
             lblEnnonce.Text = enonce;
             lblDesc.Text = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
             EstJuste = true;
+            pgB_Progres.Maximum = nbExoMax;
+            pgB_Progres.Value = nbExo;
         }
 
         private void frmMotM_Load(object sender, EventArgs e)

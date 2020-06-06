@@ -70,6 +70,8 @@ namespace CasaDeBabbel
             nomDT = nomTable;
             lblTrad.Text = trad;
             EstBon = true;
+            pgB_Progres.Maximum = nbExoMax;
+            pgB_Progres.Value = nbExo;
         }
         public frmDeso(string phrase, string trad, string enonce, string nomTable,string regle)
         {
@@ -94,6 +96,8 @@ namespace CasaDeBabbel
             lblTrad.Text = trad;
             lblRegle.Text = regle;
             EstBon = true;
+            pgB_Progres.Maximum = nbExoMax;
+            pgB_Progres.Value = nbExo;
         }
 
 
