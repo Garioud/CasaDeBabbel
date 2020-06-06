@@ -21,7 +21,7 @@ namespace CasaDeBabbel
             InitializeComponent();
         }
         public Image setImage
-            {
+        {
             get
             {
                 return pctbVoca.Image;
@@ -30,6 +30,7 @@ namespace CasaDeBabbel
             {
                 pctbVoca.Image = value;
             }
-           
+
         }
+    }
 }
