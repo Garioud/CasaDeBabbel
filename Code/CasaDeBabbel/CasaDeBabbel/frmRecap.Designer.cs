@@ -39,12 +39,12 @@
             this.pnlBad = new System.Windows.Forms.Panel();
             this.pnlGood = new System.Windows.Forms.Panel();
             this.btnContinue = new System.Windows.Forms.Button();
-            this.pnl_Avancement = new System.Windows.Forms.Panel();
             this.lblNomPersonne = new System.Windows.Forms.Label();
             this.lblCours = new System.Windows.Forms.Label();
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblActLec = new System.Windows.Forms.Label();
             this.lblAcLec = new System.Windows.Forms.Label();
+            this.lblDesc = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -149,13 +149,6 @@
             this.btnContinue.Text = "Continuer le cours";
             this.btnContinue.UseVisualStyleBackColor = true;
             // 
-            // pnl_Avancement
-            // 
-            this.pnl_Avancement.Location = new System.Drawing.Point(220, 104);
-            this.pnl_Avancement.Name = "pnl_Avancement";
-            this.pnl_Avancement.Size = new System.Drawing.Size(780, 31);
-            this.pnl_Avancement.TabIndex = 19;
-            // 
             // lblNomPersonne
             // 
             this.lblNomPersonne.AutoSize = true;
@@ -211,16 +204,27 @@
             this.lblAcLec.TabIndex = 36;
             this.lblAcLec.Text = "Leçon actuelle :";
             // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesc.Location = new System.Drawing.Point(374, 96);
+            this.lblDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(50, 22);
+            this.lblDesc.TabIndex = 38;
+            this.lblDesc.Text = "label";
+            // 
             // frmRecap
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.lblActLec);
             this.Controls.Add(this.lblAcLec);
             this.Controls.Add(this.lblCours);
             this.Controls.Add(this.lblActualCours);
             this.Controls.Add(this.lblNomPersonne);
-            this.Controls.Add(this.pnl_Avancement);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -247,7 +251,6 @@
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnContinue;
-        private System.Windows.Forms.Panel pnl_Avancement;
         private System.Windows.Forms.Panel pnlBad;
         private System.Windows.Forms.Panel pnlGood;
         private System.Windows.Forms.Label lblNomPersonne;
@@ -255,5 +258,6 @@
         private System.Windows.Forms.Label lblActualCours;
         private System.Windows.Forms.Label lblActLec;
         private System.Windows.Forms.Label lblAcLec;
+        private System.Windows.Forms.Label lblDesc;
     }
 }
