@@ -14,7 +14,7 @@ namespace CasaDeBabbel
     {
         private DataSet dsExo;
         private string NomCours;
-        private string NomLecon;
+        private string NumLecon;
 
         List<string> Exo = new List<string>();
         List<string> EnonceExo = new List<string>();
@@ -138,14 +138,42 @@ namespace CasaDeBabbel
 
         private void lb_Lecons_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            NumLecon = lb_Lecons.SelectedIndex.ToString();
+            AffichageExos(dsExo, NomCours, NumLecon);
         }
 
-        private void AffichageExos()
+        private void AffichageExos(DataSet ds, string NomCours, string NumLecon)
         {
-            lblEnonce.Text = "";
-            lblNum.Text = "";
-            lblPhrase.Text = "";
+
+            try
+            {
+                List<string> codePhrase = new List<string>();
+                DataTable temporaryTable = ds.Tables["Exercices"];
+                DataTable temporaryPhrase = ds.Tables["Phrases"];
+                foreach (DataRow r in temporaryTable.Rows)
+                {
+                    if (r["numCours"].ToString() == NomCours && r["numLecon"].ToString() == NumLecon)
+                    {
+                        NumExo.Add(r["numExo"].ToString());
+                        EnonceExo.Add(r["enonceExo"].ToString());
+                        codePhrase.Add(r["codePhrase"].ToString());
+                    }
+                    else
+                    {
+
+                    }
+                }
+                //lb_Lecons.DataSource = Lecon;
+                lblEnonce.Text = "";
+                lblNum.Text = "";
+                lblPhrase.Text = "";
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+
+            
 
         }
     }

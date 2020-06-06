@@ -26,6 +26,7 @@ namespace CasaDeBabbel
         private string actualUser;
         public frmVoca()
         {
+            InitializeComponent();
             dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
             nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
             numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
@@ -36,8 +37,8 @@ namespace CasaDeBabbel
             titreLecon = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             descLecon = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
             nbExoTotal = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
-            lblActualCours = codeCours;
-            InitializeComponent();
+            lblActualCours.Text = titreCours;
+            
         }
         public frmVoca(string[][] mot)
         {
