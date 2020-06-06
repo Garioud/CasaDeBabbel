@@ -35,12 +35,16 @@ namespace CasaDeBabbel
         }
         public frmAdmin(DataSet ds)
         {
-            dsExo = ds;
             InitializeComponent();
+            lblNomPersonne.Text = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            dsExo = ds;
+            
             nbExo = 1;
             NommerBoutons(this, dsExo);
             NomCours = "PAYSCULT";
             FillListBox(dsExo, NomCours);
+            affichageExos(nbExo);
+            pgB_Progres.Maximum = nbMax;
 
         }
 
@@ -129,6 +133,8 @@ namespace CasaDeBabbel
             FillListBox(dsExo, NomCours);
 
             affichageExos(nbExo);
+            generateCoursLabel();
+            generateLeconLabel();
         }
 
         private void btnCours2_Click(object sender, EventArgs e)
@@ -138,6 +144,8 @@ namespace CasaDeBabbel
             FillListBox(dsExo, NomCours);
 
             affichageExos(nbExo);
+            generateCoursLabel();
+            generateLeconLabel();
         }
 
         private void btnCours3_Click(object sender, EventArgs e)
@@ -147,6 +155,8 @@ namespace CasaDeBabbel
             FillListBox(dsExo, NomCours);
 
             affichageExos(nbExo);
+            generateCoursLabel();
+            generateLeconLabel();
         }
 
         private void btnCours4_Click(object sender, EventArgs e)
@@ -156,6 +166,8 @@ namespace CasaDeBabbel
             FillListBox(dsExo, NomCours);
 
             affichageExos(nbExo);
+            generateCoursLabel();
+            generateLeconLabel();
         }
 
         private void lb_Lecons_SelectedIndexChanged(object sender, EventArgs e)
@@ -164,63 +176,14 @@ namespace CasaDeBabbel
             int num = lb_Lecons.SelectedIndex;
             num += 1;
             NumLecon = num.ToString();
-
             affichageExos(nbExo);
+            pgB_Progres.Maximum = nbMax;
+            generateCoursLabel();
+            generateLeconLabel();
+
         }
 
-        private void Exos(DataSet ds, string NomCours, string NumLecon)
-        {
-
-            try
-            {
-
-
-                List<string> codePhrase = new List<string>();
-                DataTable temporaryTable = ds.Tables["Exercices"];
-                DataTable temporaryPhrase = ds.Tables["Phrases"];
-
-                foreach (DataRow r in temporaryTable.Rows)
-                {
-                    if (r["numCours"].ToString() == NomCours && r["numLecon"].ToString() == NumLecon)
-                    {
-                        NumExo.Add(r["numExo"].ToString());
-                        EnonceExo.Add(r["enonceExo"].ToString());
-                        codePhrase.Add(r["codePhrase"].ToString());
-                    }
-                    else
-                    {
-
-                    }
-                }
-                int i = 0;
-                int y = 0;
-                foreach (DataRow r in temporaryPhrase.Rows)
-                {
-                    if (codePhrase[i] == "0")
-                    {
-                        Phrase.Add("Aucune phrase n'est disponible");
-                        PhraseTrad.Add("Aucune traduction n'est disponible");
-                        i++;
-                    }
-                    if (r["codePhrase"].ToString() == codePhrase[i])
-                    {
-                        Phrase.Add(r["textePhrase"].ToString());
-                        PhraseTrad.Add(r["traducPhrase"].ToString());
-                        i++;
-                    }
-                    else
-
-                    {
-
-                    }
-                    y++;
-                }
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show(x.Message);
-            }
-        }
+     
 
         private void btnDebut_Click(object sender, EventArgs e)
         {
@@ -264,10 +227,12 @@ namespace CasaDeBabbel
 
         private void affichageExos(int num)
         {
-            lblNum.Text = (nbExo).ToString();
+            pgB_Progres.Value = nbExo;
+            lblNumberExo.Text = (nbExo).ToString() + "/" + nbMax.ToString(); ;
             lblPhrase.Text = null;
             lblEnonce.Text = null;
             lblPhraseTrad.Text = null;
+            lblRegle.Text = null;
             using (DataTable temporaryTable = dsExo.Tables["Exercices"])
             {
                 DataRow[] temporaryRow = temporaryTable.Select($"numCours='{NomCours}' and numLecon='{NumLecon}'");
@@ -282,6 +247,7 @@ namespace CasaDeBabbel
                     {
                         DataRow[] temporaryRow2 = temporaryTable2.Select($"codeRegle='{temporaryRow[0].Field<string>("codeRegle")}'");
                         regle = temporaryRow2[0].Field<string>("texteRegle");
+                        lblRegle.Text = regle;
                     }
 
                 }
@@ -318,7 +284,7 @@ namespace CasaDeBabbel
 
                         using (DataTable temporaryTable2 = dsExo.Tables["ConcerneMots"])
                         {
-                            DataRow[] temporaryRow2 = temporaryTable2.Select($"numCours='{dsExo}' and numLecon={NumLecon} and numExo={nbExo}");
+                            DataRow[] temporaryRow2 = temporaryTable2.Select($"numCours='{NomCours}' and numLecon={NumLecon} and numExo={nbExo}");
                             taille = temporaryRow2.GetLength(0);
                             tabMot = new string[taille][];
                             using (DataTable temporaryTable3 = dsExo.Tables["Mots"])
@@ -379,7 +345,6 @@ namespace CasaDeBabbel
                         }
 
                     }
-
                     lblEnonce.Text = ennonce;
                     for (int i = 0; i < tabMot.GetLength(0); i++)
                     {
@@ -397,6 +362,35 @@ namespace CasaDeBabbel
 
 
             }
+        }
+        private void generateCoursLabel()
+        {
+            using (DataTable temporaryTable = dsExo.Tables["Cours"])
+            {
+              
+                DataRow[] temporaryRow = temporaryTable.Select($"numCours= '{NomCours}'");
+                lblActualCours.Text = temporaryRow[0].Field<String>("titreCours");
+              
+            }
+        }
+        private void generateLeconLabel()
+        {
+            using (DataTable temporaryTable = dsExo.Tables["Lecons"])
+            {
+                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {NumLecon} AND numCours = '{NomCours}'");
+                lblActLec.Text = temporaryRow[0].Field<String>("titreLecon");
+            
+                if (temporaryRow[0].Field<String>("commentLecon") != null)
+                {
+                    lblDesc.Text = "--->" + temporaryRow[0].Field<String>("commentLecon");
+                   
+                }
+                else
+                {
+                    lblDesc.Text = null;
+                }
+            }
+           
         }
     }
 }
