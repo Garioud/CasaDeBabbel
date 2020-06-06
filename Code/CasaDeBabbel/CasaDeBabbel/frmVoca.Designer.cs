@@ -257,6 +257,7 @@
             this.Controls.Add(this.pnlVoca);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVoca";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVoca";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmVoca_FormClosed);
             this.panel3.ResumeLayout(false);
