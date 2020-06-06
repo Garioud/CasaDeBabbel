@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRecap));
-            this.pnlLogo = new System.Windows.Forms.Panel();
-            this.pnlToolbar = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -39,33 +39,33 @@
             this.pnlBad = new System.Windows.Forms.Panel();
             this.pnlGood = new System.Windows.Forms.Panel();
             this.btnContinue = new System.Windows.Forms.Button();
-            this.pnl_Avancement = new System.Windows.Forms.Panel();
             this.lblNomPersonne = new System.Windows.Forms.Label();
             this.lblCours = new System.Windows.Forms.Label();
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblActLec = new System.Windows.Forms.Label();
             this.lblAcLec = new System.Windows.Forms.Label();
-            this.pnlToolbar.SuspendLayout();
+            this.lblDesc = new System.Windows.Forms.Label();
+            this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlLogo
+            // panel4
             // 
-            this.pnlLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlLogo.BackgroundImage")));
-            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(220, 135);
-            this.pnlLogo.TabIndex = 16;
+            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(220, 135);
+            this.panel4.TabIndex = 16;
             // 
-            // pnlToolbar
+            // panel3
             // 
-            this.pnlToolbar.Controls.Add(this.lblName);
-            this.pnlToolbar.Controls.Add(this.btnHideWindow);
-            this.pnlToolbar.Controls.Add(this.btnExit);
-            this.pnlToolbar.Location = new System.Drawing.Point(220, 0);
-            this.pnlToolbar.Name = "pnlToolbar";
-            this.pnlToolbar.Size = new System.Drawing.Size(780, 35);
-            this.pnlToolbar.TabIndex = 15;
+            this.panel3.Controls.Add(this.lblName);
+            this.panel3.Controls.Add(this.btnHideWindow);
+            this.panel3.Controls.Add(this.btnExit);
+            this.panel3.Location = new System.Drawing.Point(220, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(780, 35);
+            this.panel3.TabIndex = 15;
             // 
             // lblName
             // 
@@ -149,13 +149,6 @@
             this.btnContinue.Text = "Continuer le cours";
             this.btnContinue.UseVisualStyleBackColor = true;
             // 
-            // pnl_Avancement
-            // 
-            this.pnl_Avancement.Location = new System.Drawing.Point(220, 104);
-            this.pnl_Avancement.Name = "pnl_Avancement";
-            this.pnl_Avancement.Size = new System.Drawing.Size(780, 31);
-            this.pnl_Avancement.TabIndex = 19;
-            // 
             // lblNomPersonne
             // 
             this.lblNomPersonne.AutoSize = true;
@@ -211,26 +204,37 @@
             this.lblAcLec.TabIndex = 36;
             this.lblAcLec.Text = "Leçon actuelle :";
             // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesc.Location = new System.Drawing.Point(374, 96);
+            this.lblDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(50, 22);
+            this.lblDesc.TabIndex = 38;
+            this.lblDesc.Text = "label";
+            // 
             // frmRecap
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.lblActLec);
             this.Controls.Add(this.lblAcLec);
             this.Controls.Add(this.lblCours);
             this.Controls.Add(this.lblActualCours);
             this.Controls.Add(this.lblNomPersonne);
-            this.Controls.Add(this.pnl_Avancement);
-            this.Controls.Add(this.pnlLogo);
-            this.Controls.Add(this.pnlToolbar);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRecap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRecap";
             this.Load += new System.EventHandler(this.frmRecap_Load);
-            this.pnlToolbar.ResumeLayout(false);
-            this.pnlToolbar.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -239,15 +243,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlLogo;
-        private System.Windows.Forms.Panel pnlToolbar;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnHideWindow;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnContinue;
-        private System.Windows.Forms.Panel pnl_Avancement;
         private System.Windows.Forms.Panel pnlBad;
         private System.Windows.Forms.Panel pnlGood;
         private System.Windows.Forms.Label lblNomPersonne;
@@ -255,5 +258,6 @@
         private System.Windows.Forms.Label lblActualCours;
         private System.Windows.Forms.Label lblActLec;
         private System.Windows.Forms.Label lblAcLec;
+        private System.Windows.Forms.Label lblDesc;
     }
 }

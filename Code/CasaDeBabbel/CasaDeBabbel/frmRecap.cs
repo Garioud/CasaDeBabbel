@@ -31,6 +31,9 @@ namespace CasaDeBabbel
             nomDT=nomTable;
             InitializeComponent();
             generateLabel();
+            lblActualCours.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
+            lblActLec.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
+            lblDesc.Text = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
         }
         private void frmRecap_Load(object sender, EventArgs e)
         {
