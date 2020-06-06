@@ -90,7 +90,9 @@ namespace CasaDeBabbel
                 else
                 {
 
+                    dsEsp.Tables[nomDT].Rows.Add(nbExo, true, null, null);
 
+                    Application.OpenForms.Cast<frmLogin>().First().afficheRecap(dsEsp);
 
                 }
             }
