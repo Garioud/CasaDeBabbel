@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDeso));
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblName = new System.Windows.Forms.Label();
-            this.btnHideWindow = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTrad = new System.Windows.Forms.Label();
+            this.lblRegle = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.pnlDesordre = new System.Windows.Forms.Panel();
@@ -50,69 +47,15 @@
             this.lblExo = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
             this.lblNomPersonne = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnHideWindow = new System.Windows.Forms.Button();
+            this.lblName = new System.Windows.Forms.Label();
             this.lblEnnoncer = new System.Windows.Forms.Label();
-            this.lblRegle = new System.Windows.Forms.Label();
-            this.lblTrad = new System.Windows.Forms.Label();
-            this.panel3.SuspendLayout();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(220, 135);
-            this.panel4.TabIndex = 14;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.lblEnnoncer);
-            this.panel3.Controls.Add(this.lblName);
-            this.panel3.Controls.Add(this.btnHideWindow);
-            this.panel3.Controls.Add(this.btnExit);
-            this.panel3.Location = new System.Drawing.Point(220, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(780, 35);
-            this.panel3.TabIndex = 13;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(7, 4);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(182, 23);
-            this.lblName.TabIndex = 3;
-            this.lblName.Text = "Mots dans le désordre";
-            // 
-            // btnHideWindow
-            // 
-            this.btnHideWindow.BackColor = System.Drawing.Color.Transparent;
-            this.btnHideWindow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHideWindow.BackgroundImage")));
-            this.btnHideWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnHideWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHideWindow.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnHideWindow.Location = new System.Drawing.Point(715, 3);
-            this.btnHideWindow.Name = "btnHideWindow";
-            this.btnHideWindow.Size = new System.Drawing.Size(27, 27);
-            this.btnHideWindow.TabIndex = 2;
-            this.btnHideWindow.UseVisualStyleBackColor = false;
-            this.btnHideWindow.Click += new System.EventHandler(this.btnHideWindow_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnExit.Location = new System.Drawing.Point(750, 3);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(27, 27);
-            this.btnExit.TabIndex = 0;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // panel1
             // 
@@ -129,6 +72,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1000, 465);
             this.panel1.TabIndex = 12;
+            // 
+            // lblTrad
+            // 
+            this.lblTrad.AutoSize = true;
+            this.lblTrad.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrad.Location = new System.Drawing.Point(32, 186);
+            this.lblTrad.Name = "lblTrad";
+            this.lblTrad.Size = new System.Drawing.Size(141, 23);
+            this.lblTrad.TabIndex = 16;
+            this.lblTrad.Text = "Mots manquants";
+            // 
+            // lblRegle
+            // 
+            this.lblRegle.AutoSize = true;
+            this.lblRegle.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegle.Location = new System.Drawing.Point(32, 418);
+            this.lblRegle.Name = "lblRegle";
+            this.lblRegle.Size = new System.Drawing.Size(141, 23);
+            this.lblRegle.TabIndex = 15;
+            this.lblRegle.Text = "Mots manquants";
             // 
             // btnReturn
             // 
@@ -296,6 +259,44 @@
             this.lblNomPersonne.Text = "NomPersonne";
             this.lblNomPersonne.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnExit.Location = new System.Drawing.Point(750, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(27, 27);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnHideWindow
+            // 
+            this.btnHideWindow.BackColor = System.Drawing.Color.Transparent;
+            this.btnHideWindow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHideWindow.BackgroundImage")));
+            this.btnHideWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnHideWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHideWindow.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHideWindow.Location = new System.Drawing.Point(715, 3);
+            this.btnHideWindow.Name = "btnHideWindow";
+            this.btnHideWindow.Size = new System.Drawing.Size(27, 27);
+            this.btnHideWindow.TabIndex = 2;
+            this.btnHideWindow.UseVisualStyleBackColor = false;
+            this.btnHideWindow.Click += new System.EventHandler(this.btnHideWindow_Click);
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(7, 4);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(182, 23);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "Mots dans le désordre";
+            // 
             // lblEnnoncer
             // 
             this.lblEnnoncer.AutoSize = true;
@@ -306,25 +307,24 @@
             this.lblEnnoncer.TabIndex = 4;
             this.lblEnnoncer.Text = "Mots dans le désordre";
             // 
-            // lblRegle
+            // panel3
             // 
-            this.lblRegle.AutoSize = true;
-            this.lblRegle.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegle.Location = new System.Drawing.Point(32, 418);
-            this.lblRegle.Name = "lblRegle";
-            this.lblRegle.Size = new System.Drawing.Size(141, 23);
-            this.lblRegle.TabIndex = 15;
-            this.lblRegle.Text = "Mots manquants";
+            this.panel3.Controls.Add(this.lblEnnoncer);
+            this.panel3.Controls.Add(this.lblName);
+            this.panel3.Controls.Add(this.btnHideWindow);
+            this.panel3.Controls.Add(this.btnExit);
+            this.panel3.Location = new System.Drawing.Point(220, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(780, 35);
+            this.panel3.TabIndex = 13;
             // 
-            // lblTrad
+            // panel4
             // 
-            this.lblTrad.AutoSize = true;
-            this.lblTrad.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrad.Location = new System.Drawing.Point(32, 186);
-            this.lblTrad.Name = "lblTrad";
-            this.lblTrad.Size = new System.Drawing.Size(141, 23);
-            this.lblTrad.TabIndex = 16;
-            this.lblTrad.Text = "Mots manquants";
+            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(220, 135);
+            this.panel4.TabIndex = 14;
             // 
             // frmDeso
             // 
@@ -346,22 +346,16 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDeso";
             this.Text = "frmDeso";
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Button btnHideWindow;
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label lblNumberExo;
@@ -378,8 +372,13 @@
         private System.Windows.Forms.Panel pnlEndroit;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnHelp;
-        private System.Windows.Forms.Label lblEnnoncer;
         private System.Windows.Forms.Label lblRegle;
         private System.Windows.Forms.Label lblTrad;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnHideWindow;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblEnnoncer;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }

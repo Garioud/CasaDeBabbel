@@ -112,6 +112,9 @@
     <EmbeddedResource Include="frmMotM.resx">
       <DependentUpon>frmMotM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRecap.resx">
+      <DependentUpon>frmRecap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerbe.resx">
       <DependentUpon>frmVerbe.cs</DependentUpon>
     </EmbeddedResource>
