@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRecap));
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlToolbar = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
@@ -49,13 +49,13 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel4
+            // pnlLogo
             // 
-            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(220, 135);
-            this.panel4.TabIndex = 16;
+            this.pnlLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlLogo.BackgroundImage")));
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(220, 135);
+            this.pnlLogo.TabIndex = 16;
             // 
             // pnlToolbar
             // 
@@ -221,7 +221,7 @@
             this.Controls.Add(this.lblActualCours);
             this.Controls.Add(this.lblNomPersonne);
             this.Controls.Add(this.pnl_Avancement);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.pnlLogo);
             this.Controls.Add(this.pnlToolbar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -239,7 +239,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.Panel pnlToolbar;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnHideWindow;

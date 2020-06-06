@@ -32,9 +32,9 @@
             this.lblNomPersonne = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
             this.lblNumberExo = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlLogo = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.lblPhraseTrad = new System.Windows.Forms.Label();
             this.lblPhrase = new System.Windows.Forms.Label();
             this.lblRegle = new System.Windows.Forms.Label();
@@ -59,8 +59,8 @@
             this.btnCours2 = new System.Windows.Forms.Button();
             this.btnCours3 = new System.Windows.Forms.Button();
             this.btnCours4 = new System.Windows.Forms.Button();
-            this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlLogo.SuspendLayout();
+            this.pnlPrincipal.SuspendLayout();
             this.pnlToolbar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,14 +98,14 @@
             this.lblNumberExo.TabIndex = 23;
             this.lblNumberExo.Text = "label2";
             // 
-            // panel4
+            // pnlLogo
             // 
-            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
-            this.panel4.Controls.Add(this.flowLayoutPanel1);
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(220, 135);
-            this.panel4.TabIndex = 27;
+            this.pnlLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlLogo.BackgroundImage")));
+            this.pnlLogo.Controls.Add(this.flowLayoutPanel1);
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(220, 135);
+            this.pnlLogo.TabIndex = 27;
             // 
             // flowLayoutPanel1
             // 
@@ -114,22 +114,22 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 465);
             this.flowLayoutPanel1.TabIndex = 11;
             // 
-            // panel1
+            // pnlPrincipal
             // 
-            this.panel1.Controls.Add(this.lblPhraseTrad);
-            this.panel1.Controls.Add(this.lblPhrase);
-            this.panel1.Controls.Add(this.lblRegle);
-            this.panel1.Controls.Add(this.lblEnonce);
-            this.panel1.Controls.Add(this.btnFin);
-            this.panel1.Controls.Add(this.btnDebut);
-            this.panel1.Controls.Add(this.btnApres);
-            this.panel1.Controls.Add(this.btnAvant);
-            this.panel1.Controls.Add(this.lb_Lecons);
-            this.panel1.Location = new System.Drawing.Point(220, 135);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(780, 465);
-            this.panel1.TabIndex = 25;
+            this.pnlPrincipal.Controls.Add(this.lblPhraseTrad);
+            this.pnlPrincipal.Controls.Add(this.lblPhrase);
+            this.pnlPrincipal.Controls.Add(this.lblRegle);
+            this.pnlPrincipal.Controls.Add(this.lblEnonce);
+            this.pnlPrincipal.Controls.Add(this.btnFin);
+            this.pnlPrincipal.Controls.Add(this.btnDebut);
+            this.pnlPrincipal.Controls.Add(this.btnApres);
+            this.pnlPrincipal.Controls.Add(this.btnAvant);
+            this.pnlPrincipal.Controls.Add(this.lb_Lecons);
+            this.pnlPrincipal.Location = new System.Drawing.Point(220, 135);
+            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlPrincipal.Name = "pnlPrincipal";
+            this.pnlPrincipal.Size = new System.Drawing.Size(780, 465);
+            this.pnlPrincipal.TabIndex = 25;
             // 
             // lblPhraseTrad
             // 
@@ -414,8 +414,8 @@
             this.Controls.Add(this.lblNomPersonne);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.lblNumberExo);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlLogo);
+            this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pnlToolbar);
             this.Controls.Add(this.lblExo);
             this.Controls.Add(this.lblDesc);
@@ -429,9 +429,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdmin";
             this.Load += new System.EventHandler(this.frmAdmin_Load);
-            this.panel4.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlLogo.ResumeLayout(false);
+            this.pnlPrincipal.ResumeLayout(false);
+            this.pnlPrincipal.PerformLayout();
             this.pnlToolbar.ResumeLayout(false);
             this.pnlToolbar.PerformLayout();
             this.ResumeLayout(false);
@@ -444,9 +444,9 @@
         private System.Windows.Forms.Label lblNomPersonne;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Label lblNumberExo;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnHideWindow;
         private System.Windows.Forms.Panel pnlToolbar;
