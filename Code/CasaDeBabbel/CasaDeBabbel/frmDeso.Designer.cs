@@ -345,6 +345,7 @@
             this.Controls.Add(this.lblAcLec);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDeso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDeso";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

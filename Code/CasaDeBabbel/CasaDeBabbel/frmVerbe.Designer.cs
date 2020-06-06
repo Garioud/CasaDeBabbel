@@ -124,6 +124,7 @@
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVerbe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVerbe";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmVerbe_FormClosed);
             this.panel4.ResumeLayout(false);

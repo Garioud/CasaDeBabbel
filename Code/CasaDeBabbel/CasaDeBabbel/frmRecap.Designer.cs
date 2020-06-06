@@ -36,11 +36,11 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlBad = new System.Windows.Forms.Panel();
+            this.pnlGood = new System.Windows.Forms.Panel();
             this.btnContinue = new System.Windows.Forms.Button();
             this.pnl_Avancement = new System.Windows.Forms.Panel();
             this.lblNomLecon = new System.Windows.Forms.Label();
-            this.pnlGood = new System.Windows.Forms.Panel();
-            this.pnlBad = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -122,6 +122,20 @@
             this.panel1.Size = new System.Drawing.Size(1000, 465);
             this.panel1.TabIndex = 18;
             // 
+            // pnlBad
+            // 
+            this.pnlBad.Location = new System.Drawing.Point(515, 29);
+            this.pnlBad.Name = "pnlBad";
+            this.pnlBad.Size = new System.Drawing.Size(473, 378);
+            this.pnlBad.TabIndex = 20;
+            // 
+            // pnlGood
+            // 
+            this.pnlGood.Location = new System.Drawing.Point(27, 29);
+            this.pnlGood.Name = "pnlGood";
+            this.pnlGood.Size = new System.Drawing.Size(473, 378);
+            this.pnlGood.TabIndex = 19;
+            // 
             // btnContinue
             // 
             this.btnContinue.Location = new System.Drawing.Point(698, 407);
@@ -148,20 +162,6 @@
             this.lblNomLecon.TabIndex = 20;
             this.lblNomLecon.Text = "Lecon";
             // 
-            // pnlGood
-            // 
-            this.pnlGood.Location = new System.Drawing.Point(27, 29);
-            this.pnlGood.Name = "pnlGood";
-            this.pnlGood.Size = new System.Drawing.Size(473, 378);
-            this.pnlGood.TabIndex = 19;
-            // 
-            // pnlBad
-            // 
-            this.pnlBad.Location = new System.Drawing.Point(515, 29);
-            this.pnlBad.Name = "pnlBad";
-            this.pnlBad.Size = new System.Drawing.Size(473, 378);
-            this.pnlBad.TabIndex = 20;
-            // 
             // frmRecap
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -173,6 +173,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRecap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRecap";
             this.Load += new System.EventHandler(this.frmRecap_Load);
             this.panel3.ResumeLayout(false);
