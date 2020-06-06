@@ -106,6 +106,11 @@ namespace CasaDeBabbel
             {
                 if (tabPos.Contains(i))
                 {
+                    if (position+15*15 >= 900)
+                    {
+                        ligne += 40;
+                        position = 50;
+                    }
                     TextBox txtb = new TextBox();
                     pnlListe.Controls.Add(txtb);
                     txtb.Name = "txtMot" + i;
@@ -122,14 +127,15 @@ namespace CasaDeBabbel
                         listmot += "/" + tabPhrase[i];
 
 
-                    if (position >= 900)
+                    
+                }
+                else
+                {
+                    if (position >= 800)
                     {
                         ligne += 40;
                         position = 50;
                     }
-                }
-                else
-                {
                     Label lbl = new Label();
                     pnlListe.Controls.Add(lbl);
                     lbl.Name = "lblMot" + i;
@@ -139,11 +145,7 @@ namespace CasaDeBabbel
                     lbl.Text = tabPhrase[i];
                     position += lbl.Width;
 
-                    if (position >= 900)
-                    {
-                        ligne += 40;
-                        position = 50;
-                    }
+                    
                 }
             }
             
@@ -187,7 +189,6 @@ namespace CasaDeBabbel
         {
             string[] tabPhrase = phrase.Split(' ');
             string[] intPos = pos.Split('/');
-            int[] tabPos = new int[intPos.Length];
 
             for (int i = 0; i < intPos.Length; i++) {
                 if (textBoxList[i].Text == tabPhrase[int.Parse(intPos[i])-1])
@@ -205,7 +206,6 @@ namespace CasaDeBabbel
         {
             string[] tabPhrase = phrase.Split(' ');
             string[] intPos = pos.Split('/');
-            int[] tabPos = new int[intPos.Length];
 
             for (int i = 0; i < intPos.Length && EstJuste; i++ )
             {
