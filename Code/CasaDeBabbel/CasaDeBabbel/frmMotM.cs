@@ -18,6 +18,15 @@ namespace CasaDeBabbel
         private string trad;
         private string pos;
         private string enonce;
+        private int nbExo;
+        private int nbExoMax;
+        private DataSet dsEsp;
+        private int numLeçon;
+        private string codeCours;     
+        private Dictionary<String, int> codeUser = new Dictionary<string, int>();
+        private string actualUser;
+
+        private string[] tabMot;
         public frmMotM()
         {
             InitializeComponent();
@@ -25,11 +34,23 @@ namespace CasaDeBabbel
         public frmMotM(string phrase, string trad, string pos, string enonce)
         {
             InitializeComponent();
+            dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
+            nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
+            numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
+            codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
+            codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
+            actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            lblNomPersonne.Text = actualUser;
+            lblActualCours.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
+            lblActLec.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            lblNumberExo.Text = $"{nbExo}/{nbExoMax}";
             generatePhrase(phrase, pos, trad);
             this.phrase = phrase;
             this.trad = trad;
             this.pos = pos;
             this.enonce = enonce;
+            lblDesc.Text ="-->"+ enonce;
         }
 
         private void frmMotM_Load(object sender, EventArgs e)
