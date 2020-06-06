@@ -20,7 +20,7 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
         }
-        public Image setImage
+        public Image Image
         {
             get
             {
@@ -32,5 +32,40 @@ namespace CasaDeBabbel
             }
 
         }
+        public string Origin
+        {
+            get
+            {
+                return lblOrigine.Text;
+            }
+            set
+            {
+                lblOrigine.Text = value;
+            }
+        }
+
+        public string Word
+        {
+            get
+            {
+                return lblMot.Text;
+            }
+            set
+            {
+                lblMot.Text = value;
+            }
+        }
+        public string Trad
+        {
+            get
+            {
+                return lblTrad.Text;
+            }
+            set
+            {
+                lblTrad.Text = value;
+            }
+        }
+
     }
 }
