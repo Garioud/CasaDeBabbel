@@ -183,7 +183,7 @@ namespace CasaDeBabbel
             int[] tabPos = new int[intPos.Length];
 
             for (int i = 0; i < intPos.Length; i++) {
-                if (textBoxList[i].Text == tabPhrase[int.Parse(intPos[i])])
+                if (textBoxList[i].Text == tabPhrase[int.Parse(intPos[i])-1])
                 {
                     textBoxList[i].BackColor = Color.LightGreen;
                 }

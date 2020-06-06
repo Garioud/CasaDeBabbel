@@ -35,6 +35,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblPhrase = new System.Windows.Forms.Label();
+            this.lblNum = new System.Windows.Forms.Label();
+            this.lblEnonce = new System.Windows.Forms.Label();
+            this.btnFin = new System.Windows.Forms.Button();
+            this.btnDebut = new System.Windows.Forms.Button();
             this.btnApres = new System.Windows.Forms.Button();
             this.btnAvant = new System.Windows.Forms.Button();
             this.lb_Lecons = new System.Windows.Forms.ListBox();
@@ -53,11 +58,7 @@
             this.btnCours2 = new System.Windows.Forms.Button();
             this.btnCours3 = new System.Windows.Forms.Button();
             this.btnCours4 = new System.Windows.Forms.Button();
-            this.btnDebut = new System.Windows.Forms.Button();
-            this.btnFin = new System.Windows.Forms.Button();
-            this.lblEnonce = new System.Windows.Forms.Label();
-            this.lblNum = new System.Windows.Forms.Label();
-            this.lblPhrase = new System.Windows.Forms.Label();
+            this.lblPhraseTrad = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -115,6 +116,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblPhraseTrad);
             this.panel1.Controls.Add(this.lblPhrase);
             this.panel1.Controls.Add(this.lblNum);
             this.panel1.Controls.Add(this.lblEnonce);
@@ -129,6 +131,54 @@
             this.panel1.Size = new System.Drawing.Size(780, 465);
             this.panel1.TabIndex = 25;
             // 
+            // lblPhrase
+            // 
+            this.lblPhrase.AutoSize = true;
+            this.lblPhrase.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhrase.Location = new System.Drawing.Point(21, 362);
+            this.lblPhrase.Name = "lblPhrase";
+            this.lblPhrase.Size = new System.Drawing.Size(63, 23);
+            this.lblPhrase.TabIndex = 18;
+            this.lblPhrase.Text = "Phrase";
+            // 
+            // lblNum
+            // 
+            this.lblNum.AutoSize = true;
+            this.lblNum.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNum.Location = new System.Drawing.Point(21, 327);
+            this.lblNum.Name = "lblNum";
+            this.lblNum.Size = new System.Drawing.Size(47, 23);
+            this.lblNum.TabIndex = 17;
+            this.lblNum.Text = "Num";
+            // 
+            // lblEnonce
+            // 
+            this.lblEnonce.AutoSize = true;
+            this.lblEnonce.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnonce.Location = new System.Drawing.Point(21, 295);
+            this.lblEnonce.Name = "lblEnonce";
+            this.lblEnonce.Size = new System.Drawing.Size(66, 23);
+            this.lblEnonce.TabIndex = 16;
+            this.lblEnonce.Text = "Enonce";
+            // 
+            // btnFin
+            // 
+            this.btnFin.Location = new System.Drawing.Point(430, 240);
+            this.btnFin.Name = "btnFin";
+            this.btnFin.Size = new System.Drawing.Size(30, 30);
+            this.btnFin.TabIndex = 15;
+            this.btnFin.UseVisualStyleBackColor = true;
+            this.btnFin.Click += new System.EventHandler(this.btnFin_Click);
+            // 
+            // btnDebut
+            // 
+            this.btnDebut.Location = new System.Drawing.Point(322, 240);
+            this.btnDebut.Name = "btnDebut";
+            this.btnDebut.Size = new System.Drawing.Size(30, 30);
+            this.btnDebut.TabIndex = 14;
+            this.btnDebut.UseVisualStyleBackColor = true;
+            this.btnDebut.Click += new System.EventHandler(this.btnDebut_Click);
+            // 
             // btnApres
             // 
             this.btnApres.Location = new System.Drawing.Point(394, 240);
@@ -136,6 +186,7 @@
             this.btnApres.Size = new System.Drawing.Size(30, 30);
             this.btnApres.TabIndex = 13;
             this.btnApres.UseVisualStyleBackColor = true;
+            this.btnApres.Click += new System.EventHandler(this.btnApres_Click);
             // 
             // btnAvant
             // 
@@ -144,6 +195,7 @@
             this.btnAvant.Size = new System.Drawing.Size(30, 30);
             this.btnAvant.TabIndex = 12;
             this.btnAvant.UseVisualStyleBackColor = true;
+            this.btnAvant.Click += new System.EventHandler(this.btnAvant_Click);
             // 
             // lb_Lecons
             // 
@@ -322,51 +374,15 @@
             this.btnCours4.UseVisualStyleBackColor = true;
             this.btnCours4.Click += new System.EventHandler(this.btnCours4_Click);
             // 
-            // btnDebut
+            // lblPhraseTrad
             // 
-            this.btnDebut.Location = new System.Drawing.Point(322, 240);
-            this.btnDebut.Name = "btnDebut";
-            this.btnDebut.Size = new System.Drawing.Size(30, 30);
-            this.btnDebut.TabIndex = 14;
-            this.btnDebut.UseVisualStyleBackColor = true;
-            // 
-            // btnFin
-            // 
-            this.btnFin.Location = new System.Drawing.Point(430, 240);
-            this.btnFin.Name = "btnFin";
-            this.btnFin.Size = new System.Drawing.Size(30, 30);
-            this.btnFin.TabIndex = 15;
-            this.btnFin.UseVisualStyleBackColor = true;
-            // 
-            // lblEnonce
-            // 
-            this.lblEnonce.AutoSize = true;
-            this.lblEnonce.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnonce.Location = new System.Drawing.Point(21, 295);
-            this.lblEnonce.Name = "lblEnonce";
-            this.lblEnonce.Size = new System.Drawing.Size(66, 23);
-            this.lblEnonce.TabIndex = 16;
-            this.lblEnonce.Text = "Enonce";
-            // 
-            // lblNum
-            // 
-            this.lblNum.AutoSize = true;
-            this.lblNum.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNum.Location = new System.Drawing.Point(21, 339);
-            this.lblNum.Name = "lblNum";
-            this.lblNum.Size = new System.Drawing.Size(47, 23);
-            this.lblNum.TabIndex = 17;
-            this.lblNum.Text = "Num";
-            // 
-            // lblPhrase
-            // 
-            this.lblPhrase.AutoSize = true;
-            this.lblPhrase.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhrase.Location = new System.Drawing.Point(21, 382);
-            this.lblPhrase.Name = "lblPhrase";
-            this.lblPhrase.Size = new System.Drawing.Size(63, 23);
-            this.lblPhrase.TabIndex = 18;
-            this.lblPhrase.Text = "Phrase";
+            this.lblPhraseTrad.AutoSize = true;
+            this.lblPhraseTrad.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhraseTrad.Location = new System.Drawing.Point(21, 397);
+            this.lblPhraseTrad.Name = "lblPhraseTrad";
+            this.lblPhraseTrad.Size = new System.Drawing.Size(97, 23);
+            this.lblPhraseTrad.TabIndex = 19;
+            this.lblPhraseTrad.Text = "PhraseTrad";
             // 
             // frmAdmin
             // 
@@ -434,5 +450,6 @@
         private System.Windows.Forms.Label lblPhrase;
         private System.Windows.Forms.Label lblNum;
         private System.Windows.Forms.Label lblEnonce;
+        private System.Windows.Forms.Label lblPhraseTrad;
     }
 }

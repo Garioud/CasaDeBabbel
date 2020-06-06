@@ -16,10 +16,12 @@ namespace CasaDeBabbel
         private string NomCours;
         private string NumLecon;
 
-        List<string> Exo = new List<string>();
         List<string> EnonceExo = new List<string>();
         List<string> NumExo = new List<string>();
         List<string> Phrase = new List<string>();
+        List<string> PhraseTrad = new List<string>();
+
+        int numeroExo = 0;
         public frmAdmin()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace CasaDeBabbel
             NommerBoutons(this, dsExo);
             NomCours = "PAYSCULT";
             FillListBox(dsExo, NomCours);
+
         }
 
         private void frmAdmin_Load(object sender, EventArgs e)
@@ -114,42 +117,73 @@ namespace CasaDeBabbel
 
         private void btnCours1_Click(object sender, EventArgs e)
         {
+            numeroExo = 0;
             NomCours = "PAYSCULT";
             FillListBox(dsExo, NomCours);
+            Exos(dsExo, NomCours, NumLecon);
+            affichageExos(numeroExo);
         }
 
         private void btnCours2_Click(object sender, EventArgs e)
         {
+            numeroExo = 0;
             NomCours = "GRAMM1";
             FillListBox(dsExo, NomCours);
+            Exos(dsExo, NomCours, NumLecon);
+            affichageExos(numeroExo);
         }
 
         private void btnCours3_Click(object sender, EventArgs e)
         {
+            numeroExo = 0;
             NomCours = "DEBUT1";
             FillListBox(dsExo, NomCours);
+            Exos(dsExo, NomCours, NumLecon);
+            affichageExos(numeroExo);
         }
 
         private void btnCours4_Click(object sender, EventArgs e)
         {
+            numeroExo = 0;
             NomCours = "DEBUT2";
             FillListBox(dsExo, NomCours);
+            Exos(dsExo, NomCours, NumLecon);
+            affichageExos(numeroExo);
         }
 
         private void lb_Lecons_SelectedIndexChanged(object sender, EventArgs e)
         {
-            NumLecon = lb_Lecons.SelectedIndex.ToString();
-            AffichageExos(dsExo, NomCours, NumLecon);
+            numeroExo = 0;
+            int num = lb_Lecons.SelectedIndex;
+            /*
+            if (num == -1)
+            {
+                num += 2;
+                NumLecon = num.ToString();
+            }else if (num >= 0)
+            {
+                
+            }*/
+            num += 1;
+            NumLecon = num.ToString();
+            Exos(dsExo, NomCours, NumLecon);
+            affichageExos(numeroExo);
         }
 
-        private void AffichageExos(DataSet ds, string NomCours, string NumLecon)
+        private void Exos(DataSet ds, string NomCours, string NumLecon)
         {
 
             try
             {
+                EnonceExo.Clear();
+                NumExo.Clear();
+                Phrase.Clear();
+                PhraseTrad.Clear();
+
                 List<string> codePhrase = new List<string>();
                 DataTable temporaryTable = ds.Tables["Exercices"];
                 DataTable temporaryPhrase = ds.Tables["Phrases"];
+
                 foreach (DataRow r in temporaryTable.Rows)
                 {
                     if (r["numCours"].ToString() == NomCours && r["numLecon"].ToString() == NumLecon)
@@ -163,18 +197,83 @@ namespace CasaDeBabbel
 
                     }
                 }
-                //lb_Lecons.DataSource = Lecon;
-                lblEnonce.Text = "";
-                lblNum.Text = "";
-                lblPhrase.Text = "";
+                int i = 0;
+                int y = 0;
+                foreach (DataRow r in temporaryPhrase.Rows)
+                {
+                    if (codePhrase[i] == "0")
+                    {
+                        Phrase.Add("Aucune phrase n'est disponible");
+                        PhraseTrad.Add("Aucune traduction n'est disponible");
+                        i++;
+                    }
+                    if (r["codePhrase"].ToString() == codePhrase[i])
+                    {
+                        Phrase.Add(r["textePhrase"].ToString());
+                        PhraseTrad.Add(r["traducPhrase"].ToString());
+                        i++;
+                    }
+                    else
+                    
+                    {
+
+                    }
+                    y++;
+                }
             }
             catch (Exception x)
             {
                 MessageBox.Show(x.Message);
             }
+        }
 
+        private void btnDebut_Click(object sender, EventArgs e)
+        {
+            numeroExo = 0;
+
+            affichageExos(numeroExo);
             
+        }
 
+        private void btnAvant_Click(object sender, EventArgs e)
+        {
+            if (numeroExo > 0)
+            {
+                numeroExo--;
+                affichageExos(numeroExo);
+            }
+            else
+            {
+
+            }
+        }
+
+        private void btnApres_Click(object sender, EventArgs e)
+        {
+            if (numeroExo >= 0 || numeroExo < NumExo.Count-1)
+            {
+                numeroExo++;
+                affichageExos(numeroExo);
+            }
+            else
+            {
+
+            }
+        }
+
+        private void btnFin_Click(object sender, EventArgs e)
+        {
+            numeroExo = NumExo.Count - 1;
+            affichageExos(numeroExo);
+        }
+
+        private void affichageExos(int num)
+        {
+           
+            lblEnonce.Text = EnonceExo[num];
+            lblNum.Text = NumExo[num];
+            lblPhrase.Text = Phrase[num];
+            lblPhraseTrad.Text = PhraseTrad[num];
         }
     }
 }
