@@ -39,6 +39,8 @@
             this.btnContinue = new System.Windows.Forms.Button();
             this.pnl_Avancement = new System.Windows.Forms.Panel();
             this.lblNomLecon = new System.Windows.Forms.Label();
+            this.pnlGood = new System.Windows.Forms.Panel();
+            this.pnlBad = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -111,6 +113,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pnlBad);
+            this.panel1.Controls.Add(this.pnlGood);
             this.panel1.Controls.Add(this.btnContinue);
             this.panel1.Controls.Add(this.btnMenu);
             this.panel1.Location = new System.Drawing.Point(0, 135);
@@ -143,6 +147,20 @@
             this.lblNomLecon.Size = new System.Drawing.Size(55, 23);
             this.lblNomLecon.TabIndex = 20;
             this.lblNomLecon.Text = "Lecon";
+            // 
+            // pnlGood
+            // 
+            this.pnlGood.Location = new System.Drawing.Point(27, 29);
+            this.pnlGood.Name = "pnlGood";
+            this.pnlGood.Size = new System.Drawing.Size(473, 378);
+            this.pnlGood.TabIndex = 19;
+            // 
+            // pnlBad
+            // 
+            this.pnlBad.Location = new System.Drawing.Point(515, 29);
+            this.pnlBad.Name = "pnlBad";
+            this.pnlBad.Size = new System.Drawing.Size(473, 378);
+            this.pnlBad.TabIndex = 20;
             // 
             // frmRecap
             // 
@@ -177,5 +195,7 @@
         private System.Windows.Forms.Button btnContinue;
         private System.Windows.Forms.Panel pnl_Avancement;
         private System.Windows.Forms.Label lblNomLecon;
+        private System.Windows.Forms.Panel pnlBad;
+        private System.Windows.Forms.Panel pnlGood;
     }
 }

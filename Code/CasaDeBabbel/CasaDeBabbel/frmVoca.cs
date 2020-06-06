@@ -27,8 +27,9 @@ namespace CasaDeBabbel
         private string actualUser;
         private int xi = 30;
         private int xy = 30;
-        private object lblActLect;
+       
         private int nbExoMax;
+        private string nomDT;
         public frmVoca()
         {
             InitializeComponent();
@@ -69,6 +70,7 @@ namespace CasaDeBabbel
             lblNumberExo.Text = $"{nbExo}/{nbExoMax}";
             tabVoca = mot;
             generateImg();
+            nomDT = nomTable;
         }
         public frmVoca(string[][] mot, string ennonce, string nomTable,string regle)
         {
@@ -91,6 +93,7 @@ namespace CasaDeBabbel
             nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
             lblNumberExo.Text = $"{nbExo}/{nbExoMax}";
             tabVoca = mot;
+            nomDT = nomTable;
             generateImg();
         }
 
@@ -154,6 +157,37 @@ namespace CasaDeBabbel
         private void btnHideWindow_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            int codeUtil;
+            codeUser.TryGetValue(actualUser, out codeUtil);
+            if (nbExo + 1 <= nbExoMax && codeUtil != -1)
+            {
+                foreach (DataRow dr in dsEsp.Tables["Utilisateurs"].Rows)
+                {
+                    if (dr.Field<int>("codeUtil") == codeUtil)
+                    {
+                        dr["codeExo"] = nbExo + 1;
+                    }
+                }
+
+                this.Close();
+
+
+                dsEsp.Tables[nomDT].Rows.Add(nbExo, true, null, null);
+
+                Application.OpenForms.Cast<frmLogin>().First().Actualize(dsEsp);
+
+            }
+            else
+            {
+                this.Close();
+                dsEsp.Tables[nomDT].Rows.Add(nbExo, true, null, null);
+                Application.OpenForms.Cast<frmLogin>().First().afficheRecap(dsEsp);
+
+            }
         }
     }
 }

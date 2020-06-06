@@ -275,9 +275,9 @@ namespace CasaDeBabbel
                         dr["codeExo"] = nbExo + 1;
                     }
                 }
-
-                this.Close();
                 verify();
+                this.Close();
+               
                 if (EstBon)
                 dsEsp.Tables[nomDT].Rows.Add(nbExo, true, phraseEsp, null);
                 else
@@ -286,10 +286,18 @@ namespace CasaDeBabbel
                 Application.OpenForms.Cast<frmLogin>().First().Actualize(dsEsp);
          
             }
-            else { 
-            
-            
-            
+            else {
+
+                verify();
+                this.Close();
+
+                if (EstBon)
+                    dsEsp.Tables[nomDT].Rows.Add(nbExo, true, phraseEsp, null);
+                else
+                    dsEsp.Tables[nomDT].Rows.Add(nbExo, false, phraseEsp, null);
+
+                Application.OpenForms.Cast<frmLogin>().First().afficheRecap(dsEsp);
+
             }
         }
         private void verify()

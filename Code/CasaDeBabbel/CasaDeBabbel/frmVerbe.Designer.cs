@@ -72,9 +72,9 @@
             this.lblName.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(7, 4);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(125, 23);
+            this.lblName.Size = new System.Drawing.Size(120, 23);
             this.lblName.TabIndex = 3;
-            this.lblName.Text = "Administration";
+            this.lblName.Text = "Exercice Verbe";
             // 
             // btnHideWindow
             // 
@@ -113,6 +113,7 @@
             this.btnStart.TabIndex = 30;
             this.btnStart.Text = "Continuer";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // frmVerbe
             // 

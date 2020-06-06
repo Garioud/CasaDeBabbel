@@ -27,6 +27,7 @@ namespace CasaDeBabbel
         private string actualUser;
         private bool EstJuste;
         private string nomDT;
+        private string listmot;
 
      
         public frmMotM()
@@ -98,7 +99,7 @@ namespace CasaDeBabbel
 
             for(int i = 0; i < intPos.Length; i++)
             {
-                tabPos[i] = int.Parse(intPos[i]);
+                tabPos[i] = int.Parse(intPos[i])-1;
             }
             
             for(int i = 0; i < tabPhrase.Length; i++)
@@ -114,6 +115,12 @@ namespace CasaDeBabbel
                     position += 15 * 15;
                     txtb.TextChanged += new EventHandler(this.checkTXT);
                     textBoxList.Add(txtb);
+
+                    if (listmot==null)
+                        listmot = tabPhrase[i];
+                    else
+                        listmot += "/" + tabPhrase[i];
+
 
                     if (position >= 900)
                     {
@@ -154,7 +161,7 @@ namespace CasaDeBabbel
 
         private void frmMotM_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmLogin.ActiveForm.Activate();
+           
         }
 
         
@@ -202,7 +209,7 @@ namespace CasaDeBabbel
 
             for (int i = 0; i < intPos.Length && EstJuste; i++ )
             {
-                if (textBoxList[i].Text == tabPhrase[int.Parse(intPos[i])])
+                if (textBoxList[i].Text == tabPhrase[int.Parse(intPos[i]) - 1])
                 {
                     textBoxList[i].BackColor = Color.LightGreen;
                 }
@@ -248,19 +255,29 @@ namespace CasaDeBabbel
                         dr["codeExo"] = nbExo + 1;
                     }
                 }
-
-                this.Close();
                 verify();
+                this.Close();
+       
                 if (EstJuste)
-                    dsEsp.Tables[nomDT].Rows.Add(nbExo, true, null, null);
+                    dsEsp.Tables[nomDT].Rows.Add(nbExo, true, null, listmot);
                 else
-                    dsEsp.Tables[nomDT].Rows.Add(nbExo, false, null, null);
+                    dsEsp.Tables[nomDT].Rows.Add(nbExo, false, null, listmot);
 
                 Application.OpenForms.Cast<frmLogin>().First().Actualize(dsEsp);
 
             }
             else
             {
+                verify();
+                this.Close();
+                if (EstJuste)
+                    dsEsp.Tables[nomDT].Rows.Add(nbExo, true, null, listmot);
+                else
+                    dsEsp.Tables[nomDT].Rows.Add(nbExo, false, null, listmot);
+
+                this.Close();
+                dsEsp.Tables[nomDT].Rows.Add(nbExo, true, null, null);
+                Application.OpenForms.Cast<frmLogin>().First().afficheRecap(dsEsp);
 
 
 

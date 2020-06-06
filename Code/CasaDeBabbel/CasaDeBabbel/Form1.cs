@@ -18,7 +18,7 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
             lblNumberExo.BackColor = Color.Transparent;
-        
+
         }
         private DataSet dsEsp = new DataSet();
         private string chcon = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source =..\baseLangue.mdb";
@@ -42,7 +42,7 @@ namespace CasaDeBabbel
         {
             FillDataSet(chcon, dsEsp);
             fillCB(cbName, "Utilisateurs", 1, 2, dsEsp);
-            frmAdmin test=new frmAdmin(dsEsp);
+            frmAdmin test = new frmAdmin(dsEsp);
 
         }
 
@@ -64,7 +64,7 @@ namespace CasaDeBabbel
                         {
                             da.Fill(ds, line["TABLE_NAME"].ToString());
                         }
-                       
+
 
                     }
                 }
@@ -77,10 +77,10 @@ namespace CasaDeBabbel
                     connec.Close();
                 }
             }
-            
+
         }
 
-      
+
         private void fillCB(ComboBox cb, string table, int pos, int pos2, DataSet ds)
         {
             try
@@ -88,7 +88,7 @@ namespace CasaDeBabbel
                 DataTable temporaryTable = ds.Tables[table];
                 foreach (DataRow line in temporaryTable.Rows)
                 {
-                    string str = line.Field<String>("pnUtil") +" "+ line.Field<String>("nomUtil");
+                    string str = line.Field<String>("pnUtil") + " " + line.Field<String>("nomUtil");
                     int code = line.Field<int>("codeUtil");
                     cb.Items.Add(str);
                     codeUser.Add(str, code);
@@ -108,7 +108,7 @@ namespace CasaDeBabbel
 
         private void generateAllLabel()
         {
-         
+
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
             actualUser = cbName.SelectedItem.ToString();
             DataTable test = dsEsp.Tables["Utilisateurs"];
@@ -128,7 +128,7 @@ namespace CasaDeBabbel
             {
                 codeCours = tRow[0].Field<String>("codeCours");
                 DataRow[] temporaryRow = temporaryTable.Select($"numCours= '{codeCours}'");
-                titreCours= temporaryRow[0].Field<String>("titreCours");
+                titreCours = temporaryRow[0].Field<String>("titreCours");
                 lblActualCours.Text = titreCours;
             }
         }
@@ -142,7 +142,7 @@ namespace CasaDeBabbel
                 lblActLec.Text = titreLecon;
                 if (temporaryRow[0].Field<String>("commentLecon") != null)
                 {
-                    descLecon= "--->" + temporaryRow[0].Field<String>("commentLecon");
+                    descLecon = "--->" + temporaryRow[0].Field<String>("commentLecon");
                     lblDesc.Text = descLecon;
                 }
                 else
@@ -169,7 +169,7 @@ namespace CasaDeBabbel
 
                 DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {tRow[0].Field<int>("codeLeçon")} AND numCours = '{tRow[0].Field<String>("codeCours")}'");
                 nbExoTotal = temporaryRow.Length;
-               nbExo = tRow[0].Field<int>("codeExo");
+                nbExo = tRow[0].Field<int>("codeExo");
 
                 if (nbExoTotal != 0)
                 {
@@ -216,10 +216,10 @@ namespace CasaDeBabbel
                 int nbLeçon = getCodeLeçon();
                 DataRow[] temporaryRow = temporaryTable.Select($"numExo='{nbExo}' and numCours='{nbCours}' and numLecon='{nbLeçon}'");
                 enonceExo = temporaryRow[0].Field<string>("enonceExo");
-                if(!temporaryRow[0].IsNull("codeRegle"))
+                if (!temporaryRow[0].IsNull("codeRegle"))
                 {
-                    using (DataTable temporaryTable2=dsEsp.Tables["Regles"])
-                            {
+                    using (DataTable temporaryTable2 = dsEsp.Tables["Regles"])
+                    {
                         DataRow[] temporaryRow2 = temporaryTable2.Select($"codeRegle={temporaryRow[0].Field<string>("codeRegle")}");
                         regle = temporaryRow2[0].Field<string>("texteRegle");
                     }
@@ -229,7 +229,7 @@ namespace CasaDeBabbel
                 if (temporaryRow[0].Field<bool>("completeOn"))
                 {
 
-                    
+
                     string phrase;
                     string traduc;
                     using (DataTable temporyTable2 = dsEsp.Tables["Phrases"])
@@ -266,10 +266,10 @@ namespace CasaDeBabbel
                     if (!temporaryRow[0].IsNull("codeRegle"))
                         exer = new frmMotM(phrase, traduc, listMot, enonceExo, nameDT, regle);
                     else
-                        exer = new frmMotM(phrase, traduc, listMot, enonceExo,nameDT) ;
+                        exer = new frmMotM(phrase, traduc, listMot, enonceExo, nameDT);
 
                     this.Hide();
-                    exer.ShowDialog();
+                    exer.Show();
 
 
                 }
@@ -280,9 +280,9 @@ namespace CasaDeBabbel
                         int codeVerbe = temporaryRow[0].Field<int>("codeVerbe");
                         int codeTemp = temporaryRow[0].Field<int>("codetemps");
 
-                        frmVerbe exer = new frmVerbe();
+                        frmVerbe exer = new frmVerbe(nameDT);
                         this.Hide();
-                        exer.ShowDialog();
+                        exer.Show();
                     }
                     else
                     {
@@ -316,7 +316,7 @@ namespace CasaDeBabbel
                         else
                             exer = new frmVoca(tabMot, enonceExo, nameDT);
                         this.Hide();
-                        exer.ShowDialog();
+                        exer.Show();
                     }
                 }
                 else
@@ -336,7 +336,7 @@ namespace CasaDeBabbel
                                 int codeMots = temporaryRow2[i].Field<int>("numMot");
                                 DataRow[] temporaryRow3 = temporaryTable3.Select($"numMot={codeMots}");
                                 if (!temporaryRow3[0].IsNull("cheminPhoto"))
-                                    tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("libMot") };
+                                    tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("traducMot"), temporaryRow3[0].Field<string>("origine"), temporaryRow3[0].Field<string>("cheminPhoto") };
                                 else
                                     tabMot[i] = new string[4] { temporaryRow3[0].Field<string>("libMot"), temporaryRow3[0].Field<string>("traducMot"), temporaryRow3[0].Field<string>("origine"), null };
 
@@ -351,7 +351,7 @@ namespace CasaDeBabbel
                     else
                         exer = new frmVoca(tabMot, enonceExo, nameDT);
                     this.Hide();
-                    exer.ShowDialog();
+                    exer.Show();
                 }
             }
         }
@@ -402,7 +402,7 @@ namespace CasaDeBabbel
         {
             this.Visible = true;
         }
-        
+
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -438,7 +438,7 @@ namespace CasaDeBabbel
         {
             get
             {
-                return actualUser ;
+                return actualUser;
             }
         }
         public int getNumLecon
@@ -493,10 +493,11 @@ namespace CasaDeBabbel
                 return nbExoTotal;
             }
         }
-        public void Actualize( DataSet ds)
+        public void Actualize(DataSet ds)
         {
             this.GetDataSet = ds;
             getExoN();
+            generateAllLabel();
             startExo();
 
         }
@@ -523,16 +524,24 @@ namespace CasaDeBabbel
 
         }
 
+        public void afficheRecap(DataSet ds)
+        {
+            dsEsp = ds;
+            frmRecap end= new frmRecap(dsEsp, nameDT);
+            end.Show();
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
-        {  
-             frmAdmin exer = new frmAdmin(dsEsp);
-             this.Hide();
+        {
+            frmAdmin exer = new frmAdmin(dsEsp);
+            this.Hide();
 
-             exer.Show();
+            exer.Show();
         }
     }
 }
+  
 
 
 
