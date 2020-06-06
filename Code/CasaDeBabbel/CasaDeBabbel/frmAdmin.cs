@@ -143,8 +143,9 @@ namespace CasaDeBabbel
 
         private void AffichageExos()
         {
-            //lblEnonce.Text = "";
-            //lblNum
+            lblEnonce.Text = "";
+            lblNum.Text = "";
+            lblPhrase.Text = "";
 
         }
     }
