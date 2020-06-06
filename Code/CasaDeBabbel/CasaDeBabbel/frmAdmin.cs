@@ -138,5 +138,10 @@ namespace CasaDeBabbel
         {
 
         }
+
+        private void AffichageExos()
+        {
+
+        }
     }
 }
