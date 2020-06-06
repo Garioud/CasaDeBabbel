@@ -24,7 +24,7 @@ namespace CasaDeBabbel
         private string enonce;
         private string[] tabMot;
         private string nomDT;
-        
+        private bool EstBon;
         int ix = 10;
         int iy = 10;
         int x = 10;
@@ -259,6 +259,7 @@ namespace CasaDeBabbel
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+
             int codeUtil;
             codeUser.TryGetValue(actualUser, out codeUtil);
             if (nbExo + 1 <= nbExoMax && codeUtil != -1)
@@ -270,8 +271,14 @@ namespace CasaDeBabbel
                         dr["codeExo"] = nbExo + 1;
                     }
                 }
+
                 this.Close();
+                verify();
+                if (EstBon)
                 dsEsp.Tables[nomDT].Rows.Add(nbExo, true, phraseEsp, null);
+                else
+                dsEsp.Tables[nomDT].Rows.Add(nbExo, false, phraseEsp, null);
+
                 Application.OpenForms.Cast<frmLogin>().First().Actualize(dsEsp);
          
             }
@@ -280,6 +287,28 @@ namespace CasaDeBabbel
             
             
             }
+        }
+        private void verify()
+        {
+            if(tabMot.Length!=pnlEndroit.Controls.Count)
+            {
+                EstBon = false;
+            }
+            else
+            {
+                int i = 0;
+                while (i<tabMot.Length && EstBon)
+                {
+                    if(tabMot[i]!=((Label)pnlEndroit.Controls[i]).Text)
+                    {
+                        EstBon = false;
+                    }
+
+                }
+
+            }
+
+
         }
     }
 }

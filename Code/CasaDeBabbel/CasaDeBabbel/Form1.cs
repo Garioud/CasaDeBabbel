@@ -31,6 +31,7 @@ namespace CasaDeBabbel
         private string titreCours;
         private string titreLecon;
         private string descLecon;
+
         private string enonceExo;
         private string regle;
         private string nameDT;
@@ -115,6 +116,11 @@ namespace CasaDeBabbel
             generateCoursLabel(tRow);
             generateLeconLabel(tRow);
             generateExerciceLabel(tRow);
+            lblDesc.Visible = true;
+            lblActualCours.Visible = true;
+            lblActLec.Visible = true;
+            lblNumberExo.Visible = true;
+
         }
         private void generateCoursLabel(DataRow[] tRow)
         {
@@ -232,10 +238,13 @@ namespace CasaDeBabbel
                         phrase = temporaryRow2[0].Field<string>("textePhrase");
                         traduc = temporaryRow2[0].Field<string>("traducPhrase");
                     }
+                    frmDeso exer;
+                    if (!temporaryRow[0].IsNull("codeRegle"))
+                        exer = new frmDeso(phrase, traduc, enonceExo, nameDT, regle);
+                    else
+                        exer = new frmDeso(phrase, traduc, enonceExo, nameDT);
 
-                    frmDeso exer = new frmDeso(phrase,traduc,enonceExo,nameDT,regle);
                     this.Hide();
-
                     exer.Show();
 
 
@@ -253,7 +262,12 @@ namespace CasaDeBabbel
                         traduc = temporaryRow2[0].Field<string>("traducPhrase");
                     }
 
-                    frmMotM exer = new frmMotM(phrase,traduc,listMot,enonceExo);
+                    frmMotM exer;
+                    if (!temporaryRow[0].IsNull("codeRegle"))
+                        exer = new frmMotM(phrase,traduc,listMot,enonceExo);
+                    else
+                        exer = new frmMotM(phrase, traduc, listMot, enonceExo);
+
                     this.Hide();
                     exer.ShowDialog();
 
@@ -481,7 +495,7 @@ namespace CasaDeBabbel
         public void generateDataTable()
         {
             nameDT = code + codeCours + numLecon;
-            if(!dsEsp.Tables.Contains(nameDT))
+            if (!dsEsp.Tables.Contains(nameDT))
             {
                 DataTable dexo = new DataTable(nameDT);
                 DataColumn dcExo = new DataColumn("nExo");
@@ -497,13 +511,7 @@ namespace CasaDeBabbel
                 dexo.Columns.Add(dcPhrase);
                 dexo.Columns.Add(dcMot);
                 dsEsp.Tables.Add(dexo);
-
             }
-
-
-
-
-
 
         }
 
