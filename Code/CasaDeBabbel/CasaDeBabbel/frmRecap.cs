@@ -16,26 +16,42 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
         }
-        private int nbExo;
-        private int nbExoMax;
+ 
         private DataSet dsEsp;
         private int numLeçon;
         private string codeCours;
-        private string phrase;
-        private string phraseEsp;
+        private Dictionary<String, int> codeUser = new Dictionary<string, int>();
         private string actualUser;
         private string nomDT;
-        public frmRecap(DataSet ds,string nomTable)
+        public frmRecap(DataSet ds, string nomTable)
         {
             dsEsp = ds;
-            nomDT=nomTable;
+            nomDT = nomTable;
             InitializeComponent();
             generateLabel();
             lblActualCours.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
             lblActLec.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             lblDesc.Text = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
             lblNomPersonne.Text = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
+            codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
+            codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
+            actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            int codeUtil;
+            codeUser.TryGetValue(actualUser, out codeUtil);
+            if (codeUtil != -1)
+            {
+                foreach (DataRow dr in dsEsp.Tables["Utilisateurs"].Rows)
+                {
+                    if (dr.Field<int>("codeUtil") == codeUtil)
+                    {
+                        dr["codeExo"] = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal+1;
+                        dr["codeLeçon"] = numLeçon + 1;
+                    }
+                }
+            }
         }
+    
         private void frmRecap_Load(object sender, EventArgs e)
         {
 
@@ -60,7 +76,7 @@ namespace CasaDeBabbel
                         lbl.BorderStyle = BorderStyle.FixedSingle;
                         lbl.AutoSize = true;
                         y += 40;
-                       
+
                     }
                     else if (!dr.IsNull("listMot"))
                     {
@@ -96,7 +112,7 @@ namespace CasaDeBabbel
                         lbl.TextAlign = ContentAlignment.MiddleCenter;
                         lbl.BorderStyle = BorderStyle.FixedSingle;
                         yB += 40;
-                      
+
 
                     }
                     else if (!dr.IsNull("listMot"))
@@ -126,21 +142,19 @@ namespace CasaDeBabbel
                 }
             }
 
-            }
+        }
 
 
 
 
 
 
-      
+
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmLogin exer = new frmLogin();
-            this.Hide();
-
-            exer.Show();
+            Application.OpenForms.Cast<frmLogin>().First().Visible = true;
+            this.Close();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -151,6 +165,36 @@ namespace CasaDeBabbel
         private void btnHideWindow_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            using (DataTable temporaryTable = dsEsp.Tables["Lecons"])
+            {
+                DataRow[] temporaryRow = temporaryTable.Select($"numCours='{codeCours}'");
+                if (numLeçon < temporaryRow.GetLength(0))
+                {
+                    int codeUtil;
+                    codeUser.TryGetValue(actualUser, out codeUtil);
+                    if ( codeUtil != -1)
+                    {
+                        foreach (DataRow dr in dsEsp.Tables["Utilisateurs"].Rows)
+                        {
+                            if (dr.Field<int>("codeUtil") == codeUtil)
+                            {
+                                dr["codeExo"] = 1;
+                                dr["codeLeçon"] = numLeçon + 1;
+                            }
+                        }
+                    }
+                }
+
+                this.Close();
+                Application.OpenForms.Cast<frmLogin>().First().startNewLeçon(dsEsp);
+
+
+
+            }
         }
     }
 }

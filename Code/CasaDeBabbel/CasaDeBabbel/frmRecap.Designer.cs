@@ -107,7 +107,7 @@
             // 
             // btnMenu
             // 
-            this.btnMenu.Location = new System.Drawing.Point(846, 407);
+            this.btnMenu.Location = new System.Drawing.Point(822, 79);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(140, 50);
             this.btnMenu.TabIndex = 17;
@@ -120,7 +120,6 @@
             this.pnlFull.Controls.Add(this.pnlBad);
             this.pnlFull.Controls.Add(this.pnlGood);
             this.pnlFull.Controls.Add(this.btnContinue);
-            this.pnlFull.Controls.Add(this.btnMenu);
             this.pnlFull.Location = new System.Drawing.Point(0, 135);
             this.pnlFull.Name = "pnlFull";
             this.pnlFull.Size = new System.Drawing.Size(1000, 465);
@@ -144,12 +143,13 @@
             // 
             // btnContinue
             // 
-            this.btnContinue.Location = new System.Drawing.Point(698, 407);
+            this.btnContinue.Location = new System.Drawing.Point(822, 412);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(140, 50);
             this.btnContinue.TabIndex = 18;
             this.btnContinue.Text = "Continuer le cours";
             this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // lblNomPersonne
             // 
@@ -224,6 +224,7 @@
             this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.lblActLec);
             this.Controls.Add(this.lblAcLec);
+            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.lblCours);
             this.Controls.Add(this.lblActualCours);
             this.Controls.Add(this.lblNomPersonne);
