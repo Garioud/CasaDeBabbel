@@ -45,7 +45,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();           
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -266,6 +266,7 @@
             this.Text = " ";
             this.Activated += new System.EventHandler(this.frmLogin_Activated);
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.VisibleChanged += new System.EventHandler(this.frmLogin_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

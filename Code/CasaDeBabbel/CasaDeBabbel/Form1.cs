@@ -38,6 +38,7 @@ namespace CasaDeBabbel
         private string regle;
         private string nameDT;
         private int code;
+        private bool auRecap;
 
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace CasaDeBabbel
             FillDataSet(chcon, dsEsp);
             fillCB(cbName, "Utilisateurs", 1, 2, dsEsp);
             numAdmin = new int[2] { 5, 6 };
+            auRecap = false;
         }
 
         private void FillDataSet(string chcon, DataSet ds)
@@ -170,9 +172,10 @@ namespace CasaDeBabbel
         {
             pgB_Progres.Visible = true;
             pgB_Progres.Maximum = validate;
-            if (numberEx < validate)
+            if (numberEx <= validate)
                 pgB_Progres.Value = numberEx;
-            else pgB_Progres.Visible = false;
+            else
+                pgB_Progres.Visible = false;
 
         }
 
@@ -185,7 +188,7 @@ namespace CasaDeBabbel
                 this.Hide();
                 admin.Show();
             }
-            else if(nbExo>nbExoTotal)
+            else if(auRecap==true)
             {
                 frmRecap recap = new frmRecap(dsEsp,nameDT);
                 this.Hide();
@@ -381,7 +384,10 @@ namespace CasaDeBabbel
             {              
                 DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {numLecon} AND numCours = '{codeCours}'");
                 titreLecon = temporaryRow[0].Field<String>("titreLecon");
-                descLecon = "--->" + temporaryRow[0].Field<String>("commentLecon");
+                if (temporaryRow[0].Field<String>("commentLecon") != null)
+                    descLecon = "--->" + temporaryRow[0].Field<String>("commentLecon");
+                else
+                    descLecon = "";
             }
         }
 
@@ -408,6 +414,7 @@ namespace CasaDeBabbel
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            updateDatabase();
             Application.Exit();
         }
 
@@ -456,6 +463,35 @@ namespace CasaDeBabbel
             }
 
         }
+        public void updateDatabase()
+        {
+            using (OleDbConnection connec = new OleDbConnection())
+            {
+                OleDbCommand commande=new OleDbCommand();
+                try
+                {
+                    connec.ConnectionString = chcon;
+                    connec.Open();
+                    using (OleDbDataAdapter da =
+                     new OleDbDataAdapter())
+                    { 
+                        da.SelectCommand = new OleDbCommand("Select * from Utilisateurs", connec);
+                        OleDbCommandBuilder builder = new OleDbCommandBuilder(da);
+                        da.UpdateCommand = builder.GetUpdateCommand();
+                        da.Update(dsEsp, "Utilisateurs");
+                    }
+
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show(x.Message);
+                }
+                finally
+                {
+                    connec.Close();
+                }
+            }
+        }
 
         public void afficheRecap(DataSet ds)
         {
@@ -463,15 +499,9 @@ namespace CasaDeBabbel
             frmRecap end= new frmRecap(dsEsp, nameDT);
             end.Show();
         }
+   
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmAdmin exer = new frmAdmin(dsEsp);
-            this.Hide();
-
-            exer.Show();
-        }
+       
         public DataSet GetDataSet
         {
             get
@@ -549,6 +579,56 @@ namespace CasaDeBabbel
             get
             {
                 return nbExoTotal;
+            }
+        }
+        public bool getAuRecap
+        {
+            get
+            {
+                return auRecap;
+            }
+            set
+            {
+                auRecap = value;
+            }
+                
+        }
+
+        private void frmLogin_VisibleChanged(object sender, EventArgs e)
+        {
+            if (cbName.SelectedIndex!=-1)
+            {
+            codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+            actualUser = cbName.SelectedItem.ToString();
+
+            if (numAdmin.Contains(code))
+            {
+
+                lblActualCours.Visible = true;
+                lblActualCours.Text = "Vous êtes administrateur";
+                lblActLec.Visible = false;
+                lblExo.Visible = false;
+                lblCours.Visible = false;
+                lblAcLec.Visible = false;
+                lblDesc.Visible = false;
+                lblExo.Visible = false;
+                pgB_Progres.Visible = false;
+                lblNumberExo.Visible = false;
+
+            }
+            else
+            {
+                lblNumberExo.Visible = true;
+                lblActLec.Visible = false;
+                lblExo.Visible = true;
+                lblCours.Visible = true;
+                lblAcLec.Visible = true;
+                lblDesc.Visible = true;
+                lblExo.Visible = true;
+                pgB_Progres.Visible = true;
+                generateAllLabel();
+                generateDataTable();
+            }
             }
         }
     }
