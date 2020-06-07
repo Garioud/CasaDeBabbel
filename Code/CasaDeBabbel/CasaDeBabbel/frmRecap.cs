@@ -37,19 +37,10 @@ namespace CasaDeBabbel
             codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
             codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
             actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
+            Application.OpenForms.Cast<frmLogin>().First().getAuRecap = true;
             int codeUtil;
             codeUser.TryGetValue(actualUser, out codeUtil);
-            if (codeUtil != -1)
-            {
-                foreach (DataRow dr in dsEsp.Tables["Utilisateurs"].Rows)
-                {
-                    if (dr.Field<int>("codeUtil") == codeUtil)
-                    {
-                        dr["codeExo"] = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal+1;
-                        dr["codeLeçon"] = numLeçon + 1;
-                    }
-                }
-            }
+          
         }
     
         private void frmRecap_Load(object sender, EventArgs e)
@@ -159,6 +150,7 @@ namespace CasaDeBabbel
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            Application.OpenForms.Cast<frmLogin>().First().updateDatabase();
             Application.Exit();
         }
 
@@ -183,15 +175,20 @@ namespace CasaDeBabbel
                             if (dr.Field<int>("codeUtil") == codeUtil)
                             {
                                 dr["codeExo"] = 1;
-                                dr["codeLeçon"] = numLeçon + 1;
+                               
                             }
                         }
                     }
+                    this.Close();
+                    Application.OpenForms.Cast<frmLogin>().First().startNewLeçon(dsEsp);
+                    Application.OpenForms.Cast<frmLogin>().First().getAuRecap = false;
                 }
-
-                this.Close();
-                Application.OpenForms.Cast<frmLogin>().First().startNewLeçon(dsEsp);
-
+                else
+                {
+                    this.Close();
+                    Application.OpenForms.Cast<frmLogin>().First().Visible = true;
+                }
+                
 
 
             }

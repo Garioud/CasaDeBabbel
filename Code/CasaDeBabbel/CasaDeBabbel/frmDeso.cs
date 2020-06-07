@@ -30,7 +30,7 @@ namespace CasaDeBabbel
         int x = 10;
         int y=10;
         int riX = 10;
-        int riY = 10;
+     
         int rX = 10;
         int rY = 10;
 
@@ -133,6 +133,7 @@ namespace CasaDeBabbel
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            Application.OpenForms.Cast<frmLogin>().First().updateDatabase();
             Application.Exit();
         }
         private void moveToPhrase(object sender, EventArgs e)

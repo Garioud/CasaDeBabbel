@@ -269,6 +269,7 @@ namespace CasaDeBabbel
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            Application.OpenForms.Cast<frmLogin>().First().updateDatabase();
             Application.Exit();
         }
 
