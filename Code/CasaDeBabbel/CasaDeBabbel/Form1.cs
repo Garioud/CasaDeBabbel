@@ -42,11 +42,10 @@ namespace CasaDeBabbel
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            if (dsEsp.Tables.Count == 0)
             FillDataSet(chcon, dsEsp);
             fillCB(cbName, "Utilisateurs", 1, 2, dsEsp);
             numAdmin = new int[2] { 5, 6 };
-         
-
         }
 
         private void FillDataSet(string chcon, DataSet ds)
@@ -67,8 +66,6 @@ namespace CasaDeBabbel
                         {
                             da.Fill(ds, line["TABLE_NAME"].ToString());
                         }
-
-
                     }
                 }
                 catch (Exception x)
@@ -95,7 +92,6 @@ namespace CasaDeBabbel
                     int code = line.Field<int>("codeUtil");
                     cb.Items.Add(str);
                     codeUser.Add(str, code);
-
                 }
             }
             catch (Exception x)
@@ -106,10 +102,12 @@ namespace CasaDeBabbel
 
         private void cbName_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+            actualUser = cbName.SelectedItem.ToString();
+
             if (numAdmin.Contains(code))
             {
+             
                 lblActualCours.Visible = true;
                 lblActualCours.Text = "Vous êtes administrateur";
                 lblActLec.Visible = false;
@@ -123,7 +121,7 @@ namespace CasaDeBabbel
 
             }
             else
-            {
+            {                        
                 lblNumberExo.Visible = true;
                 lblActLec.Visible = false;
                 lblExo.Visible = true;
@@ -133,83 +131,40 @@ namespace CasaDeBabbel
                 lblExo.Visible = true;
                 pgB_Progres.Visible = true;
                 generateAllLabel();
+                generateDataTable();
             }
            
         }
 
         private void generateAllLabel()
-        {
-
-            actualUser = cbName.SelectedItem.ToString();
-            DataTable test = dsEsp.Tables["Utilisateurs"];
-            DataRow[] tRow = test.Select($"codeUtil = '{code}'");
-            generateCoursLabel(tRow);
-            generateLeconLabel(tRow);
-            generateExerciceLabel(tRow);
+        {          
+            generateCoursLabel();
+            generateLeconLabel();
+            generateExerciceLabel();
             lblDesc.Visible = true;
             lblActualCours.Visible = true;
             lblActLec.Visible = true;
             lblNumberExo.Visible = true;
 
         }
-        private void generateCoursLabel(DataRow[] tRow)
+        private void generateCoursLabel()
         {
-            using (DataTable temporaryTable = dsEsp.Tables["Cours"])
-            {
-                codeCours = tRow[0].Field<String>("codeCours");
-                DataRow[] temporaryRow = temporaryTable.Select($"numCours= '{codeCours}'");
-                titreCours = temporaryRow[0].Field<String>("titreCours");
-                lblActualCours.Text = titreCours;
-            }
+            actuaLizeCours();
+            lblActualCours.Text = titreCours;         
         }
-        private void generateLeconLabel(DataRow[] tRow)
+        private void generateLeconLabel()
         {
-            using (DataTable temporaryTable = dsEsp.Tables["Lecons"])
-            {
-                numLecon = tRow[0].Field<int>("codeLeçon");
-                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {numLecon} AND numCours = '{codeCours}'");
-                titreLecon = temporaryRow[0].Field<String>("titreLecon");
-                lblActLec.Text = titreLecon;
-                if (temporaryRow[0].Field<String>("commentLecon") != null)
-                {
-                    descLecon = "--->" + temporaryRow[0].Field<String>("commentLecon");
-                    lblDesc.Text = descLecon;
-                }
-                else
-                {
-                    lblDesc.Text = null;
-                }
-            }
-           
-        }
-        private void generateExerciceLabel(DataRow[] tRow)
-        {
-
-
-            using (DataTable temporaryTable = dsEsp.Tables["Exercices"])
-            {
-
-                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {tRow[0].Field<int>("codeLeçon")} AND numCours = '{tRow[0].Field<String>("codeCours")}'");
-                nbExoTotal = temporaryRow.Length;
-                nbExo = tRow[0].Field<int>("codeExo");
-
-                if (nbExoTotal != 0)
-                {
-                    lblNumberExo.Text = $"{nbExo}/{nbExoTotal}";
-                    progressGeneration(nbExo, nbExoTotal);
-                }
-                else
-                {
-                    lblNumberExo.Text = "";
-                    pgB_Progres.Visible = false;
-                    lblExo.Text = "";
-                }
-
-
-            }
+             actualizeLeçon();
+             lblActLec.Text = titreLecon;
+             lblDesc.Text = descLecon;             
         }
 
-
+        private void generateExerciceLabel()
+        {
+            actualizeExo();
+            lblNumberExo.Text = $"{nbExo}/{nbExoTotal}";
+            progressGeneration(nbExo, nbExoTotal);            
+        }
 
         private void progressGeneration(int numberEx, int validate)
         {
@@ -223,9 +178,18 @@ namespace CasaDeBabbel
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+             actualizeExo();
             if (numAdmin.Contains(code))
             {
-
+                frmAdmin admin = new frmAdmin(dsEsp);
+                this.Hide();
+                admin.Show();
+            }
+            else if(nbExo>nbExoTotal)
+            {
+                frmRecap recap = new frmRecap(dsEsp,nameDT);
+                this.Hide();
+                recap.Show();
             }
             else
             { 
@@ -239,10 +203,8 @@ namespace CasaDeBabbel
         {
             using (DataTable temporaryTable = dsEsp.Tables["Exercices"])
             {
-                int nbExo = getExoN();
-                string nbCours = getNumCours();
-                int nbLeçon = getCodeLeçon();
-                DataRow[] temporaryRow = temporaryTable.Select($"numExo='{nbExo}' and numCours='{nbCours}' and numLecon='{nbLeçon}'");
+             
+                DataRow[] temporaryRow = temporaryTable.Select($"numExo='{nbExo}' and numCours='{codeCours}' and numLecon='{numLecon}'");
                 enonceExo = temporaryRow[0].Field<string>("enonceExo");
                 if (!temporaryRow[0].IsNull("codeRegle"))
                 {
@@ -268,9 +230,9 @@ namespace CasaDeBabbel
                     }
                     frmDeso exer;
                     if (!temporaryRow[0].IsNull("codeRegle"))
-                        exer = new frmDeso(phrase, traduc, enonceExo, nameDT, regle);
+                        exer = new frmDeso(dsEsp,phrase, traduc, enonceExo, nameDT, regle);
                     else
-                        exer = new frmDeso(phrase, traduc, enonceExo, nameDT);
+                        exer = new frmDeso(dsEsp,phrase, traduc, enonceExo, nameDT);
 
                     this.Hide();
                     exer.Show();
@@ -292,9 +254,9 @@ namespace CasaDeBabbel
 
                     frmMotM exer;
                     if (!temporaryRow[0].IsNull("codeRegle"))
-                        exer = new frmMotM(phrase, traduc, listMot, enonceExo, nameDT, regle);
+                        exer = new frmMotM(dsEsp,phrase, traduc, listMot, enonceExo, nameDT, regle);
                     else
-                        exer = new frmMotM(phrase, traduc, listMot, enonceExo, nameDT);
+                        exer = new frmMotM(dsEsp,phrase, traduc, listMot, enonceExo, nameDT);
 
                     this.Hide();
                     exer.Show();
@@ -320,7 +282,7 @@ namespace CasaDeBabbel
 
                         using (DataTable temporaryTable2 = dsEsp.Tables["ConcerneMots"])
                         {
-                            DataRow[] temporaryRow2 = temporaryTable2.Select($"numCours='{nbCours}' and numLecon={nbLeçon} and numExo={nbExo}");
+                            DataRow[] temporaryRow2 = temporaryTable2.Select($"numCours='{codeCours}' and numLecon={numLecon} and numExo={nbExo}");
                             taille = temporaryRow2.Length;
                             tabMot = new string[taille][];
                             using (DataTable temporaryTable3 = dsEsp.Tables["Mots"])
@@ -340,9 +302,9 @@ namespace CasaDeBabbel
                         }
                         frmVoca exer;
                         if (!temporaryRow[0].IsNull("codeRegle"))
-                            exer = new frmVoca(tabMot, enonceExo, nameDT, regle);
+                            exer = new frmVoca(dsEsp,tabMot, enonceExo, nameDT, regle);
                         else
-                            exer = new frmVoca(tabMot, enonceExo, nameDT);
+                            exer = new frmVoca(dsEsp,tabMot, enonceExo, nameDT);
                         this.Hide();
                         exer.Show();
                     }
@@ -354,7 +316,7 @@ namespace CasaDeBabbel
 
                     using (DataTable temporaryTable2 = dsEsp.Tables["ConcerneMots"])
                     {
-                        DataRow[] temporaryRow2 = temporaryTable2.Select($"numCours='{nbCours}' and numLecon={nbLeçon} and numExo={nbExo}");
+                        DataRow[] temporaryRow2 = temporaryTable2.Select($"numCours='{codeCours}' and numLecon={numLecon} and numExo={nbExo}");
                         taille = temporaryRow2.Length;
                         tabMot = new string[taille][];
                         using (DataTable temporaryTable3 = dsEsp.Tables["Mots"])
@@ -375,9 +337,9 @@ namespace CasaDeBabbel
 
                     frmVoca exer;
                     if (!temporaryRow[0].IsNull("codeRegle"))
-                        exer = new frmVoca(tabMot, enonceExo, nameDT, regle);
+                        exer = new frmVoca(dsEsp,tabMot, enonceExo, nameDT, regle);
                     else
-                        exer = new frmVoca(tabMot, enonceExo, nameDT);
+                        exer = new frmVoca(dsEsp,tabMot, enonceExo, nameDT);
                     this.Hide();
                     exer.Show();
                 }
@@ -385,45 +347,57 @@ namespace CasaDeBabbel
         }
 
 
-        private int getExoN()
+        private void actualizeExo()
         {
 
             int code;
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
-            int actExo;
+       
             DataTable test = dsEsp.Tables["Utilisateurs"];
             DataRow[] tEow = test.Select($"codeUtil = '{code}'");
             using (DataTable temporaryTable = dsEsp.Tables["Exercices"])
             {
 
                 DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {tEow[0].Field<int>("codeLeçon")} AND numCours = '{tEow[0].Field<String>("codeCours")}'");
-                int numberofExercice = temporaryRow.Length;
-                actExo = tEow[0].Field<int>("codeExo");
+                 nbExoTotal = temporaryRow.Length;
+                nbExo = tEow[0].Field<int>("codeExo");
 
-                lblNumberExo.Text = $"{actExo}/{numberofExercice}";
-                progressGeneration(actExo, numberofExercice);
+               
             }
-            return actExo;
+          
         }
 
-        private int getCodeLeçon()
+        private void actualizeLeçon()
         {
             int code;
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
-
-            DataTable test = dsEsp.Tables["Utilisateurs"];
-            DataRow[] tEow = test.Select($"codeUtil = '{code}'");
-            return tEow[0].Field<int>("codeLeçon");
+           
+            using (DataTable temporaryTable = dsEsp.Tables["Utilisateurs"])
+            {
+                DataRow[] tEow = temporaryTable.Select($"codeUtil = '{code}'");
+                numLecon = tEow[0].Field<int>("codeLeçon");
+            }
+            using (DataTable temporaryTable = dsEsp.Tables["Lecons"])
+            {              
+                DataRow[] temporaryRow = temporaryTable.Select($"numLecon = {numLecon} AND numCours = '{codeCours}'");
+                titreLecon = temporaryRow[0].Field<String>("titreLecon");
+                descLecon = "--->" + temporaryRow[0].Field<String>("commentLecon");
+            }
         }
 
-        private string getNumCours()
+        private void actuaLizeCours()
         {
             int code;
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
-
             DataTable test = dsEsp.Tables["Utilisateurs"];
             DataRow[] tEow = test.Select($"codeUtil = '{code}'");
-            return tEow[0].Field<String>("codeCours");
+            codeCours= tEow[0].Field<String>("codeCours");
+            using (DataTable temporaryTable = dsEsp.Tables["Cours"])
+            {
+                DataRow[] temporaryRow = temporaryTable.Select($"numCours= '{codeCours}'");
+                titreCours = temporaryRow[0].Field<String>("titreCours");
+               
+            }
         }
 
         private void frmLogin_Activated(object sender, EventArgs e)
@@ -442,6 +416,62 @@ namespace CasaDeBabbel
             this.WindowState = FormWindowState.Minimized;
         }
 
+        public void Actualize(DataSet ds)
+        {
+            this.GetDataSet = ds;
+            actualizeExo();
+            actualizeLeçon();
+            startExo();
+
+        }
+        public void startNewLeçon (DataSet ds)
+        {
+            this.GetDataSet = ds;         
+            actualizeExo();
+            actualizeLeçon();
+            generateAllLabel();
+            generateDataTable();
+            startExo();
+
+        }
+        public void generateDataTable()
+        {
+            nameDT = code + codeCours + numLecon;
+            if (!dsEsp.Tables.Contains(nameDT))
+            {
+                DataTable dexo = new DataTable(nameDT);
+                DataColumn dcExo = new DataColumn("nExo");
+                dcExo.DataType = System.Type.GetType("System.Int32");
+                DataColumn dcComplete = new DataColumn("complete");
+                dcComplete.DataType = System.Type.GetType("System.Boolean");
+                DataColumn dcPhrase = new DataColumn("phrase");
+                dcComplete.DataType = System.Type.GetType("System.Boolean");
+                DataColumn dcMot = new DataColumn("listMot");
+                dcComplete.DataType = System.Type.GetType("System.Boolean");
+                dexo.Columns.Add(dcExo);
+                dexo.Columns.Add(dcComplete);
+                dexo.Columns.Add(dcPhrase);
+                dexo.Columns.Add(dcMot);
+                dsEsp.Tables.Add(dexo);
+            }
+
+        }
+
+        public void afficheRecap(DataSet ds)
+        {
+            dsEsp = ds;
+            frmRecap end= new frmRecap(dsEsp, nameDT);
+            end.Show();
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmAdmin exer = new frmAdmin(dsEsp);
+            this.Hide();
+
+            exer.Show();
+        }
         public DataSet GetDataSet
         {
             get
@@ -520,52 +550,6 @@ namespace CasaDeBabbel
             {
                 return nbExoTotal;
             }
-        }
-        public void Actualize(DataSet ds)
-        {
-            this.GetDataSet = ds;
-            getExoN();
-            generateAllLabel();
-            startExo();
-
-        }
-        public void generateDataTable()
-        {
-            nameDT = code + codeCours + numLecon;
-            if (!dsEsp.Tables.Contains(nameDT))
-            {
-                DataTable dexo = new DataTable(nameDT);
-                DataColumn dcExo = new DataColumn("nExo");
-                dcExo.DataType = System.Type.GetType("System.Int32");
-                DataColumn dcComplete = new DataColumn("complete");
-                dcComplete.DataType = System.Type.GetType("System.Boolean");
-                DataColumn dcPhrase = new DataColumn("phrase");
-                dcComplete.DataType = System.Type.GetType("System.Boolean");
-                DataColumn dcMot = new DataColumn("listMot");
-                dcComplete.DataType = System.Type.GetType("System.Boolean");
-                dexo.Columns.Add(dcExo);
-                dexo.Columns.Add(dcComplete);
-                dexo.Columns.Add(dcPhrase);
-                dexo.Columns.Add(dcMot);
-                dsEsp.Tables.Add(dexo);
-            }
-
-        }
-
-        public void afficheRecap(DataSet ds)
-        {
-            dsEsp = ds;
-            frmRecap end= new frmRecap(dsEsp, nameDT);
-            end.Show();
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmAdmin exer = new frmAdmin(dsEsp);
-            this.Hide();
-
-            exer.Show();
         }
     }
 }

@@ -46,11 +46,11 @@ namespace CasaDeBabbel
             nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
             lblNomPersonne.Text = actualUser;
         }
-    
-        public frmDeso(string phrase, string trad, string enonce,string nomTable)
+
+        public frmDeso(DataSet ds, string phrase, string trad, string enonce,string nomTable)
         {
             InitializeComponent();
-            dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
+            dsEsp = ds;
             nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
             numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
             codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
@@ -69,14 +69,15 @@ namespace CasaDeBabbel
             generatePhrase();
             nomDT = nomTable;
             lblTrad.Text = trad;
+            lblRegle.Visible = false;
             EstBon = true;
             pgB_Progres.Maximum = nbExoMax;
             pgB_Progres.Value = nbExo;
         }
-        public frmDeso(string phrase, string trad, string enonce, string nomTable,string regle)
+        public frmDeso(DataSet ds, string phrase, string trad, string enonce, string nomTable,string regle)
         {
             InitializeComponent();
-            dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
+            dsEsp = ds;
             nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
             numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
             codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
@@ -94,6 +95,7 @@ namespace CasaDeBabbel
             generatePhrase();
             nomDT = nomTable;
             lblTrad.Text = trad;
+            lblRegle.Visible = true;
             lblRegle.Text = regle;
             EstBon = true;
             pgB_Progres.Maximum = nbExoMax;
@@ -261,10 +263,10 @@ namespace CasaDeBabbel
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmLogin exer = new frmLogin();
-            this.Hide();
+            Application.OpenForms.Cast<frmLogin>().First().Visible = true;
+            this.Close();
 
-            exer.Show();
+           
         }
 
         private void btnStart_Click(object sender, EventArgs e)

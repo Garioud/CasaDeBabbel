@@ -50,10 +50,10 @@ namespace CasaDeBabbel
             pgB_Progres.Value = nbExo;
       
         }
-        public frmVoca(string[][] mot,string ennonce,string nomTable)
+        public frmVoca(DataSet ds,string[][] mot,string ennonce,string nomTable)
         {
             InitializeComponent();
-            dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
+            dsEsp = ds;
             nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
             numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
             codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
@@ -73,10 +73,11 @@ namespace CasaDeBabbel
             tabVoca = mot;
             generateImg();
             nomDT = nomTable;
+            lblRegle.Visible = false;
             pgB_Progres.Maximum = nbExoMax;
             pgB_Progres.Value = nbExo;
         }
-        public frmVoca(string[][] mot, string ennonce, string nomTable,string regle)
+        public frmVoca(DataSet ds,string[][] mot, string ennonce, string nomTable,string regle)
         {
             InitializeComponent();
             dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
@@ -98,6 +99,8 @@ namespace CasaDeBabbel
             lblNumberExo.Text = $"{nbExo}/{nbExoMax}";
             tabVoca = mot;
             nomDT = nomTable;
+            lblRegle.Visible = true;
+            lblRegle.Text = regle;
             generateImg();
             pgB_Progres.Maximum = nbExoMax;
             pgB_Progres.Value = nbExo;
@@ -150,7 +153,6 @@ namespace CasaDeBabbel
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            Application.OpenForms.Cast<frmLogin>().First().Activate();
             Application.OpenForms.Cast<frmLogin>().First().Visible = true;
             this.Close();
         }

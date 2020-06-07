@@ -46,6 +46,7 @@
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblAcLec = new System.Windows.Forms.Label();
             this.pnlVoca = new System.Windows.Forms.Panel();
+            this.lblRegle = new System.Windows.Forms.Label();
             this.pnlToolbar.SuspendLayout();
             this.pnlVoca.SuspendLayout();
             this.SuspendLayout();
@@ -230,6 +231,7 @@
             // 
             // pnlVoca
             // 
+            this.pnlVoca.Controls.Add(this.lblRegle);
             this.pnlVoca.Controls.Add(this.btnStart);
             this.pnlVoca.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlVoca.Location = new System.Drawing.Point(0, 135);
@@ -237,6 +239,16 @@
             this.pnlVoca.Name = "pnlVoca";
             this.pnlVoca.Size = new System.Drawing.Size(1000, 465);
             this.pnlVoca.TabIndex = 25;
+            // 
+            // lblRegle
+            // 
+            this.lblRegle.AutoSize = true;
+            this.lblRegle.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegle.Location = new System.Drawing.Point(12, 433);
+            this.lblRegle.Name = "lblRegle";
+            this.lblRegle.Size = new System.Drawing.Size(141, 23);
+            this.lblRegle.TabIndex = 16;
+            this.lblRegle.Text = "Mots manquants";
             // 
             // frmVoca
             // 
@@ -263,6 +275,7 @@
             this.pnlToolbar.ResumeLayout(false);
             this.pnlToolbar.PerformLayout();
             this.pnlVoca.ResumeLayout(false);
+            this.pnlVoca.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,5 +299,6 @@
         private System.Windows.Forms.Label lblActualCours;
         private System.Windows.Forms.Label lblAcLec;
         private System.Windows.Forms.Panel pnlVoca;
+        private System.Windows.Forms.Label lblRegle;
     }
 }

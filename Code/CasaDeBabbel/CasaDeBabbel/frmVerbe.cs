@@ -17,8 +17,7 @@ namespace CasaDeBabbel
         private DataSet dsEsp;
         private int numLeçon;
         private string codeCours;
-        private string phrase;
-        private string phraseEsp;
+   
         private Dictionary<String, int> codeUser = new Dictionary<string, int>();
         private string actualUser;
         private string nomDT;
@@ -34,6 +33,10 @@ namespace CasaDeBabbel
             codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
             actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
             nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            lblNomPersonne.Text = actualUser;
+            lblActualCours.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
+            lblActLec.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
         }
         public frmVerbe(string nomTable)
         {
@@ -46,6 +49,18 @@ namespace CasaDeBabbel
             codeUser = Application.OpenForms.Cast<frmLogin>().First().GetDictionnary;
             actualUser = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
             nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            lblNomPersonne.Text = actualUser;
+            lblActualCours.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
+            lblActLec.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
+            nbExoMax = Application.OpenForms.Cast<frmLogin>().First().getNumExoTotal;
+            lblNumberExo.Text = $"{nbExo}/{nbExoMax}";
+            lblDesc.Text = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
+            pgB_Progres.Maximum = nbExoMax;
+            pgB_Progres.Value = nbExo;
+
+
+
+
             nomDT = nomTable;
         }
 
@@ -91,13 +106,19 @@ namespace CasaDeBabbel
                 }
                 else
                 {
-
+                    this.Close();
                     dsEsp.Tables[nomDT].Rows.Add(nbExo, true, null, null);
 
                     Application.OpenForms.Cast<frmLogin>().First().afficheRecap(dsEsp);
 
                 }
             }
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms.Cast<frmLogin>().First().Visible = true;
+            this.Close();
         }
     }
 }
