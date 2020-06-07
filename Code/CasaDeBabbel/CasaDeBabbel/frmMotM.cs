@@ -96,8 +96,9 @@ namespace CasaDeBabbel
         {
 
         }
-        private void generatePhrase(string phrase,string pos, string traduction)
+        private void generatePhrase(string phraseBD,string pos, string traduction)
         {
+            phrase = reectriture(phraseBD);
             string[] tabPhrase = phrase.Split(' ');
             string[] intPos = pos.Split('/');
             int[] tabPos = new int[intPos.Length];
@@ -203,13 +204,31 @@ namespace CasaDeBabbel
 
         }
 
+        string txtbmot;
+
         private void verif(string phrase, string pos)
         {
             string[] tabPhrase = phrase.Split(' ');
             string[] intPos = pos.Split('/');
 
+            string motjuste;
+
             for (int i = 0; i < intPos.Length; i++) {
-                if (textBoxList[i].Text == tabPhrase[int.Parse(intPos[i])-1])
+
+               
+                motjuste = veriflettres(tabPhrase[int.Parse(intPos[i]) - 1]);
+                txtbmot = veriflettres(textBoxList[i].Text);
+
+                /*if (textBoxList[i].Text == tabPhrase[int.Parse(intPos[i])-1])
+                {
+                    textBoxList[i].BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    textBoxList[i].BackColor = Color.Pink;
+                }*/
+
+                if (motjuste == txtbmot)
                 {
                     textBoxList[i].BackColor = Color.LightGreen;
                 }
@@ -238,6 +257,7 @@ namespace CasaDeBabbel
                 }
             }
         }
+        
         private void checkTXT(object sebder, EventArgs e)
         {
             verif(this.phrase, this.pos);
@@ -298,6 +318,43 @@ namespace CasaDeBabbel
 
 
             }
+        }
+
+        private string veriflettres(string text)
+        {
+            StringBuilder newText = new StringBuilder(text.ToLower());
+
+            // Gestion des "accents"
+            // -> déclaration de variables de conversion "accents"
+            string accent = "àáâãäåòóôõöøèéêëìíîïùúûüÿñç";
+            string sansAccent = "aaaaaaooooooeeeeiiiiuuuuync";
+            // -> conversion des chaines en tableaux de caractères
+            char[] tabAccent = accent.ToCharArray();
+            char[] tabSansAccent = sansAccent.ToCharArray();
+            // -> pour chaque accent, remplacement
+            for (int i = 0; i < accent.Length; i++)
+            {
+                newText.Replace(tabAccent[i].ToString(), tabSansAccent[i].ToString());
+            }
+
+            return newText.ToString();
+        }
+
+        private string reectriture(string Phrase)
+        {
+            StringBuilder newPhrase = new StringBuilder(Phrase);
+            string ponctuation = ".,;:!?";
+
+            for (int i = 0; i < Phrase.Length; i++)
+            {
+                if (ponctuation.Contains(Phrase[i]))
+                {
+                    newPhrase.Insert(i, " ");
+                }
+                //newText.Replace(tabAccent[i].ToString(), tabSansAccent[i].ToString());
+            }
+
+            return newPhrase.ToString();
         }
     }
 }
