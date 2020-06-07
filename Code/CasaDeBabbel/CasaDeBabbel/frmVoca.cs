@@ -153,7 +153,6 @@ namespace CasaDeBabbel
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            Application.OpenForms.Cast<frmLogin>().First().Activate();
             Application.OpenForms.Cast<frmLogin>().First().Visible = true;
             this.Close();
         }

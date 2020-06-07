@@ -34,10 +34,10 @@ namespace CasaDeBabbel
         {
             InitializeComponent();
         }
-        public frmMotM(string phrase, string trad, string pos, string enonce, string nomTable, string regle)
+        public frmMotM(DataSet ds,string phrase, string trad, string pos, string enonce, string nomTable, string regle)
         {
             InitializeComponent();
-            dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
+            dsEsp = ds;
             nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
             numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
             codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
@@ -63,10 +63,10 @@ namespace CasaDeBabbel
             pgB_Progres.Maximum = nbExoMax;
             pgB_Progres.Value = nbExo;
         }
-        public frmMotM(string phrase, string trad, string pos, string enonce,string nomTable)
+        public frmMotM(DataSet ds, string phrase, string trad, string pos, string enonce,string nomTable)
         {
             InitializeComponent();
-            dsEsp = Application.OpenForms.Cast<frmLogin>().First().GetDataSet;
+            dsEsp = ds;
             nbExo = Application.OpenForms.Cast<frmLogin>().First().getNumExo;
             numLeçon = Application.OpenForms.Cast<frmLogin>().First().getNumLecon;
             codeCours = Application.OpenForms.Cast<frmLogin>().First().getCodeCours;
@@ -254,10 +254,8 @@ namespace CasaDeBabbel
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmLogin exer = new frmLogin();
-            this.Hide();
-
-            exer.Show();
+            Application.OpenForms.Cast<frmLogin>().First().Visible = true;
+            this.Close();
         }
 
         private void btnStart_Click(object sender, EventArgs e)

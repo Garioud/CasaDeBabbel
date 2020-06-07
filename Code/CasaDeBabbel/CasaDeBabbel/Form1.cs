@@ -109,11 +109,11 @@ namespace CasaDeBabbel
         private void cbName_SelectedIndexChanged(object sender, EventArgs e)
         {
             codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+            actualUser = cbName.SelectedItem.ToString();
 
             if (numAdmin.Contains(code))
             {
-                actualUser = cbName.SelectedItem.ToString();
-                codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+             
                 lblActualCours.Visible = true;
                 lblActualCours.Text = "Vous êtes administrateur";
                 lblActLec.Visible = false;
@@ -127,9 +127,7 @@ namespace CasaDeBabbel
 
             }
             else
-            {
-                actualUser = cbName.SelectedItem.ToString();
-                codeUser.TryGetValue(cbName.SelectedItem.ToString(), out code);
+            {                        
                 lblNumberExo.Visible = true;
                 lblActLec.Visible = false;
                 lblExo.Visible = true;
@@ -147,7 +145,7 @@ namespace CasaDeBabbel
         private void generateAllLabel()
         {
 
-            actualUser = cbName.SelectedItem.ToString();
+          
             DataTable test = dsEsp.Tables["Utilisateurs"];
             DataRow[] tRow = test.Select($"codeUtil = '{code}'");
             generateCoursLabel(tRow);
@@ -191,8 +189,6 @@ namespace CasaDeBabbel
         }
         private void generateExerciceLabel(DataRow[] tRow)
         {
-
-
             using (DataTable temporaryTable = dsEsp.Tables["Exercices"])
             {
 
@@ -277,9 +273,9 @@ namespace CasaDeBabbel
                     }
                     frmDeso exer;
                     if (!temporaryRow[0].IsNull("codeRegle"))
-                        exer = new frmDeso(phrase, traduc, enonceExo, nameDT, regle);
+                        exer = new frmDeso(dsEsp,phrase, traduc, enonceExo, nameDT, regle);
                     else
-                        exer = new frmDeso(phrase, traduc, enonceExo, nameDT);
+                        exer = new frmDeso(dsEsp,phrase, traduc, enonceExo, nameDT);
 
                     this.Hide();
                     exer.Show();
@@ -301,9 +297,9 @@ namespace CasaDeBabbel
 
                     frmMotM exer;
                     if (!temporaryRow[0].IsNull("codeRegle"))
-                        exer = new frmMotM(phrase, traduc, listMot, enonceExo, nameDT, regle);
+                        exer = new frmMotM(dsEsp,phrase, traduc, listMot, enonceExo, nameDT, regle);
                     else
-                        exer = new frmMotM(phrase, traduc, listMot, enonceExo, nameDT);
+                        exer = new frmMotM(dsEsp,phrase, traduc, listMot, enonceExo, nameDT);
 
                     this.Hide();
                     exer.Show();

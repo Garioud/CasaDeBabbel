@@ -45,6 +45,7 @@
             this.lblActualCours = new System.Windows.Forms.Label();
             this.lblAcLec = new System.Windows.Forms.Label();
             this.pgB_Progres = new System.Windows.Forms.ProgressBar();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.pnlToolbar.SuspendLayout();
             this.SuspendLayout();
@@ -225,10 +226,22 @@
             this.pgB_Progres.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pgB_Progres.TabIndex = 38;
             // 
+            // btnMenu
+            // 
+            this.btnMenu.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.Location = new System.Drawing.Point(914, 86);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(74, 43);
+            this.btnMenu.TabIndex = 40;
+            this.btnMenu.Text = "Menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
             // frmVerbe
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.lblNomPersonne);
             this.Controls.Add(this.lblNumberExo);
             this.Controls.Add(this.lblExo);
@@ -272,5 +285,6 @@
         private System.Windows.Forms.Label lblActualCours;
         private System.Windows.Forms.Label lblAcLec;
         private System.Windows.Forms.ProgressBar pgB_Progres;
+        private System.Windows.Forms.Button btnMenu;
     }
 }

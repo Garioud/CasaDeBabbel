@@ -34,6 +34,7 @@ namespace CasaDeBabbel
             lblActualCours.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreCours;
             lblActLec.Text = Application.OpenForms.Cast<frmLogin>().First().getTitreLecon;
             lblDesc.Text = Application.OpenForms.Cast<frmLogin>().First().getDescLecon;
+            lblNomPersonne.Text = Application.OpenForms.Cast<frmLogin>().First().GetCurrentUser;
         }
         private void frmRecap_Load(object sender, EventArgs e)
         {

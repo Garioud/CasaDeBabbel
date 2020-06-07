@@ -12,10 +12,7 @@ namespace CasaDeBabbel
 {
     public partial class FicheVoca : UserControl
     {
-        private Image img;
-        private string origine;
-        private string mot;
-        private string trad;
+    
         public FicheVoca()
         {
             InitializeComponent();
