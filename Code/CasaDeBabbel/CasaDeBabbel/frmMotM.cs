@@ -238,7 +238,7 @@ namespace CasaDeBabbel
                 }
             }
         }
-        private void checkTXT(object sebder, EventArgs e)
+        private void checkTXT(object sender, EventArgs e)
         {
             verif(this.phrase, this.pos);
         }
