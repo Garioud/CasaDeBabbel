@@ -44,11 +44,8 @@ namespace CasaDeBabbel
         {
             if (dsEsp.Tables.Count == 0)
             FillDataSet(chcon, dsEsp);
-
             fillCB(cbName, "Utilisateurs", 1, 2, dsEsp);
             numAdmin = new int[2] { 5, 6 };
-         
-
         }
 
         private void FillDataSet(string chcon, DataSet ds)
@@ -69,8 +66,6 @@ namespace CasaDeBabbel
                         {
                             da.Fill(ds, line["TABLE_NAME"].ToString());
                         }
-
-
                     }
                 }
                 catch (Exception x)
@@ -97,7 +92,6 @@ namespace CasaDeBabbel
                     int code = line.Field<int>("codeUtil");
                     cb.Items.Add(str);
                     codeUser.Add(str, code);
-
                 }
             }
             catch (Exception x)
@@ -171,8 +165,6 @@ namespace CasaDeBabbel
             lblNumberExo.Text = $"{nbExo}/{nbExoTotal}";
             progressGeneration(nbExo, nbExoTotal);            
         }
-
-
 
         private void progressGeneration(int numberEx, int validate)
         {
@@ -290,7 +282,7 @@ namespace CasaDeBabbel
 
                         using (DataTable temporaryTable2 = dsEsp.Tables["ConcerneMots"])
                         {
-                            DataRow[] temporaryRow2 = temporaryTable2.Select($"numCours='{codeCours}' and numLecon={code} and numExo={nbExo}");
+                            DataRow[] temporaryRow2 = temporaryTable2.Select($"numCours='{codeCours}' and numLecon={numLecon} and numExo={nbExo}");
                             taille = temporaryRow2.Length;
                             tabMot = new string[taille][];
                             using (DataTable temporaryTable3 = dsEsp.Tables["Mots"])
