@@ -175,7 +175,7 @@ namespace CasaDeBabbel
                             if (dr.Field<int>("codeUtil") == codeUtil)
                             {
                                 dr["codeExo"] = 1;
-                               
+                                dr["codeLeçon"] = numLeçon + 1;
                             }
                         }
                     }
